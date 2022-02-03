@@ -1,0 +1,140 @@
+page-createpost {
+    // .post{
+    //     color: #E02020;
+    //     font-size: 14px;
+    //     font-family: 'Open Sans', sans-serif;
+    //     font-weight: 600;
+    //     position: absolute;
+    //     right: 15px;
+    //     top: 20px;
+    // }
+
+    // .editSection{
+    //     position: relative;
+
+
+    //     .edit{
+    //         width: 40px;
+    //         height: 40px;
+    //         background-image: url(../../assets/imgs/editImg.png);
+    //         background-position: center;
+    //         background-size: cover;
+    //         display: inline-block;
+    //         position: absolute;
+    //         right: 15px;
+    //         bottom: 10px;
+    //     }
+    // }
+
+    // .editSection2{
+    //     position: relative;
+
+    //     display: block;
+    //     margin-left: auto;
+    //     margin-right: auto;
+    //     width: 50%;
+
+    //     .edit{
+    //         width: 40px;
+    //         height: 40px;
+    //         background-image: url(../../assets/imgs/editImg.png);
+    //         background-position: center;
+    //         background-size: cover;
+    //         display: inline-block;
+    //         position: absolute;
+    //         right: 15px;
+    //         bottom: 10px;
+    //     }
+    // }
+
+    // .caption-section{
+    //     padding: 20px 15px 15px;
+    //     margin-top: 10px;
+    //     h5{
+    //         margin: 0;
+    //         font-size: 14px;
+    //         color: #000000;
+    //         margin-bottom: 5px;
+    //         font-family: 'Open Sans', sans-serif;
+    //     }
+    //     textarea{
+    //         height: 160px;
+    //         width: 100%;
+    //         background-color: rgba(0,0,0,0.05);
+    //         border-radius: 5px;
+    //         border: 0;
+    //         padding-left: 25px;
+    //         padding-top: 20px;
+    //         font-family: 'Open Sans', sans-serif;
+    //         font-size: 14px;
+    //         resize: none;
+    //     }
+    // }
+
+    .post{
+        color: #E02020;
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        position: absolute;
+        right: 15px;
+        top: 20px;
+    }
+
+    .editSection{
+        position: relative;
+        text-align: center;
+        .edit{
+            width: 40px;
+            height: 40px;
+            background-image: url(../../assets/imgs/editImg.png);
+            background-position: center;
+            background-size: cover;
+            display: inline-block;
+            position: absolute;
+            right: 15px;
+            bottom: 10px;
+        }
+    }
+
+
+    .editSection2{
+        position: relative;
+        text-align: center;
+        .edit{
+            width: 40px;
+            height: 40px;
+            background-image: url(../../assets/imgs/editImg.png);
+            background-position: center;
+            background-size: cover;
+            display: inline-block;
+            position: absolute;
+            right: 15px;
+            bottom: 10px;
+        }
+    }
+
+    .caption-section{
+        padding: 20px 15px 15px;
+        margin-top: 10px;
+        h5{
+            margin: 0;
+            font-size: 14px;
+            color: #000000;
+            margin-bottom: 5px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        textarea{
+            height: 160px;
+            width: 100%;
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 5px;
+            border: 0;
+            padding-left: 25px;
+            padding-top: 20px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            resize: none;
+        }
+    }
+}

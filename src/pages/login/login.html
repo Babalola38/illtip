@@ -1,0 +1,54 @@
+
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>login</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding class="loginBgImg">
+<div class="logo">
+  <img src="assets/imgs/logo.png" alt="">
+</div>
+<h2 class="heading_">Welcome Back!</h2>
+
+<form [formGroup]="loginDetails" (ngSubmit)="dologin()">
+<div class="inputSection">
+  <div class="inputRow">
+    <ion-label>Email</ion-label>
+    <ion-input placeholder="e.g abc@xyz.com" type="email" formControlName="email"></ion-input>
+
+    <ng-container *ngFor="let validation of validation_messages.email">
+      <div style="color: red;" class="error" *ngIf="loginDetails.get('email').hasError(validation.type) && (loginDetails.get('email').dirty || loginDetails.get('email').touched)">
+        {{ validation.message }}
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="inputRow">
+    <ion-label>Password</ion-label>
+    <ion-input placeholder="Enter a password" type="password" formControlName="password"></ion-input>
+
+    <ng-container *ngFor="let validation of validation_messages.password">
+      <div style="color: red;" class="error" *ngIf="loginDetails.get('password').hasError(validation.type) && (loginDetails.get('password').dirty || loginDetails.get('password').touched)">
+        {{ validation.message }}
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<button class="btnStyleOne" [disabled]="!loginDetails.valid">Continue</button>
+</form>
+
+<p class="alreadyHaveAcc"><span (click)="forgotPass()">Forgot Password</span></p>
+<p class="alreadyHaveAcc">New here? <span (click)="doSignUp()">Sign Up</span></p>
+<div class="preferOther">
+  <span>Prefer other options?</span>
+</div>
+
+<div class="socialBtn">
+  <button class="fbBtn"></button>
+    <button class="googleBtn"></button>
+   
+</div>
+<!-- <p class="termCondition">By signing up you agree to our <span>Terms of Use</span> and <span>Privacy Policy</span></p> -->
+</ion-content>

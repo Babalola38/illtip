@@ -1,0 +1,47 @@
+<!--
+  Generated template for the CreatepostPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Create Post</ion-title>
+    <span class="left-arrow" (click)="doBacktoprofilepage()"></span>
+    <span class="post" (click)="ADD()">Post</span>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+  <div class="editSection" *ngIf="uploadData.uploadType=='image'">
+    <img [src]="shareImage">
+    <!-- <span class="edit"></span> -->
+  </div>
+
+  <div class="editSection2" *ngIf="uploadData.uploadType=='video'">
+    <img [src]="shareImage">
+    <!-- <span class="edit"></span> -->
+  </div>
+
+  <div class="caption-section">
+    <h5>Caption</h5>
+    <textarea [(ngModel)]='upload.title' placeholder="Write a caption..."></textarea>
+  </div>
+
+  <!-- <ion-row class="upload" *ngIf="uploadData.uploadType=='image'">
+      <ion-col style="text-align:center">
+      <img [src]="shareImage">
+    </ion-col>
+    <textarea  [(ngModel)]='upload.title' placeholder="Add a title for this photo..."></textarea>
+  </ion-row>
+
+  <ion-row class="upload" *ngIf="uploadData.uploadType=='video'">
+    <ion-col style="text-align:center">
+      <img [src]="shareImage">
+    </ion-col>
+    <textarea  [(ngModel)]='upload.title' placeholder="Add a title for this video..."></textarea>
+  </ion-row> -->
+
+
+</ion-content>

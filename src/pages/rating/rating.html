@@ -1,0 +1,23 @@
+
+<ion-header>
+  <ion-navbar>
+    <span class="left-arrow"></span>
+
+    <ion-title>Rating</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Service Title</h3>
+  <p>{{ratingDetails.description}}</p>
+  <h3>Provider</h3>
+  <p>{{Provider?.fullName}}</p>
+  <div class="ratingDiv">
+    <p>Provide your Rating:</p>
+    <div class="ratingImg">
+      <rating [(ngModel)]="rate" max="5" (ngModelChange)="onModelChange($event)"></rating>
+    </div>
+  </div>
+  <textarea name="" id="" placeholder="Message…" [(ngModel)]="review"></textarea>
+  <button class="btnStyleOne" (click)="addReview()">Submit</button> 
+</ion-content>

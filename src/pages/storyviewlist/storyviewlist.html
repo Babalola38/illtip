@@ -1,0 +1,87 @@
+<!--
+  Generated template for the StoryviewlistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <span class="left-arrow"></span>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-segment [(ngModel)]="userSearch" (ionChange)="onSegmentChanged(userSearch)" class="search_user">
+        <ion-segment-button value="view" class="icon1">
+           View
+        </ion-segment-button>
+        <ion-segment-button value="comment"  class="icon3">
+          Comment
+        </ion-segment-button>
+
+        </ion-segment>
+<div class="bdContent"  [ngSwitch]="userSearch">
+<ion-list class="listView" *ngSwitchCase="'view'">
+    <div class="commentSection">
+        <div class="commentInner">
+        <ion-row class=" modal_header2" *ngFor="let list of storyVierlist let i = index">
+          <ion-col col-3  class="headerLft" (click)="goOtherProfile(list.createdBy._id,list.createdBy.fullName)">
+              <div class="profile_pic" *ngIf="list.createdBy.profilePicture != null && list.imagetype == 'file'" [ngStyle]="{'background-image': 'url(' +url+list.createdBy.profilePicture + ')','background-position': '50% 50%','background-size': 'cover','background-repeat': 'no-repeat'}"></div>
+              <img class="profile_pic" *ngIf="list.createdBy.profilePicture != null && list.imagetype == 'base64'"  src='data:image/jpeg;base64,{{list.createdBy.profilePicture}}' >
+              <div class="profile_pic" *ngIf="list.createdBy.profilePicture == null" style="background-image:url('assets/images/name.png')"></div>
+          </ion-col>
+            
+            <ion-col col-8 class="headerRgt">
+                <h5>{{list.createdBy.fullName}}</h5>
+                
+                
+            </ion-col>
+            <ion-col col-1 class="headerRgt">
+               <span *ngIf="list.reaction =='like'" class="likes"></span>
+               <span *ngIf="list.reaction =='wow'" class="wow"></span>
+               <span *ngIf="list.reaction =='haha'" class="haha"></span>
+               <span *ngIf="list.reaction =='angry'" class="angry"></span>
+               <span *ngIf="list.reaction =='sad'" class="sad"></span>
+               <span *ngIf="list.reaction =='love'" class="love"></span>
+               <span *ngIf="list.reaction =='love'" class="love"></span>
+
+               <span *ngIf="list.reaction =='lovetwo'" class="lovetwo"></span>
+               <span *ngIf="list.reaction =='lovethree'" class="lovethree"></span>
+               <span *ngIf="list.reaction =='happyone'" class="happyone"></span>
+               <span *ngIf="list.reaction =='happytwo'" class="happytwo"></span>
+               <span *ngIf="list.reaction =='happythree'" class="happythree"></span>
+               <span *ngIf="list.reaction =='liketwo'" class="liketwo"></span>
+               <span *ngIf="list.reaction =='eyegalss'" class="eyegalss"></span>
+                
+            </ion-col>
+           </ion-row>
+        </div>
+        </div>
+</ion-list>
+
+<ion-list class="listView" *ngSwitchCase="'comment'">
+    <div class="commentSection">
+        <div class="commentInner">
+        <ion-row class=" modal_header2" *ngFor="let list of storycommentlist let i = index">
+          <ion-col col-3  class="headerLft" (click)="goOtherProfile(list.createdBy._id,list.createdBy.fullName)">
+            <div class="profile_pic" *ngIf="list.createdBy.profilePicture != null && list.imagetype == 'file'" [ngStyle]="{'background-image': 'url(' +url+list.createdBy.profilePicture + ')','background-position': '50% 50%','background-size': 'cover','background-repeat': 'no-repeat'}"></div>
+            <img class="profile_pic" *ngIf="list.createdBy.profilePicture != null && list.imagetype == 'base64'"  src='data:image/jpeg;base64,{{list.createdBy.profilePicture}}' >
+            <div class="profile_pic" *ngIf="list.createdBy.profilePicture == null" style="background-image:url('assets/images/name.png')"></div>
+          </ion-col>
+            
+            <ion-col col-8 class="headerRgt">
+                <h5>{{list.createdBy.fullName}}</h5>
+                <p>{{list.comment}}</p>
+            </ion-col>
+            <ion-col col-1 ></ion-col>
+           </ion-row>
+        </div>
+        </div>
+</ion-list>
+</div>
+   
+
+</ion-content>

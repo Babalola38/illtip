@@ -1,0 +1,42 @@
+page-notification {
+    ion-content.content {
+        background-color: #F4F4F4;
+    }
+    ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li{
+            background-color: #fff;
+            border-radius: 6px;
+            padding: 34px 25px 25px 30px;
+            margin-bottom: 10px;
+            p{
+                margin: 0;
+                font-size: 14px;
+                color: #000;
+                margin-bottom: 15px;
+
+            }
+            span{
+                display: block;
+                color: #4A4A4A;
+                font-size: 12px;
+            }
+            
+        }
+    }
+
+    .no_notification{
+        margin-left: 21%; 
+        margin-top: 30%; 
+        opacity: 0.5
+    }
+
+    .no_notification_text{
+        text-align: center;
+        font-size: larger;
+        font-weight: bold;
+        color: #676767;
+    }
+}

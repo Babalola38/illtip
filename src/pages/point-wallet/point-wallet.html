@@ -1,0 +1,96 @@
+<!--
+  Generated template for the PointWalletPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <span class="left-arrow"></span>
+
+    <ion-title>Point Wallet</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h4>Today</h4>
+<ul>
+
+  <li *ngFor="let points of pointlist">
+
+
+    <div *ngIf="points.pointsReason=='profilePicture'" class="leftSection">
+      <div>
+        <p>You got <span *ngIf="points.points==1">{{points.points}} tip </span> <span *ngIf="points.points>1">{{points.points}} tips </span>for uploading a profile image</p>
+        <!-- <span>8m</span> -->
+      </div>
+    </div>
+
+    <div *ngIf="points.pointsReason=='imageUpload'" class="leftSection">
+      <div>
+        <p>You got <span *ngIf="points.points==1">{{points.points}} tip </span> <span *ngIf="points.points>1">{{points.points}} tips </span>for uploading image</p>
+        <!-- <span>8m</span> -->
+      </div>
+    </div>
+
+
+    <div *ngIf="points.pointsReason=='postLike'" class="leftSection" (click)="goOtherProfile(points.likedBy._id,points.likedBy.fullName)">
+        <div *ngIf="points.likedBy.profilePicture !=null && points.likedBy.profilePicture !='' && points.imagetype == 'file'" class="imgDiv" [ngStyle]="{'background-image': 'url(' +urls+points.likedBy.profilePicture + ')'}"></div>
+        <img *ngIf="points.likedBy.profilePicture !=null && points.likedBy.profilePicture !='' && points.likedBy.profilePicture !='' && points.imagetype == 'base64'" class="imgDiv" src='data:image/jpeg;base64,{{points.likedBy.profilePicture}}'>
+        <div *ngIf="points.likedBy.profilePicture ==null || points.likedBy.profilePicture =='' && points.imagetype == 'base64'" class="imgDiv" style="background-image: url(assets/imgs/name.png);"></div>
+        <div>
+          <p><strong>{{points.likedBy.fullName}}</strong> liked your post you got 1 tip</p>
+          <!-- <span>8m</span> -->
+        </div>
+    </div>
+
+    <div *ngIf="points.pointsReason=='updateAbout'" class="leftSection">
+      <div>
+        <p>You got <span *ngIf="points.points==1">{{points.points}} tip </span> <span *ngIf="points.points>1">{{points.points}} tips </span>for writing about yourself</p>
+        <!-- <span>8m</span> -->
+      </div>
+    </div>
+
+    <div *ngIf="points.pointsReason=='appInstall'" class="leftSection">
+      <div>
+        <p>You got <span *ngIf="points.points==1">{{points.points}} tip </span> <span *ngIf="points.points>1">{{points.points}} tips </span>for downloading i'llTip app first time</p>
+        <!-- <span>8m</span> -->
+      </div>
+    </div>
+
+    <div *ngIf="points.pointsReason=='registration'" class="leftSection">
+      <div>
+        <p>You got <span *ngIf="points.points==1">{{points.points}} tip </span> <span *ngIf="points.points>1">{{points.points}} tips </span>for signup in i'llTip app</p>
+        <!-- <span>8m</span> -->
+      </div>
+    </div>
+
+    <div *ngIf="points.pointsReason=='appLinkShare'" class="leftSection">
+      <div>
+        <p>You got <span *ngIf="points.points==1">{{points.points}} tip </span> <span *ngIf="points.points>1">{{points.points}} tips </span>for share app link</p>
+        <!-- <span>8m</span> -->
+      </div>
+    </div>
+
+    <div *ngIf="points.pointsReason=='commentPost' && points.likedBy !=null" class="leftSection" (click)="goOtherProfile(points.likedBy._id,points.likedBy.fullName)">
+        <div *ngIf="points.likedBy.profilePicture !=null && points.imagetype == 'file'" class="imgDiv" [ngStyle]="{'background-image': 'url(' +urls+points.likedBy.profilePicture + ')'}"></div>
+        <img *ngIf="points.likedBy.profilePicture !=null && points.likedBy.profilePicture !=''  && points.imagetype == 'base64'" class="imgDiv" src='data:image/jpeg;base64,{{points.likedBy.profilePicture}}'>
+        <div *ngIf="points.likedBy.profilePicture ==null  && points.imagetype == 'base64'" class="imgDiv" style="background-image: url(assets/imgs/name.png);"></div>
+        <div *ngIf="points.likedBy.profilePicture ==''  && points.imagetype == 'base64'" class="imgDiv" style="background-image: url(assets/imgs/name.png);"></div>
+      <div>
+        <p><strong>{{points.likedBy.fullName}}</strong> commented on your post</p>
+        <!-- <span>8m</span> -->
+      </div>
+    </div>
+
+    <div *ngIf="points.galleryId !=null" (click)="gotoPhotoModal(points.galleryId,i)" class="rightSection" [ngStyle]="{'background-image': 'url(' +points.galleryId.videoThumb + ')'}"> </div>
+
+  </li>
+
+</ul>
+
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMoreData == true" >
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+</ion-content>

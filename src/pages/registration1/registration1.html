@@ -1,0 +1,58 @@
+<!--
+  Generated template for the Registration1Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>registration</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding class="loginBgImg">
+  <div class="logo">
+    <img src="assets/imgs/logo.png" alt="">
+  </div>
+  <h2 class="heading_">Welcome!</h2>
+  
+  <form [formGroup]="registrationDetails" (ngSubmit)="goRegistration()">
+  <div class="inputSection">
+    <div class="inputRow">
+      <ion-label>Email</ion-label>
+      <ion-input placeholder="e.g abc@xyz.com" type="email" formControlName="email"></ion-input>
+
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div style="color: red;" class="error" *ngIf="registrationDetails.get('email').hasError(validation.type) && (registrationDetails.get('email').dirty || registrationDetails.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+  
+    <div class="inputRow">
+      <ion-label>Password</ion-label>
+      <ion-input placeholder="Create a password" type="password" formControlName="password"></ion-input>
+
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div style="color: red;" class="error" *ngIf="registrationDetails.get('password').hasError(validation.type) && (registrationDetails.get('password').dirty || registrationDetails.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  
+  <button class="btnStyleOne" [disabled]="!registrationDetails.valid">Continue</button>
+</form>
+
+<p class="alreadyHaveAcc">Already have an account? <span (click)="goLoginPage()">Log In</span></p>
+<div class="preferOther">
+  <span>Prefer other options?</span>
+</div>
+  
+  <div class="socialBtn">
+    <button class="fbBtn"></button>
+      <button class="googleBtn"></button>
+     
+  </div>
+  <p class="termCondition">By signing up you agree to our <span>Terms of Use</span> and <span>Privacy Policy</span></p>
+  </ion-content>

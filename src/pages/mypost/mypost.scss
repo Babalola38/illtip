@@ -1,0 +1,78 @@
+page-mypost {
+    ion-content.content {
+        background-color: #F4F4F4;
+    }
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li{
+        padding: 25px 20px 20px 25px;
+        background-color: #fff;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        
+        h4{
+            color: #000000;
+            font-size: 14px;
+            margin: 0;
+            margin-bottom: 6px;
+        }
+        p{
+            color: #4A4A4A;
+            font-size: 12px;
+            margin: 0;
+            margin-bottom: 8px;
+        }
+        span{
+            display: block;
+            color: #E02020;
+            font-size: 12px;
+        }
+        .buttonDiv{
+            display: flex;
+            justify-content: space-between;
+            padding-top: 16px;
+            button{
+                height: 40px;
+                border-radius: 6px;
+                font-size: 12px;
+                font-weight: 600;
+                color: #fff;
+                width: 48%;
+                background-color: #D4AF37;
+            }
+            button:first-child{
+                background-color: #01135F;
+            }
+        }
+
+        .liInner{
+            display: flex;
+            justify-content: space-between;
+        }
+        .right{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            span{
+                display: block;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            span.delete_{
+                width: 14px;
+                height: 18px;
+                background-image: url(../../assets/imgs/rubbish-bin-delete-button.png);
+            }
+            span.edit_{
+                width: 18px;
+                height: 18px;
+                background-image: url(../../assets/imgs/pencil-edit-button.png);
+            }
+        }
+    }
+}
+}

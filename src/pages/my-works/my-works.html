@@ -1,0 +1,33 @@
+
+<ion-header>
+  <ion-navbar>
+    <span class="left-arrow"></span>
+
+    <ion-title>My Work</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ul *ngIf="workdone != false">
+
+      <li *ngFor="let work of myworkList let i=index">
+        <div class="list_header" *ngIf="work.is_delete==false && work.serviceid !=null">
+          <h3 (click)="goToDetails(work.serviceid._id,work.serviceid.latitude,work.serviceid.longitude)">{{work.serviceid.description}}</h3>
+          <span (click)="Deletemywork(work._id)"></span>
+        </div>
+        <p *ngIf="work.serviceid !=null">{{work.serviceid.date}}</p>
+        <span style="display: flex;" *ngIf="work.serviceid !=null">Your application status: <p style="font-weight: bold;">&nbsp;{{work.status}}</p></span>
+        <span style="display: flex;" *ngIf="work.serviceid !=null">Job Status: <p style="font-weight: bold;">&nbsp;{{work.serviceid.status}}</p></span>
+        <!-- <button class="jobComplete" > Job completed </button> -->
+        <button *ngIf="work.serviceid.status == 'Work-in-Progress'" class="jobComplete" (click)="jobcomplete(work.serviceid._id)">Job completed</button>
+        <div class="stayDiv">
+          <img src="assets/imgs/stars.png" alt="">
+        </div>
+      </li>
+      
+    </ul>
+
+    <ul *ngIf="workdone == false">
+      <img class="nowork" src="../../assets/imgs/no_work.png" >
+    </ul>
+</ion-content>

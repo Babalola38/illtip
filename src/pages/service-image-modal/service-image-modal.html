@@ -1,0 +1,26 @@
+<!--
+  Generated template for the ServiceImageModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-buttons left (click)="dismiss()">
+    <button ion-button icon-only>
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </button>
+    </ion-buttons>
+
+</ion-header> -->
+
+
+<ion-content>
+  <!-- <div  class="modal_div" [ngStyle]="{'background-image': 'url(' + serviceImage + ')','background-position': '50% 50%','background-size': 'cover','background-repeat': 'no-repeat'}">
+    <button class="close_modal" (click)="dismiss()"><ion-icon name="close-circle"></ion-icon></button>
+</div> -->
+<div>
+  <img class="backarrow" (click)="dismiss()" src="../../assets/imgs/left-arrow.png">
+  <div class="galleryImage" [ngStyle]="{'background-image': 'url(' + serviceImage + ')','background-position': '50% 50%','background-size': 'cover','background-repeat': 'no-repeat'}"></div>
+</div>
+</ion-content>

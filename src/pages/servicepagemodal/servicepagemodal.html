@@ -1,0 +1,16 @@
+
+
+<ion-content >
+  <div class="bd-Wrapper">
+    <div class="topSection">
+        <span (click)="dismiss()">X</span>
+        <h3>Select Service</h3>
+      </div>
+  
+      <ul>
+        <li *ngFor="let Service of service" (click)="doService(Service)">
+          <span value="Service.value">{{Service.name}}</span>
+        </li>
+      </ul>
+  </div>
+</ion-content>

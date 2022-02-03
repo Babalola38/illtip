@@ -1,0 +1,26 @@
+<!--
+  Generated template for the LoaderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>LoaderPage</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding>
+  <div class="modal">
+      <p *ngIf="perc>=1 && loaderShow==false"  class="percentage">
+          <span [ngStyle]="{'width.%':perc }">{{perc}}%</span></p>
+      <div class="first" *ngIf="perc>=1 && loaderShow==false">
+          <div [ngStyle]="{'width.%':perc }" class="second"></div>
+        </div>
+        <p *ngIf="perc>=1 && loaderShow==false" class="percentage">Uploading...</p>
+
+        <div *ngIf="perc==0 && loaderShow==true" class="loader">Processing...</div>
+        
+  </div>
+
+</ion-content>

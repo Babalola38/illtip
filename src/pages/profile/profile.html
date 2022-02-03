@@ -1,0 +1,177 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="profileDetails?.tiptag != null">{{profileDetails?.tiptag}}</ion-title>
+    <ion-title *ngIf="profileDetails?.tiptag == null">{{profileDetails?.fullName}}</ion-title>
+    <ion-title *ngIf="profileDetails?.tiptag == ''">{{profileDetails?.fullName}}</ion-title>
+
+
+    <!-- <span class="left-arrow" *ngIf="backtopage == 'searchpage'" (click)="doBackSearch()"></span>
+    <span class="left-arrow" *ngIf="backtopage == 'homepage'" (click)="doBack()"></span>
+    <span class="left-arrow" *ngIf="backtopage != 'searchpage' && backtopage != 'homepage'"></span>  -->
+    <span class="left-arrow" *ngIf="backtopage == 'homepage'" (click)="doBack()"></span>
+    <span class="left-arrow" *ngIf="backtopage != 'homepage'"></span>
+
+    <span class="settingIcon" (click)="presentActionSheet()"></span>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content #content>
+
+  <div class="top-section" [ngStyle]="{'background-image': 'url(' +converted_image + ')'}">
+    <div>
+      <div class="topBtn" *ngIf="profileDetails?.tiptag != null && profileDetails?.tiptag !=''">
+        <!-- <button>{{profileDetails?.tiptag}}</button> -->
+        <span></span>
+      </div>
+
+      <div class="profileImg" *ngIf="profilePicture != null" [ngStyle]="{'background-image': 'url(' +converted_image + ')','background-position': '50% 50%'}" (click)="AddProfile()"></div>
+      <div class="profileImg" *ngIf="profilePicture == null" style="background-image: url(assets/imgs/name.png);" (click)="AddProfile()"></div>
+
+     <h2><span class="friend" (click)="gotoFriendlist()">{{friendCount}}</span>{{profileDetails?.fullName}} <span class="rating" (click)="scrollTo()">{{profileDetails?.rating.rate}}</span></h2>
+     <p *ngIf="profileDetails?.skill !=null">{{profileDetails?.skill}}</p>
+     <!-- <a href="{{profileDetails?.address}}">{{profileDetails?.address}}</a> -->
+     <!-- <h3 *ngIf="profileDetails?.address !=nulll" (click)="openLink(profileDetails?.address)">{{profileDetails?.address}}</h3> -->
+
+     <div>
+      <p [innerHTML] ="profileDetails?.address | weblinky"></p>
+    </div>
+
+     <!-- <div class="starImg" style="   background-image: url(assets/imgs/money.png);" (click)="goPointWallet()"></div>
+     <div class="dollarDiv">
+       <div>{{tippoints}}</div>
+       <span>{{discount}}-{{TotalDiscount}} = {{Discount}}%</span>
+     </div> -->
+
+
+
+
+     <!-- <div class="buttonDiv">
+       <span class="chatIcon"></span>
+       <button>Cashout</button>
+       <span class="handIcon"></span>
+     </div> -->
+
+     <div class="buttonDiv">
+      <ion-grid>
+        <ion-row>
+          <ion-col (click)="goChat()">
+            <span class="chatIcon"></span>
+          </ion-col>
+          <ion-col>
+            <!-- <button>Cashout</button> -->
+          </ion-col>
+          <ion-col>
+            <span *ngIf="profileDetails?.isVolunteer ==true" class="handIcon"></span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+
+    </div>
+
+    </div>
+   </div>
+
+
+
+    <div class="bdSection">
+      <div class="aboutMe">
+        <h4>About Me</h4>
+        <p>{{profileDetails?.about}}</p>
+
+
+      </div>
+      <!-- <h4>Media</h4> -->
+
+      <ngx-masonry>
+
+
+       <div ngxMasonryItem class="galleryVideo" *ngFor="let list of photolist let i = index" [class.video-span] = "list.type == 'video'" (click)="selectoption(list._id,list.type,i,list)">
+
+          <span *ngIf="list.type == 'image'&& list.imageThumb != null"  [ngStyle]="{'background-image': 'url(' + list.imageThumb + ')'}"></span>
+          <span *ngIf="list.type == 'image'&& list.imageThumb == null"  [ngStyle]="{'background-image': 'url(' + list.path + ')'}"></span>
+          <span *ngIf="list.type == 'video' && list.videoThumb != null"  [ngStyle]="{'background-image': 'url(' + list.videoThumb + ')'}">
+           <ion-icon ios="ios-videocam" md="md-videocam"></ion-icon>
+          </span>
+          <span *ngIf="list.type == 'video' && list.videoThumb == null"  [ngStyle]="{'background-image': 'url(' + list.path + ')'}">
+            <ion-icon ios="ios-videocam" md="md-videocam"></ion-icon>
+          </span>
+
+          <span *ngIf="list.type == 'video' && list.videoThumb != null" >
+            <ion-icon ios="ios-videocam" md="md-videocam"></ion-icon>
+
+            <video preload="metadata" autoplay loop [muted]="true" class="videocs" id="video" *ngIf="list.type == 'video'">
+              <source src="{{list.path+'?#t=0.8'}}" type="video/mp4"/>
+              <canvas id="canvas"></canvas>
+            </video>
+
+          </span>
+
+      </div>
+      </ngx-masonry>
+
+
+      <div class="recmendation">
+        <h4>Recommendations</h4>
+        <ion-list>
+          <ion-item *ngFor="let list of ratinglist let i = index">
+            <ion-avatar item-start>
+              <img *ngIf="list.provider_id.profilePicture != null && list.datatype == 'file'" src="{{urls+list.provider_id.profilePicture}}">
+              <img *ngIf="list.provider_id.profilePicture != null && list.datatype == 'base64'" src='data:image/jpeg;base64,{{list.provider_id.profilePicture}}'>
+              <img *ngIf="list.provider_id.profilePicture == null" src="assets/imgs/Oval.jpg">
+            </ion-avatar>
+            <ion-label>
+              <h4>{{list.provider_id.fullName}}</h4>
+              <p>{{list.review}}</p>
+              <rating [(ngModel)]="list.rating" max="5" readOnly="true"></rating>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <ul class="recomendedUl">
+        <!-- <li *ngFor="let list of ratinglist let i = index">
+          <div class="leftSecyion">
+            <div *ngIf="list.provider_id.profilePicture != null && list.datatype == 'file'" class="imgDiv" [ngStyle]="{'background-image': 'url(' +urls+list.provider_id.profilePicture + ')'}"></div>
+            <img *ngIf="list.provider_id.profilePicture != null && list.datatype == 'base64'" class="imgDiv" src='data:image/jpeg;base64,{{list.provider_id.profilePicture}}'>
+            <div *ngIf="list.provider_id.profilePicture == null" class="imgDiv" style="background-image: url(assets/imgs/Oval.jpg);"></div>
+            <div class="contentDiv">
+              <h4>{{list.provider_id.fullName}}</h4>
+              <p>{{list.review}}</p>
+            </div>
+          </div>
+          <div class="rightSection">
+            <rating [(ngModel)]="list.rating" max="5" readOnly="true"></rating>
+          </div>
+        </li> -->
+
+
+        <!-- <li>
+          <div class="leftSecyion">
+            <div class="imgDiv" style="background-image: url(assets/imgs/Oval.jpg);"></div>
+            <div class="contentDiv">
+              <h4>Labeeba Al Amer</h4>
+              <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna.</p>
+            </div>
+          </div>
+          <div class="rightSection">
+            <span>5.0</span>
+            <div class="ratingImg" style="background-image: url(assets/imgs/star.png);"></div>
+          </div>
+        </li> -->
+      </ul>
+    </div>
+
+
+</ion-content>
+
+<ion-footer>
+  <div class="addAndScroll">
+    <button style="background-image: url(assets/imgs/addIcon.png);" (click)="AddPhotoorVideo()"></button>
+    <button style="background-image: url(assets/imgs/scrollIcon.png);" (click)="up()"></button>
+
+  </div>
+</ion-footer>

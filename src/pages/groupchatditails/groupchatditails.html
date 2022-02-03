@@ -1,0 +1,70 @@
+<ion-header>
+    <ion-navbar>
+      <span class="left-arrow" (click)="goBack()"></span>
+      <ion-title>{{GroupChat.groupId.groupName}} Info</ion-title>
+      <span class="add_user" (click)="addUser()">+</span>
+
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+    <img [src]="GroupChatUrl+GroupChat.groupId.groupCover" style="width: 100%;">
+
+    <div class="group_info">
+        <h1>{{GroupChat.groupId.groupName}}</h1>
+        <p>{{GroupChat.createdAt | date:'MM/d/yy' }}</p>
+    </div>
+
+    <div class="group_users">
+        <p>{{GroupUsers.length}} participants</p>
+
+        <div>
+            <ion-list>
+                <ion-item>
+                    <ion-icon item-start class="chatImage" [ngStyle]="{'background-image': 'url(' + converted_image + ')'}"></ion-icon>
+
+                    <ion-label class="label label-md">
+                        <span>You</span>
+                        <p>{{profileDetails?.about}}</p>
+                    </ion-label>
+                </ion-item>
+
+            </ion-list>
+
+            <ion-list *ngFor="let user of userList; let i=index">
+                <ion-item *ngIf="user._id != userid">
+                    <ion-icon *ngIf="user.imagetype == 'file'" item-start class="chatImage" [ngStyle]="{'background-image': 'url(' + user.userImage + ')'}"></ion-icon>
+                    <!-- <ion-icon *ngIf="user.imagetype == 'base64'" item-start class="chatImage" [ngStyle]="{'background-image': 'url(' + user.profilePicture + ')'}"></ion-icon> -->
+                    <img *ngIf="user.imagetype == 'base64'" item-start class="chatImage" src='data:image/jpeg;base64,{{user.userImage}}'>
+
+
+
+                    <ion-label class="label label-md">
+                        <span>{{user.fullName}}</span>
+                        <div class="edit_delete position_inactive2" *ngIf="GroupChat.groupId.groupAdminId == userid" (click)="remove_user(user,i)">
+                            <button style="background-color: #ff4444; color: #fff;border-radius: 5px">Delete</button>
+                        </div>
+                        <p>{{user.about}}</p>
+                    </ion-label>
+                </ion-item>
+
+            </ion-list>
+        </div>
+    </div>
+
+
+</ion-content>
+
+
+<ion-footer>
+    <div class="addAndScroll">
+      <button style="background-image: url(assets/imgs/profileEdit.png);" (click)="AddIcon()"></button>
+      <!-- <button style="background-image: url(assets/imgs/scrollIcon.png);" (click)="up()"></button> -->
+  
+    </div>
+  </ion-footer>
+
+
+

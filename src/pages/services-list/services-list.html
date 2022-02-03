@@ -1,0 +1,51 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Services List</ion-title>
+    <div>
+      <div class="Servicesaccepted" (click)="goServicesaccepted()" style="background-image: url(assets/imgs/ServicesList.png);"></div>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <div class="segment-tabs">
+      <ion-segment [(ngModel)]="property_search" (ionChange)="onSegmentChanged(property_search)">
+      <ion-segment-button value="mapView" class="icon1">
+        Map View
+      </ion-segment-button>
+      <ion-segment-button value="listView"  class="icon3">
+        List View
+      </ion-segment-button>
+      </ion-segment>
+  </div>
+
+
+  
+
+
+  <ul class="bdContent"  [ngSwitch]="property_search">
+
+    <ion-list #mapContainer class="mapView" *ngSwitchCase="'mapView'">
+      <div  id="map"></div>
+    </ion-list>
+
+
+
+    <li  class="listView" *ngSwitchCase="'listView'">
+      <div class="listViewBd">
+        <ul>
+          <li *ngFor="let category of categoryList let i=index" (click)="gotoServiceListing(category._id,category.name,category.serviceInfo,category.icon)">
+            <div class="imgDiv" *ngIf="category.icon!=null" [ngStyle]="{'background-image': 'url(' + category.icon + ')'}"></div>
+            <div class="numberDiv">{{category.serviceInfo.length}}</div>
+            <p>{{category.name}}</p>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</ion-content>
+
+
+
+

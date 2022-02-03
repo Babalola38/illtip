@@ -1,0 +1,407 @@
+page-make-payment {
+
+
+    ion-segment.segment{
+        width: 85%;
+        margin: 0 auto;
+        background-color: #01135F;
+        border-radius: 50px;
+        margin-bottom: 10px;
+        .segment-button{
+            font-size: 12px!important;
+            color: rgba(255,255,255,0.5)!important;
+            text-transform: none;
+            border: 0;
+            position: relative;
+            font-size: 12px;
+            min-height: auto;
+           
+        }
+        .segment-activated{
+            font-size: 14px!important;
+            color: rgb(255,255,255)!important;
+        }
+    }
+
+    .cleanHouse{
+        // border: 1px solid #dfdfdf;
+        padding: 15px;
+        margin-bottom: 0px;
+        margin-top: 8px;
+
+        h5{
+            font-family: 'Avenir-Roman';
+            color: #252525;
+            font-size: 16px;
+            
+        }
+
+        h3 {
+            color: #000000;
+            font-size: 12px;
+            font-weight: 700;
+            margin: 0;
+            margin-bottom: 4px;
+        }
+        span {
+            font-size: 30px;
+            color: #D4AF37;
+        }
+        p {
+            color: #4A4A4A;
+            font-size: 12px;
+            margin: 0;
+            margin-bottom: 25px;
+        }
+    }
+    .heading{
+        color: #252525;
+        font-family: 'Avenir-Roman';
+        font-size: 17px;
+        margin-top: 0;
+        margin-bottom: 2px;
+    }
+    .heading2{
+        color: #000;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .card-no input{
+        width: 100%;
+        border: none;
+        font-size: 16px;
+        color: #282828;
+        font-family: 'Avenir-Roman';
+        background-color: #E8E8E8;
+        margin-left: 15px;
+   }
+   .card-no input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 14px;
+    //text-align: center;
+    color: #b1b6b0;
+    font-family: 'Avenir-Roman';
+    line-height: 20px;
+}
+.card-no input::-moz-placeholder { /* Firefox 19+ */
+    font-size: 14px;
+    //text-align: center;
+    color: #b1b6b0;
+    font-family: 'Avenir-Roman';
+    line-height: 20px;
+}
+.card-no input:-ms-input-placeholder { /* IE 10+ */
+    font-size: 14px;
+    //text-align: center;
+    color: #b1b6b0;
+    font-family: 'Avenir-Roman';
+    line-height: 20px;
+}
+.card-no input:-moz-placeholder { /* Firefox 18- */
+    font-size: 14px;
+   //text-align: center;
+   color: #b1b6b0;
+   font-family: 'Avenir-Roman';
+   line-height: 20px;
+}
+
+
+.datetime-md{
+    width: 100%;
+    padding-left: 0px;
+}
+
+//radio
+.radioBtn .list{
+    text-align: center;
+    margin-bottom: 0;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+.radio .radio-icon{
+border-color: #555555;
+}
+.item-ios .radio-ios{
+border: 2px solid #555555;
+width: 16px;
+height: 16px;
+border-radius: 50%;
+}
+.radio-ios .radio-checked .radio-inner{
+left: 2px;
+top: 2px;
+border-radius: 50%;
+position: absolute;
+width: 8px;
+height: 8px;
+}
+.radioBtn .radio .radio-checked{
+border-color: #555555;
+}
+.radioBtn .item-radio-checked.item ion-label{
+color: #252525;
+font-family: 'Avenir-Roman';
+}
+.radioBtn .radio .radio-inner{
+background-color: #252525;
+}
+
+.radioBtn .item-inner{
+-webkit-box-direction: row-reverse;
+-webkit-flex-direction: row-reverse;
+-ms-flex-direction: row-reverse;
+flex-direction: row-reverse;
+}
+
+
+
+
+.radioBtn .list > .item-block:first-child,
+.radioBtn .list > .item-block:last-child, 
+.radioBtn .list > .item-wrapper:last-child .item-block{
+border-top: 0;
+border-bottom: 0;
+}
+
+.radioBtn ion-label{
+overflow: auto;
+text-overflow:initial;
+}
+
+.radio-ios .radio-checked .radio-inner{
+    border-color: #000;
+        border-width: 0;
+    
+}
+
+.radio-ios .radio-checked .radio-inner{
+    width: 10px;
+    height: 10px;
+}
+.radioBtn .item{
+    border: 0;
+    display: inline-block;
+    color: #252525;
+    font-family: 'Avenir-Roman';
+    margin-bottom: 10px;
+    padding-left: 0;
+    
+    }
+
+//input
+
+ion-label {
+    text-align: left;
+    font-weight: bolder;
+}
+
+
+.inputBox .item{
+    padding-left: 0;
+    border: 1px solid #dfdfdf !important;
+    margin-bottom: 10px !important;
+    padding-left: 10px !important;
+    font-size: 14px;
+    font-family: 'Avenir-Light';
+    color: #000;
+}
+.list .item-input:last-child{
+
+    border-bottom: 1px solid #dfdfdf;
+}
+.item.item-block .item-inner{
+        border-bottom: 0;
+}
+.item.item-input.item-input-has-focus .item-inner,
+.item.item-input.input-has-focus .item-inner,
+.list .item-input.item-input-has-focus:last-child,
+.list .item-input.input-has-focus:last-child{
+    border-bottom-color: #dfdfdf;
+    box-shadow: none;
+    -webkit-box-shadow:none;
+}
+
+
+.text-input{
+    margin: 0;
+    padding-top: 5px;
+}
+
+
+.subMitBtn{
+    width: 100%;
+    bottom: 0;
+    border-radius: 10px;
+    background-color: #000B5F;
+    padding: 10px 0;
+    color: #ffffff;
+    font-family: 'Avenir-Light';
+}
+.paypelTxt{
+    font-size: 17px;
+    font-family: 'Avenir-Roman';
+    color: #908f8f;
+    margin: 0;
+}
+
+//select box
+.selectBox{
+    display: flex;
+    display: -webkit-flex;
+}
+ .radioBtn .selectBox .item-inner{
+    flex-direction: inherit;
+}
+.radioBtn .selectBox .item{
+    flex-basis: 49%;
+    margin-right: 2%;
+}
+.radioBtn .selectBox .item:last-child{
+    margin-right: 0;
+}
+
+.item-input .label, 
+.item-select .label, 
+.item-datetime .label{
+    font-family: 'Avenir-Light';
+    color: #b2b1b1;
+    font-size: 14px;
+}
+
+.payPal{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    padding:20px 10px;
+    background-color: #f1f1f1; 
+    margin-top: 20px;
+    border: 1px solid #dfdfdf;
+    align-items: center;
+    justify-content: center;
+}
+.payPal .item{
+    background-color: transparent;
+    margin-bottom: 0;
+    min-height: 36px;
+}
+.payPal button.paynow{
+    background-color: #002b57;
+    color: #ffffff;
+    font-family: 'Avenir-Light';
+    font-size: 16px;
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+.payPal .item .radio{
+    margin: 0 10px 0 0;
+}
+
+.payPal .label{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Avenir-Roman';
+    color: #252525;
+}
+
+.select .select-icon .select-icon-inner{
+    border: 0;
+    width: 20px;
+    height: 20px;
+    background-image: url(../assets/images/select_icon.png);
+    background-size: 15px;
+    background-repeat: no-repeat;
+}
+
+// .select .select-icon{
+//     width: 25px;
+//     height: 25px;
+// }
+
+
+@media(min-width:768px){
+    .radioBtn .item{
+        font-size: 23px;
+        margin-bottom: 15px;
+    }
+    .inputBox .item {
+        font-size: 25px;
+        min-height: 73px;
+        padding-left: 25px !important;
+    }
+
+
+   .item-ios .radio-ios,.radio-md .radio-icon{
+    width: 25px;
+    height: 25px;
+}
+
+.radio-ios .radio-checked .radio-inner,.radio-md .radio-inner {
+    width: 17px;
+    height: 17px;
+}
+.heading{
+    font-size: 30px;
+    margin-bottom: 16px;
+}
+.cleanHouse h5,.cleanHouse span{
+    font-size: 24px;
+}
+.subMitBtn{
+    font-size: 27px;
+    padding: 28px 0;
+    margin-top: 35px;
+}
+.cleanHouse{
+    padding: 37px;
+    margin-bottom: 67px;
+}
+.scroll-content{
+    padding: 35px !important;
+}
+.radioBtn{
+    padding-top: 26px;
+}
+.section-1{
+    padding-bottom: 25px;
+}
+.section-2{
+    padding-bottom: 15px;
+}
+
+.paypelTxt{
+    font-size: 30px;
+}
+
+
+ .item-input .label, 
+ .item-select .label, 
+ .item-datetime .label{
+     font-size: 25px;
+ }
+  .payPal button.paynow{
+    font-size: 27px;
+    padding: 23px 70px 18px;
+ }
+  .payPal{
+     padding: 42px;
+ }
+
+
+ .select .select-icon {
+    width: 26px;
+    height: 34px;
+}
+ .select .select-icon .select-icon-inner{
+    background-size: 24px;
+    width: 26px;
+}
+
+
+}
+
+}

@@ -1,0 +1,26 @@
+
+
+<ion-header>
+  <ion-navbar>
+    <span class="left-arrow"></span>
+
+    <ion-title>Notification</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="viewNotification == true">
+    <ul>
+      <li *ngFor="let item of notifictionData let i = index" (click)="goToDetails(item.serviceid._id,item.serviceid.latitude,item.serviceid.longitude)">
+        <p style="font-weight: bold;">{{item.message}}</p>
+        <span style="font-weight: bolder;">{{item.date | date:'d MMM y'}}</span>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="viewNotification == false">
+    <img class="no_notification" src="../../assets/imgs/no_notification.png">
+    <p class="no_notification_text">You have no notification</p>
+  </div>
+</ion-content>

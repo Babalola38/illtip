@@ -1,0 +1,177 @@
+<!--
+  Generated template for the MakePaymentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+   <ion-navbar>
+     <span class="left-arrow"></span>
+ 
+     <ion-title>Make Payment</ion-title>
+   </ion-navbar>
+ </ion-header>
+
+
+<ion-content padding>
+  <div class="cleanHouse">
+   <h3 class="heading">Service Title</h3>
+     <p>{{postdetils.description}}</p>
+     <h3>Price :</h3>
+     <span>${{postdetils.tip}}</span>
+  </div>
+  <h4 class="heading2">Pay Via</h4>
+  <!-- <p class="paypelTxt">PayPal</p> -->
+
+   <div class="segment-tabs">
+   <ion-segment [(ngModel)]="Payment" >
+   <ion-segment-button value="paypal" class="icon1">
+     PayPal
+   </ion-segment-button>
+   <ion-segment-button value="card" class="icon2">
+     Credit Card
+   </ion-segment-button>
+   </ion-segment>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="radioBtn">
+      <ion-list radio-group [ngSwitch]="Payment">
+ 
+      <div class="section-1" *ngSwitchCase="'card'">
+
+         <div class="inputSection">
+
+               <ion-label>Name of card</ion-label>
+               <ion-item style=" background-color: #E8E8E8;">
+                  <ion-input style="margin-left: 15px;" placeholder="Card holder name" [(ngModel)]="payment.cardname" clearInput></ion-input>
+               </ion-item>
+               
+            
+               
+               <ion-label>Card Number</ion-label>
+               <ion-item style=" background-color: #E8E8E8;" class="card-no">
+                  <input [textMask]="{mask: mask}" placeholder="Card number" [(ngModel)]="payment.cardno" type="text"/>
+                </ion-item >
+            
+
+            
+               <ion-grid>
+                  <ion-row>
+                     <ion-col>
+                        <ion-label>Expiry Date</ion-label>
+                        <ion-item style=" background-color: #E8E8E8;">
+                           <ion-datetime style="margin-left: 15px;" class="date" displayFormat="MMMM YYYY" [(ngModel)]="payment.exmonth" min={{currentYear}} max={{endyear}} placeholder="Card expires on"></ion-datetime>
+                        </ion-item>
+                     </ion-col>
+                     <ion-col>
+                        <ion-label>CVV</ion-label>
+                        <ion-item style=" background-color: #E8E8E8;">
+                           <ion-input style="margin-left: 15px;" placeholder="CVV" [(ngModel)]="payment.cvv" clearInput></ion-input>
+                        </ion-item>
+                     </ion-col>
+                  </ion-row>
+               </ion-grid>  
+            
+               
+
+            <button class="subMitBtn" (click)="bankpayment()">Proceed to Checkout</button>
+         </div>
+      </div>
+ 
+ 
+ 
+ 
+ 
+      
+      <div class="section-2" *ngSwitchCase="'paypal'">
+        <div class="inputSection">
+            <button class="subMitBtn" style="margin-top: 50%;" (click)="makepayment()">Proceed to Checkout</button>
+        </div>
+      </div>
+
+      <div class="section-3" *ngSwitchCase="'cash'">
+       <div class="inputSection">
+           <button class="subMitBtn" style="margin-top: 50%;" (click)="cashpayment()">Proceed to Checkout</button>
+       </div>
+     </div>
+      </ion-list>
+   </div>
+
+
+
+
+  <!-- <div class="radioBtn">
+     <ion-list radio-group [(ngModel)]="payment.payment">
+
+     <div class="section-1" *ngIf="this.postdetils.confirm.name != null">
+        <ion-item>
+           <ion-label>Pay by Credit Card / Debit Card</ion-label>
+           <ion-radio value="bank" ></ion-radio>
+        </ion-item>
+        <div class="inputBox">
+           <ion-list>
+              <ion-item>
+                 <ion-input placeholder="Card holder name" [(ngModel)]="payment.cardname" clearInput></ion-input>
+              </ion-item>
+     
+              <ion-item class="card-no">
+                <input [textMask]="{mask: mask}" placeholder="Card number" [(ngModel)]="payment.cardno" type="text"/>
+              </ion-item >
+              <div>
+                <ion-item>
+                  <ion-datetime displayFormat="MMMM YYYY" [(ngModel)]="payment.exmonth" min={{currentYear}} max={{endyear}} placeholder="Card expires on"></ion-datetime>
+                </ion-item>
+              </div>
+
+
+
+              <ion-item>
+                 <ion-input placeholder="CVV" [(ngModel)]="payment.cvv" clearInput></ion-input>
+              </ion-item>
+           </ion-list>
+           <button class="subMitBtn" (click)="bankpayment()">Submit</button>
+        </div>
+     </div>
+
+
+
+
+
+
+     <div class="section-2" *ngIf="this.postdetils.paypal.paypal_email !==null">
+       <div class="payPal">
+          <ion-item>
+              <ion-label>Pay by PayPal Account</ion-label>
+              <ion-radio value="paypal"></ion-radio>
+           </ion-item>
+           <button class="paynow" (click)="makepayment()">Pay Now</button>
+       </div>
+     </div>
+     <div class="section-3" *ngIf="this.postdetils.cash == true">
+      <div class="payPal">
+         <ion-item>
+             <ion-label>Pay by Cash</ion-label>
+             <ion-radio value="cash"></ion-radio>
+          </ion-item>
+          <button class="paynow" (click)="cashpayment()">Pay Now</button>
+      </div>
+    </div>
+     </ion-list>
+  </div> -->
+
+  
+</ion-content>

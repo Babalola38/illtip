@@ -1,0 +1,32 @@
+<!--
+  Generated template for the EditpostPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Edit Post</ion-title>
+    <span class="left-arrow"></span>
+    <span class="post" (click)="EditCaption()">Post</span>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="editSection" *ngIf="uploadData.type=='image'">
+    <img [src]="shareImage">
+
+  </div>
+
+  <div class="editSection2" *ngIf="uploadData.type=='video'">
+    <img [src]="shareImage">
+
+  </div>
+
+  <div class="caption-section">
+    <h5>Edit Caption</h5>
+    <textarea [(ngModel)]='uploadData.title' placeholder="Say something nice😊…"></textarea>
+  </div>
+
+</ion-content>

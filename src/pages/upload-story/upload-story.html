@@ -1,0 +1,31 @@
+
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>uploadStory</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding class="bg-color">
+   <div class="uploadStoryPage">
+    <div class="top-section">
+      <div class="imgDiv">
+        <!-- <span style="background-image: url(assets/imgs/Oval.jpg);"></span> -->
+        <span [ngStyle]="{'background-image': 'url(' + converted_image + ')'}"></span>
+        <p>{{storydata.profileDetails}}</p>
+      </div>
+      <div class="cross" (click)="dismiss()"></div>
+    </div>
+
+    <div class="upload-section" [ngStyle]="{'background-image': 'url(' +story+ ')'}">
+        <div class="center-div" *ngIf="loader!=false">
+          <div class="uploadImg"></div>
+          <span>Uploading…</span>
+          <p>Please wait</p>
+        </div>
+    </div>
+    <div class="bottom-section">
+      <input type="text" [(ngModel)]='storydata.comment' placeholder="Type your comment…">
+      <button (click)="shareStory()"></button>
+    </div>
+   </div>
+</ion-content>

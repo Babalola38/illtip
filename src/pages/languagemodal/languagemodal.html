@@ -1,0 +1,16 @@
+
+
+<ion-content >
+  <div class="bd-Wrapper">
+    <div class="topSection">
+        <span (click)="dismiss()">X</span>
+        <h3>Select Language</h3>
+      </div>
+  
+      <ul>
+        <li *ngFor="let Language of language" (click)="doCountry(Language.name)">
+          <span>{{Language.name}}</span>
+        </li>
+      </ul>
+  </div>
+</ion-content>

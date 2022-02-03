@@ -1,0 +1,118 @@
+
+
+
+<ion-content padding class="bg-img">
+  <div class="page-wrapper">
+    <div class="inputSection">
+    
+    
+      <div class="inputRow" (click)="openServiceMordal()">
+        <!-- <ion-label>What service do you need?</ion-label> -->
+
+        <ion-input style="background-color: rgba(0, 0, 0, 0.05);" disabled="true" placeholder="Select Service" [(ngModel)]="Service"></ion-input>
+
+
+        <!-- <ion-select [(ngModel)]="job.category" placeholder="Select a category">
+          <ion-option *ngFor="let item of categoryList" [value] = "item._id">{{item.name}}</ion-option>
+        </ion-select> -->
+
+      </div>
+      <div class="inputRow">
+        <ion-label>Description</ion-label>
+        <ion-textarea [(ngModel)]="job.description" placeholder="(250 Words)"></ion-textarea>
+      </div>
+    
+      <!-- <div class="inputRow" (click)="goTomap()">
+        <ion-label>Address</ion-label>
+        <ion-input *ngIf="flag==true" placeholder="Address of where to meet/service location">ABC</ion-input>
+        <ion-input *ngIf="flag==false">
+          <span *ngFor="let item of user.address">ABC{{item}}</span>
+        </ion-input>
+      </div> -->
+      <div class="inputRow" (click)="goTomap()">
+        <ion-label>Address</ion-label>
+        <p class="address" style="color: #A7A7AD;" *ngIf="flag==true" disable>Address of where to meet/service location</p>
+        <p class="address" *ngIf="flag==false">
+          <span *ngFor="let item of user.address">{{item}}</span>
+        </p>
+      </div>
+     
+    </div>
+    <div class="add-photo" (click)="uplaodJob()">
+      <span></span>
+      <p>Add Photo</p>
+    </div>
+
+    <div class="addPhoto">
+      <div class="addPhoto2" *ngFor="let item of job_uplaod_images;let i = index">
+        <div class="job-image" [ngStyle]="{'background-image': 'url(' +item.path + ')'}"> </div> 
+        <!-- <img src="assets/imgs/name.png"> -->
+      </div>
+    </div>
+    
+    
+
+    <div class="check_box">
+      <ion-item>
+        <ion-label>Do you require a license of any kind?</ion-label>
+        <ion-checkbox [(ngModel)]="job.experience"></ion-checkbox>
+      </ion-item>
+
+   
+    </div>
+
+    <div class="inputSection">
+      <div class="inputRow">
+        <ion-label>When</ion-label>
+       <div class="icon-row">
+         <span></span>
+
+         <ion-datetime displayFormat="DDDD YYYY/MM/DD" min={{currentYear}} max={{JobDate}} max={{JobDate}} placeholder="When?" (ionChange)="checkdates()" [(ngModel)]="job.date" ></ion-datetime>
+       </div>
+      </div>
+      <div class="inputRow">
+        <ion-label>Time</ion-label>
+        <div class=" twoInput">
+          <div class="date-wrapper icon-row">
+            <span></span>
+            <ion-datetime displayFormat=" HH:mm:A" pickerFormat="h mm a" minuteValues="00,05,10,15,20,25,30,35,40,45,50,55" (ionChange)="checktime()" [(ngModel)]="job.start_time" placeholder="Start Time"></ion-datetime>
+          </div>
+          <div class="date-wrapper icon-row">
+            <span></span>
+            <ion-datetime displayFormat=" hh:mm:A" minuteValues="00,05,10,15,20,25,30,35,40,45,50,55" [(ngModel)]="job.end_time" placeholder="End Time"></ion-datetime>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="radioBtn">
+      <h4>Within 60 mile radius?</h4>
+      <ion-list radio-group [(ngModel)]="job.radius">
+        <ion-item>
+            <ion-radio value=true></ion-radio>
+            <ion-label>Yes</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-radio value=false></ion-radio>
+            <ion-label>No</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="inputSection">
+       
+      <div class="inputRow">
+        <ion-label>Amount</ion-label>
+        <ion-input type="number" [(ngModel)]="job.tip" placeholder="Amount  offered ( $ ) Or $0 if none"></ion-input>
+      </div>
+    </div>
+
+    <div class="btnWrapper">
+      <button (click)="cancelJob()">Cancel</button>
+      <button (click)="postJob()">Send</button>
+    </div>
+  </div>
+</ion-content>

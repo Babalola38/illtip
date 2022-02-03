@@ -1,0 +1,36 @@
+page-storyuploadloader {
+    .center-div{
+        width: 80%;
+        // height: 240px;
+        background-color: #fff;
+        border-radius: 8px;
+        padding-top: 45px;
+        padding-bottom: 40px;
+        
+        span{
+            display: block;
+            text-align: center;
+            color: #000000;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        p{
+            text-align: center;
+            color: #000000;
+            font-size: 12px;
+            width: 70%;
+            margin: 0 auto;
+        }
+        .uploadImg{
+            width: 82px;
+            height: 55px;
+            background-image: url(../../assets/imgs/uploadIcon.png);
+            background-position: center;
+            background-size: cover;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+page-report {
+    ion-content.content {
+        background-color: #F4F4F4;
+    }
+
+    textarea{
+        height: 160px;
+        background-color:rgba(0,0,0,0.05);
+        border-radius: 6px;
+        width: 100%;
+        border: 0;
+        resize: none;
+        padding-left: 25px;
+        padding-top: 28px;
+        color: #4A4A4A;
+        font-size: 14px;
+        // margin-top: 25px;
+       }
+
+       .radioBtn{
+        margin-top: 15px;
+         h4{
+             font-size: 14px;
+             font-family: 'Conv_Circular Std Medium';
+             color: #000000;
+         }
+          ion-list{
+              display: flex;
+          }   
+          .item{
+              min-height: 0;
+              padding-left: 0;
+              font-size: 12px;
+              color: #000;
+              background-color: transparent;
+              margin-right: 45px;
+              ion-label{
+                  margin: 0;
+              }
+          }
+          .item-inner{
+              flex-direction: row-reverse;
+          }
+          ion-radio{
+              margin: 0!important;
+              margin-right: 10px!important;
+          }
+         
+          .radio-inner{
+              -webkit-transform: scale3d(1, 1, 1); 
+              transform: scale3d(1, 1, 1);
+              width: 12px;
+              height: 12px;
+              left: 6px;
+              top: 6px;
+              background-color: #fff;
+          }
+          .radio-icon{
+              width: 24px;
+              height: 24px;
+              border: 0;
+              background-color: rgba(0,0,0,0.5);
+          }
+          .radio-checked{
+              background-color: #f00;
+          }
+          .item-radio-checked.item ion-label{
+              color: #000;
+          }
+          .list-md .item-block .item-inner{
+              border-bottom: 0;
+          }
+          
+      }
+}

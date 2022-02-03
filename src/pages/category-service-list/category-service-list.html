@@ -1,0 +1,62 @@
+<!--
+  Generated template for the CategoryServiceListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+   <ion-navbar>
+     <span class="left-arrow"></span>
+ 
+     <ion-title>{{categoryid.name}}</ion-title>
+   </ion-navbar>
+ </ion-header>
+
+
+<ion-content padding style="background-color: #F4F4F4;">
+
+  <div class="segment-tabs">
+   <ion-segment [(ngModel)]="property_search" (ionChange)="onSegmentChanged(property_search)">
+   <ion-segment-button value="mapView" class="icon1">
+     Map View
+   </ion-segment-button>
+   <ion-segment-button value="listView"  class="icon3">
+     List View
+   </ion-segment-button>
+   </ion-segment>
+   </div>
+
+  <div class="bdContent"  [ngSwitch]="property_search">
+     <!-- <ion-list class="mapView" *ngSwitchCase="'mapView'">
+        <img src="assets/images/map_pic.png" alt="">
+        <button (click)=" acptefService()">Service Accepted</button>
+     </ion-list> -->
+     <ion-list #mapContainer class="mapView" *ngSwitchCase="'mapView'">
+      <div  id="map"></div>
+    </ion-list>
+
+      <ion-list class="listView" *ngSwitchCase="'listView'">
+        <ul class="service">
+         <li *ngFor="let search of serviceList let i = index">
+           <div class="leftSection" (click)="goToDetails(search.details._id,search.details.latitude,search.details.longitude)">
+
+             <div class="imgDiv" *ngIf="search.details.pictures.length == 0" style="background-image: url(assets/imgs/name.png);"></div>
+             <div class="imgDiv" *ngIf="search.details.pictures.length > 0" [ngStyle]="{'background-image': 'url(' + search.details.pictures[0].path + ')'}"></div>
+
+             <div class="contentDiv">
+               <h4>{{search.details.description}}</h4>
+               <p>Date: {{search.details.date}}</p>
+               <div>${{search.details.tip}}</div>
+             </div>
+           </div>
+           <div class="rightSection">
+             <span></span>
+             <p>{{search.distance}} Min Away</p>
+           </div>
+         </li>
+       </ul>
+     </ion-list>
+
+
+  </div>
+</ion-content> 

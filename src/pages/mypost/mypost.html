@@ -1,0 +1,50 @@
+
+<ion-header>
+  <ion-navbar>
+    <span class="left-arrow"></span>
+
+    <ion-title>My Posts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ul>
+  <li *ngFor="let post of mypostList let i=index">
+    <div class="liInner">
+      <div class="left">
+        <h4>{{post.description}}</h4>
+        <p>{{post.date}}</p>
+        <p>Total Applied:{{post.applicants}}</p>
+        <p style="display: flex;">Application status:<span>{{post.status}}</span></p>
+        
+       </div>
+       <div class="right" *ngIf="post.status=='Opened'">
+         <span class="delete_" (click)="Deletemypost(post._id)" ></span>
+         <span class="edit_" (click)="editservice(post)"></span>
+       </div>
+    </div>
+    <div class="buttonDiv">
+      <button (click)="goApplicatlist(post,post._id,post.tip,post.description,post.status,post.paymentSuccess)">View Applicants</button>
+      <button *ngIf="post.status=='Completed'" (click)="goRating(post.description,post.confirmedid.serviceid,post.confirmedid.userid)">Review</button>
+    </div>
+  </li>
+
+  <!-- <li>
+    <div class="liInner">
+      <div class="left">
+        <h4>Clean my garden with materials</h4>
+        <p>14 May, 2020</p>
+        <span>Completed</span>
+       </div>
+       <div class="right">
+         <span class="delete_"></span>
+         <span class="edit_"></span>
+       </div>
+    </div>
+    <div class="buttonDiv">
+      <button>View Applicants</button>
+      <button>Review</button>
+    </div>
+  </li> -->
+</ul>
+</ion-content>

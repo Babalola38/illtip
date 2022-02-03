@@ -1,0 +1,18 @@
+page-detail {
+    .bg_img{
+        background-image: url(../../assets/imgs/map_img_2.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left center;
+    }
+
+    .scroll-content {
+        height: 100%;
+        padding: 0px!important;
+      }
+    
+      #map {
+        width: 100%;
+        height:90%;
+      }
+}

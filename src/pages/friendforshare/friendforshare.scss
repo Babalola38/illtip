@@ -1,0 +1,271 @@
+page-friendforshare {
+    .scroll-content{
+        padding: 0 !important;
+    }
+    
+    ul.serviceAvailable .liBd{
+       
+    }
+
+ 
+    .bdContent{
+        position: relative;
+        top: -22px;
+        z-index: 1;
+    }
+    
+    .listView{
+        padding: 16px;
+    }
+    .lftImg2{
+        width: 32px;
+        height: 32px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+    }
+    .rating rating{
+        float: left;
+        margin-right: 5px;
+    }
+    ul {
+        padding: 0px;
+       
+        &.rating li {
+          padding: 5px 2px !important;
+          background: none;
+          color: #ffb400;
+       
+          ion-icon {
+            font-size: 15px;
+          }
+        }
+      }
+    .innerContent{
+        // flex-basis: 80%;
+        padding-right: 10px;
+        width: 64%;
+    }
+       
+    ul.serviceAvailable{
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        padding-top: 25px;
+
+        li{
+            margin-bottom: 15px;
+            //min-height: 87px;
+            
+        
+        }
+        .send{
+            background-color:#008753;
+            border: 1px solid #008753;
+            width: 72px;
+            height: 30px;
+            color: #fff;
+            border-radius: 5px;
+            margin-top: 0px;
+            margin-left: auto;
+        
+        }
+        .liBd{
+            position: relative;
+            // padding-left: 85px;
+           // background-color: #e0e0e0;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            display: flex;
+            padding: 10px 0;
+            // padding-top: 7px;
+            // padding-left: 7px;
+            // padding-bottom: 20px;
+            border-radius: 5px;
+            flex-basis: 100%;
+            width: 100%;
+            h5{
+                margin: 0;
+                color: #252525;
+                font-family: 'Avenir-Roman';
+                font-size: 14px;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+                margin-top: 0px;
+                margin-left: 0px
+            }
+            p{
+                margin: 0;
+                font-size: 14px;
+                color: #252525;
+                font-family: 'Avenir-Roman';
+                // text-overflow: ellipsis;
+                // white-space: nowrap;
+                // overflow: hidden;
+                // width: 250px;
+            }
+        }
+      
+        .urgent{
+            background:-webkit-linear-gradient(180deg, rgb(220, 4, 45) 0%, rgb(72, 24, 113) 80%);
+            background:-o-linear-gradient(180deg, rgb(220, 4, 45) 0%, rgb(72, 24, 113) 80%);
+            background:-moz-linear-gradient(180deg, rgb(220, 4, 45) 0%, rgb(72, 24, 113) 80%);
+            background:linear-gradient(180deg, rgb(220, 4, 45) 0%, rgb(72, 24, 113) 80%);
+            padding: 2px;
+            border-radius: 5px;
+        }
+        .innerContent{
+            padding-left: 10px;
+        }
+    }
+
+.star{
+    display: inline-block;
+    width: 70px;
+    margin-right: 5px;
+}
+.totalReview{
+    font-size: 14px;
+    color: #252525;
+    font-family: 'Avenir-Roman';
+}
+.conFirm{
+    background-color: #002b57;
+    border: 0;
+    color: #ffffff;
+    font-family: 'Avenir-Light';
+    padding: 8px 8px 8px 8px;
+    margin-top: 0px;
+    font-size: 12px;
+    width:60px ;
+    position: relative;
+}
+.conFirm:after{
+    content: "";
+    position: absolute;
+    background-size: cover;
+    right: 4px;
+}
+.removeFrd:after{
+    background-image: url(../assets/images/delete_icon.png);
+    width: 11px;
+    height: 14px;
+    
+}
+.chat:after{
+    background-image: url(../assets/images/chat_icon2.png);
+    width: 13px;
+    height: 12px;
+}
+.block:after{
+    background-image: url(../assets/images/block_icon.png);
+    width: 11px;
+    height: 14px;
+}
+  
+
+
+
+
+@media(min-width:600px){
+  
+    .lftImg2{
+        // flex-basis: 18%;
+        width: 50px;
+        height: 50px;
+    }
+    .innerContent{
+        flex-basis: 78%;
+    }
+ 
+}
+
+
+
+
+
+
+    
+    @media(min-width:768px){
+         .listView {
+            padding: 36px;
+        }
+         ul.serviceAvailable .liBd h5{
+            font-size: 27px;
+            margin-bottom: 1px;
+        }
+         ul.serviceAvailable .liBd p, ul.serviceAvailable .rgtSection span{
+            font-size: 24px;
+        }
+         ul.serviceAvailable .liBd{
+            padding: 15px 0 15px 15px;
+        }
+         ul.serviceAvailable .innerContent {
+            padding-left: 22px;
+        }
+         ul.serviceAvailable .rgtSection span{
+            padding: 0 30px;
+            line-height: normal ;
+            margin-bottom: 10px;
+         }
+         ul.serviceAvailable .rgtSection span.location{
+             padding: 0;
+         }
+         ul.serviceAvailable .rgtSection .location{
+            width: 31px;
+        }
+         ul.serviceAvailable .rgtSection{
+            padding-top: 20px;
+        }
+        .star{
+            width: 140px;
+            margin-right: 18px;
+        }
+        .totalReview{
+            font-size: 18px;
+            vertical-align: bottom;
+        }
+        .conFirm{
+            padding: 10px 50px 10px 16px;
+            margin-top: 7px;
+            font-size: 24px;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+        .conFirm.block{
+            margin-right: 0;
+        }
+        .rating{
+            margin-top: 10px;
+            display: inline;
+        }
+
+        .conFirm:after{
+            right: 16px;
+        }
+         .removeFrd:after{
+            width: 20px;
+            height: 25px;
+        }
+         .chat:after{
+            width: 26px;
+            height: 23px;
+        }
+        .block:after{
+            width: 20px;
+            height: 25px;
+        }
+    }
+
+
+    // @media(min-width:768px) and (orientation:landscape){
+    //     .lftImg{
+    //         flex-basis:25%;
+        
+    //      }
+    //      .innerContent{
+    //          flex-basis:75%;
+            
+    //      }
+    // }
+}

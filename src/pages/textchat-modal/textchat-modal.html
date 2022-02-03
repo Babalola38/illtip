@@ -1,0 +1,99 @@
+<!--
+  Generated template for the TextChatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <div class="oto-chat-header-profile">
+      <button ion-button class="left-arrow" (click)="gotoBack()"></button>
+      <div class="oto-chat-img" [ngStyle]="{'background-image': 'url('+chatdata.userimage + ')'}"></div>
+      <p>{{chatdata.fullName}}</p>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content #content>
+          <div class="msg_history" padding >
+
+            <div *ngFor="let chat of chatHistoryListing let i=index"  [ngClass]="chatdata.id === chat.receiver_id  ? 'outgoing_msg' : 'incoming_msg'">
+
+              <div *ngIf="chat.chat_files.length == '0' && chat.parent_chat_data === null && chat.type != 'REPLY'" [ngClass] ="chatdata.id === chat.receiver_id ?  'sent_msg' : 'received_msg'">
+
+              <p class="selectabletext">
+            {{chat.chat_content}}  </p>
+
+               <span>{{chat.createdAt | date:'MMMM d,yyyy h:mm a'}} <ion-icon [ngClass]="chat.is_read === false ? 'color-seen' : 'color-greenseen'" name="done-all"></ion-icon></span><span (click)="statuspop(chat,'text');"><ion-icon class="color-seentwo" name="more"></ion-icon></span>
+              <div *ngFor="let item of replyItems">
+                <div *ngIf="item.parent_chat === chat.id" [ngClass]="chatdata.id === chat.receiver_id  ? 'replytext1' : 'replytext2'">
+                  <h4 style="color:rgb(119, 100, 16);">{{item.sender_user.name}}</h4>
+                  {{item.chat_content}}
+                  <!-- 111111 {{text.chat_content}} -->
+                   <!-- <div *ngFor ="let text of item.parent_chat_data.">
+                       111111{{text.chat_content}}
+                   </div> -->
+                </div>
+             </div>
+             </div>
+
+
+              <div *ngIf="chat.chat_files.length > '0' && chat.parent_chat_data === null && chat.type != 'REPLY'" [ngClass] ="chatdata.id === chat.receiver_id ?  'sent_msg' : 'received_msg'">
+
+                  <!-- <div  [ngStyle]="{'background-image': 'url('+chatdata.userimage + ')'}"></div> -->
+                  <img *ngIf="checkFileType(chat.chat_files[0].file_link) !='mp4'" [src]="url+chat.chat_files[0].file_link" (click)="showpopuplargeimg(url+chat.chat_files[0].file_link)">
+                <video *ngIf="checkFileType(chat.chat_files[0].file_link) =='mp4'" controls height="320" width="240" class="videocs" >
+                  <source [src]="url+chat.chat_files[0].file_link" type="video/mp4"/>
+                </video>
+                <span>{{chat.createdAt | date:'MMMM d,yyyy h:mm a'}} <ion-icon [ngClass]="chat.is_read === false ?  'color-seen' : 'color-greenseen'" name="done-all"></ion-icon></span><span (click)="statuspop(chat,'image')"><ion-icon class="color-seentwo" name="more"></ion-icon></span>
+                <div *ngFor="let item of replyItems">
+                  <div *ngIf="item.parent_chat === chat.id"  [ngClass]="chatdata.id === chat.receiver_id  ? 'replytext1' : 'replytext2'">
+                    <h4 style="color:rgb(119, 100, 16);">{{item.sender_user.name}}</h4>
+                    {{item.chat_content}}
+                  </div>
+               </div>
+              </div>
+
+
+              <!-- <div *ngIf="chat.parent_chat_data != null">
+                testestest
+              </div> -->
+              <!-- (click)="statuspop(chat.id)"-->
+               <div id = "{{chat.id}}" class="popoverblock">
+                <div class="optstyle">Reply</div>
+                <div class="optstyle">Copy</div>
+                <div class="optstyle">Edit</div>
+                <div class="optstyle">Delete</div>
+              </div>
+          </div>
+      </div>
+
+</ion-content>
+
+
+<ion-footer>
+    <div style="padding-left: 10px; padding-right: 10px;" *ngIf="replyFlag === true">
+    <div *ngIf="reply=='text'" style="width:100%;background:#c79a19;border-radius: 2px;
+    padding: 5px;" >
+      {{replytext}}
+    </div>
+
+    <div *ngIf="reply=='image'" style="width:100%;background:#c79a19;border-radius: 2px;
+    padding: 5px;" >
+    <img [src]="replytext" class="reply_image">
+    </div>
+</div>
+  <ion-toolbar>
+    <div class="chat-input-footer">
+      <div class="chat-message-input">
+        <ion-textarea #myInput [(ngModel)]="userInput.message"   class="text-input"  autosize autocomplete="true" autocorrect="on" placeholder="Type here...." (ionBlur)="setFocus()"></ion-textarea>
+        <button class="attachment-btn" (click)="sharefile()">
+            <ion-icon name="attach"></ion-icon>
+        </button>
+      </div>
+      <button class="send-btn" (click)="sendChatText()">
+          <ion-icon name="send"></ion-icon>
+      </button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

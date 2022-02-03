@@ -1,0 +1,112 @@
+<!--
+  Generated template for the OwnListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>ownList</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content >
+    <button (click)="dismiss()" class="close_btn"><ion-icon ios="ios-close" md="md-close"></ion-icon></button>
+    <ion-slides  class="slide-css"  speed="500" pager="true"   (ionSlideDidChange)="slideChanged(stories)" id='mycontainer' >
+        <ion-slide *ngFor="let stories of storyList let i = index" (swipe)="changeing($event,stories)" >
+          <div  >
+
+            <video width="100%"   *ngIf="stories.storyType=='video'" class="videocont"   poster="{{stories.thumbPath}}"  autoplay loop [muted]="true" playsinline id=video_{{stories._id}}>
+            <source src="{{stories.videoPath+'?#t=0.8'}}" type="video/mp4"/>
+            <canvas id="canvas"></canvas>
+            </video>
+
+            <div *ngIf="stories.storyType=='image'&& stories.thumbPath !=null" [ngStyle]="{'background-image': 'url(' +stories.thumbPath + ')'}"  class="storyClass" id=image_{{stories._id}}>
+            </div>
+
+            <div *ngIf="stories.storyType=='image'&& stories.thumbPath ==null" [ngStyle]="{'background-image': 'url(' +stories.storyPath + ')'}" class="storyClass" id=image_{{stories._id}}>
+            </div>
+
+          </div>
+            
+            <button class="prevstyory" (click)="prev(stories.storyType,stories._id)"></button>
+            <button class="nextstyory" (click)="next(stories.storyType,stories._id)"></button>
+
+            <div class="footercontent">
+
+              <ion-grid>
+                <ion-row>
+
+                  <ion-col>
+                    <button class="play" *ngIf="stories.storyType=='video' && showbutton== true" (click)="playideo(stories._id)"></button>
+                    <button  class="stop" *ngIf="stories.storyType=='video' && showbutton== false " (click)="stopvideo(stories._id)"></button>
+                  </ion-col>
+
+                  <ion-col (click)="viewDetails(stories.react,stories._id)">
+                    <ion-col>
+                      <button  class="seen">
+                        <img src="../../assets/imgs/seen_story.png">
+                      </button>
+                    </ion-col>
+                    <ion-col>
+                      {{stories.react.length}}
+                    </ion-col>
+                  </ion-col>
+
+                  <ion-col>
+                    <button  class="delete" (click)="open(stories._id,i)">
+                      <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+                    </button>
+                  </ion-col>
+
+                </ion-row>
+              </ion-grid>
+
+
+              <!-- <button class="play" *ngIf="stories.storyType=='video' && showbutton== true" (click)="playideo(stories._id)"></button>
+              <button  class="stop" *ngIf="stories.storyType=='video' && showbutton== false " (click)="stopvideo(stories._id)"></button> -->
+  
+              <!-- <button  class="seen" (click)="viewDetails(stories.react,stories._id)">
+                <img src="../../assets/imgs/seen_story.png">
+              </button>  -->
+
+
+              <!-- <button  class="delete" (click)="open(stories._id,i)">
+                <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+              </button> -->
+
+              <!-- <p (click)="viewDetails(stories.react,stories._id)" class="viewList" *ngIf="stories.react.length>0">
+                <span> <ion-icon ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon></span>
+                <span>{{stories.react.length}}</span>
+                
+              </p>
+  
+              <p  class="viewList" *ngIf="stories.react.length==0">
+                  <span> <ion-icon ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon></span>
+                  <span>{{stories.react.length}}</span>
+              </p> -->
+            </div>
+            
+
+
+            <!-- <button class="play" *ngIf="stories.storyType=='video' && showbutton== true" (click)="playideo(stories._id)"></button>
+            <button  class="stop" *ngIf="stories.storyType=='video' && showbutton== false " (click)="stopvideo(stories._id)"></button>
+
+            <button  class="delete" (click)="open(stories._id,i)"><ion-icon ios="ios-trash" md="md-trash"></ion-icon></button>
+            <p (click)="viewDetails(stories.react,stories._id)" class="viewList" *ngIf="stories.react.length>0">
+              <span> <ion-icon ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon></span>
+              <span>{{stories.react.length}}</span>
+              
+            </p>
+
+            <p  class="viewList" *ngIf="stories.react.length==0">
+                <span> <ion-icon ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon></span>
+                <span>{{stories.react.length}}</span>
+            </p> -->
+              
+        </ion-slide>
+        </ion-slides>
+</ion-content>

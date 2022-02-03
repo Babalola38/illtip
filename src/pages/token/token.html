@@ -1,0 +1,38 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Token</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="topSection">
+    <p>Kindly provide the token sent to your phone</p>
+    <div>00:30</div>
+  </div>
+
+  <div class="middleSection">
+      <p>Token</p>
+      <div class="otpInput" >
+        <!-- <input type="text" maxlength="1" >
+        <input type="text" maxlength="1" >
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1"> -->
+        <div *ngFor="let i of dynamicArr, let x = index">
+          <input #tab type="text" id="tab{{i}}" required maxlength="1" class="tab" (input)="onInputEntry($event,'tab',(i))" />
+        </div>
+        
+      </div>
+  </div>
+
+<button class="btnStyleOne" (click)="verify()">Verify</button>
+<p class="didNotRecCode">Didn’t receive code?</p>
+
+
+
+
+</ion-content>
+
+

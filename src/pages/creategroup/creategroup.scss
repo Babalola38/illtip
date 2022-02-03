@@ -1,0 +1,183 @@
+page-creategroup {
+    .groupcount {
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .imgDiv{
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    
+
+
+
+
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li{
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 6px;
+        padding: 24px 10px 20px 24px;
+        margin-bottom: 10px;
+        background-color: #f1f1f1;
+        .imgDiv{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .contentDiv{
+            padding-left: 10px;
+            position: relative;
+            flex: 1;
+            .inputSection .inputRow{
+                ion-select{
+                    height: 50px;
+                    line-height: 52px;
+                    .select-icon-inner{
+                        top: 26px;
+                    }
+                }
+                input{
+                    height: 50px;
+                }
+                textarea{
+                    height: 160px;
+                    background-color:rgba(0,0,0,0.05);
+                    border-radius: 6px;
+                    width: 100%;
+                    border: 0;
+                    resize: none;
+                    padding-left: 25px;
+                    padding-top: 28px;
+                    color: #4A4A4A;
+                    font-size: 14px;
+                   }
+        
+                   .twoInput{
+                       display: flex;
+                       justify-content: space-between;
+                       ion-input:first-child{
+                           width: 30%;
+                           flex: 0 0 30%;
+                       }
+                       ion-input:last-child{
+                        width: 65%;
+                        flex: 0 0 65%;
+                    }
+                   }
+            } 
+        }
+    }
+}
+
+
+.scroll-sec{
+padding-left: 10px;
+padding-right: 16px;
+padding-top: 0px;
+padding-bottom: 5px;
+}
+.scroll-tab{
+   height: 85px;
+}
+
+.scroll-sec .item-inner{
+   border-bottom:0px!important;
+   padding-right: 0px!important;
+}
+
+.label{
+    margin: 0px;
+ }
+ .tab-btn{
+    width: 25%;
+    text-align: center;
+    position: relative;
+    padding-top: 0px;
+ // border: 1px solid #000;
+ }
+ .tab-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    border: 3px solid #fff;
+    //position: absolute;
+    top: 0;
+ }
+ .tab-icon.firstIcon{
+ border: 0;
+ }
+ .tab-btn p{
+    font-family: 'open_sansregular';
+    font-weight: 600;
+    color: #3e3131;
+ //    margin-top: 5px;
+    text-transform: uppercase;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 90%;
+ //    position: absolute;
+ //    width: 90px;
+ //    top: 55px;
+    margin: 2px auto 0px;
+    //left: 10px;
+ }
+
+ .addAndScroll{
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  
+    button{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        padding: 0;
+        margin: 5px 0;
+        background-color: transparent;
+        background-size: cover;
+        background-position: center;
+        -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
+-moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
+box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
+    }
+}
+
+.user_icon {
+    width: 50px;
+    height: 50px;
+    right: 17px;
+    border-radius: 50%;
+    top: 20px;
+    background-size: 35px;
+    background-repeat: no-repeat;
+    -webkit-box-shadow: 0px 0px 5px 3px rgb(255, 255, 255) !important;
+    -moz-box-shadow: 0px 0px 5px 3px rgb(255, 255, 255) !important;
+    box-shadow: 0px 0px 5px 3px rgb(255, 255, 255) !important;
+    background-size: cover;
+    background-position: center;
+    color: #01135F;
+    font-weight: bold;
+}
+
+}

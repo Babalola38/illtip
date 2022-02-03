@@ -1,0 +1,207 @@
+page-addgroupuser {
+    ion-content.content {
+        background-color: #F4F4F4;
+    }
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li{
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 6px;
+        padding: 24px 10px 20px 24px;
+        margin-bottom: 10px;
+        .imgDiv{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .contentDiv{
+            padding-left: 10px;
+            position: relative;
+            flex: 1;
+            .toggleIcon{
+                width: 30px;
+                height: 30px;
+                background-image: url(../../assets/imgs/addIcon.png);
+                background-position: center;
+                background-size: cover;
+                display: block;
+                position: absolute;
+                right: 0;
+                top: -10px;
+            }
+            .toggleIcon2{
+                width: 30px;
+                height: 30px;
+                background-image: url(../../assets/imgs/cross_modal.png);
+                background-position: center;
+                background-size: cover;
+                display: block;
+                position: absolute;
+                right: 0;
+                top: -10px;
+            }
+            h2{
+                font-size: 14px;
+                color: #000000;
+                font-family: 'Conv_Circular Std Medium';
+                margin: 0;
+                margin-bottom: 7px;
+            }
+            p{
+                font-family: 'Conv_Circular Std Book';
+                font-size: 12px;
+                color: #161F3D;
+                margin: 0;
+                margin-bottom: 8px;
+            }
+        }
+        .buttonSection{
+            display: flex;
+            button{
+                width: 96px;
+                background-color: #01135F;
+                border-radius: 5px;
+                font-size: 11px;
+                font-family: 'Conv_Circular Std Medium';
+                color: #fff;
+                margin-right: 8px;
+            }
+            span{
+                width: 30px;
+                height: 30px;
+                background-image: url(../../assets/imgs/msgIcon.png);
+                background-size: cover;
+                background-position: center;
+                display: block;
+            }
+        }
+    }
+}
+
+
+
+
+
+.scroll-sec{
+    background-color: #F4F4F4;
+    padding-left: 10px;
+padding-right: 16px;
+padding-top: 0px;
+padding-bottom: 5px;
+}
+.scroll-tab{
+   height: 85px;
+}
+
+.scroll-sec .item-inner{
+   border-bottom:0px!important;
+   padding-right: 0px!important;
+}
+.label{
+   margin: 0px;
+}
+.tab-btn{
+   width: 25%;
+   text-align: center;
+   position: relative;
+   padding-top: 0px;
+// border: 1px solid #000;
+}
+.tab-icon{
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   background-size: cover;
+   background-repeat: no-repeat;
+   margin: 0 auto;
+   border: 3px solid #fff;
+   //position: absolute;
+   top: 0;
+}
+.tab-icon.firstIcon{
+border: 0;
+}
+.tab-btn p{
+   font-family: 'open_sansregular';
+   font-weight: 600;
+   color: #3e3131;
+//    margin-top: 5px;
+   text-transform: uppercase;
+   font-size: 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   width: 90%;
+//    position: absolute;
+//    width: 90px;
+//    top: 55px;
+   margin: 2px auto 0px;
+   //left: 10px;
+}
+.plus{
+   position: absolute;
+   background-color: #e02020;
+   border-radius: 50%;
+   width: 20px;
+   height: 20px;
+  top: -7px;
+  right: 5px;
+  padding: 0;
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  transform: rotate(-45deg);
+}
+
+.addAndScroll{
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  
+    button{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        padding: 0;
+        margin: 5px 0;
+        background-color: transparent;
+        background-size: cover;
+        background-position: center;
+        -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
+-moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
+box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
+    }
+}
+
+
+.user_icon {
+    width: 30px;
+    height: 30px;
+    right: 17px;
+    border-radius: 50%;
+    top: 20px;
+    background-size: 35px;
+    background-repeat: no-repeat;
+    -webkit-box-shadow: 0px 0px 5px 3px rgb(255, 255, 255) !important;
+    -moz-box-shadow: 0px 0px 5px 3px rgb(255, 255, 255) !important;
+    box-shadow: 0px 0px 5px 3px rgb(255, 255, 255) !important;
+    background-size: cover;
+    background-position: center;
+    color: blue;
+    font-weight: bold;
+}
+
+.user_icon2 {
+
+    color: rgb(114, 114, 114) !important;
+}
+}

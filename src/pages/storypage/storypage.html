@@ -1,0 +1,345 @@
+
+
+
+<ion-content>
+
+
+        <!-- <div class="change"  *ngFor="let stories of storyList let i=index" swipeAll (swipeup)="swipeEventN($event)" (swipeleft)="swipeEventleft($event,i)">
+            <button (click)="dismiss()" class="close_btn"><ion-icon ios="ios-close" md="md-close"></ion-icon></button>
+          <div *ngIf="i==storyImage.i" class="sliding">
+            
+            <ion-slides class="slide-css"  pager="true"  (ionSlideDidChange)="slideChanged(stories)" >
+                <ion-slide *ngFor="let stories of stories.story"  >
+                  <div class="chnageSlider" (swipe)="changeing($event,stories)">
+
+
+                    <div *ngIf="stories.storyType=='image'&& stories.thumbPath !=null" class="storyClass" id=image_{{stories._id}}  [ngStyle]="{'background-image': 'url(' +stories.thumbPath + ')'}">
+                      <div class="Sdetails" >
+                        <p *ngIf="ownerimage != null && type == 'file'"  [ngStyle]="{'background-image': 'url(' +url+ownerimage + ')','background-position': '50% 50%'}" ></p>
+                        
+                        <img *ngIf="ownerimage != null && type != 'file'"  src='data:image/jpeg;base64,{{ownerimage}}' >
+          
+                        <p *ngIf="ownerimage == null" style="background-image:url('assets/images/name.png')" ></p>
+                        <span>{{storyWoner}}</span>
+                      </div>
+                    </div>
+
+
+                    <div *ngIf="stories.storyType=='image'&& stories.thumbPath ==null" class="storyClass" id=image_{{stories._id}} [ngStyle]="{'background-image': 'url(' +stories.storyPath + ')'}">
+                      <div class="Sdetails" >
+                        <p *ngIf="ownerimage != null && type == 'file'"  [ngStyle]="{'background-image': 'url(' +url+ownerimage + ')','background-position': '50% 50%'}" ></p>
+                        
+                        <img *ngIf="ownerimage != null && type != 'file'"  src='data:image/jpeg;base64,{{ownerimage}}' >
+          
+                        <p *ngIf="ownerimage == null" style="background-image:url('assets/images/name.png')" ></p>
+                        <span>{{storyWoner}}</span>
+                      </div>
+                    </div>
+                    
+                  
+                    <video width="100%"   *ngIf="stories.storyType=='video' && stories.videoPath ==null" class="videocont"   poster="{{stories.thumbPath}}"  autoplay loop [muted]="true" playsinline id=video_{{stories._id}}>
+                      <source src="{{stories.storyPath+'?#t=0.8'}}" type="video/mp4"/>
+                      <canvas id="canvas"></canvas>
+                    </video>
+                    <video width="100%"   *ngIf="stories.storyType=='video' && stories.videoPath !=null" class="videocont"   poster="{{stories.thumbPath}}"  autoplay loop [muted]="true" playsinline id=video_{{stories._id}}>
+                      <source src="{{stories.videoPath+'?#t=0.8'}}" type="video/mp4"/>
+                      <canvas id="canvas"></canvas>
+                    </video>
+                          
+                          <button class="prevstyory" (click)="prev(stories.storyType,stories._id)"></button>
+                          <button class="nextstyory" (click)="next(stories.storyType,stories._id)"></button>
+                          <p class="title" *ngIf="stories.title !=''">{{stories.title}}</p>
+                          
+                         
+                  </div>
+                  <div class="sec_add">
+                      <div class="addComment">
+                          <textarea  [(ngModel)]='storycomment' placeholder="Comment"></textarea>
+                          <button class="sendBtn" (click)="sendcomment(stories._id)">Send</button>
+                        </div>
+                        <button class="shareImage" (click)="shareStory(stories.storyPath,stories.storyType)"><ion-icon name="send"></ion-icon></button>
+                  </div>
+                 
+                    <button class="play" *ngIf="stories.storyType=='video' && showbutton== true" (click)="playideo(stories._id)"></button>
+                    <button  class="stop" *ngIf="stories.storyType=='video' && showbutton== false " (click)="stopvideo(stories._id)"></button>
+                          
+         
+                      <p class="liking like" id="addd_{{stories._id}}" (click)="reactionDiv()"></p>
+                
+                </ion-slide>
+                </ion-slides>
+
+          </div>
+       </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <div class="change"  *ngFor="let story of storylist let i=index" swipeAll (swipeup)="swipeEventN($event)" (swipeleft)="swipeEventleft($event,i)">
+        <button (click)="dismiss()" class="close_btn"><ion-icon ios="ios-close" md="md-close"></ion-icon></button>
+      <div *ngIf="i==storyImage.i" class="sliding">
+        
+        <ion-slides class="slide-css"  pager="true"  (ionSlideDidChange)="slideChanged(stories)" >
+            <ion-slide *ngFor="let stories of story.story"  >
+              <div class="chnageSlider" (swipe)="changeing($event,stories)">
+
+
+                <div *ngIf="stories.storyType=='image'&& stories.thumbPath !=null" class="storyClass" id=image_{{stories._id}}  [ngStyle]="{'background-image': 'url(' +stories.thumbPath + ')'}">
+                  <div class="Sdetails" (click)="otherProfile(story)">
+                    <!-- <p (click)="otherProfile(story)" *ngIf="story._id.profilePicture != null && story.imagetype == 'file'"  [ngStyle]="{'background-image': 'url(' +url+story._id.profilePicture + ')','background-position': '50% 50%'}" ></p>
+                    
+                    <img (click)="otherProfile(story)" *ngIf="story._id.profilePicture != null && story.imagetype != 'file'"  src='data:image/jpeg;base64,{{story._id.profilePicture}}' >
+      
+                    <p (click)="otherProfile(story)" *ngIf="story._id.profilePicture == null" style="background-image:url('assets/images/name.png')" ></p> -->
+                    <p  [ngStyle]="{'background-image': 'url(' +url+story._id.profilePicture + ')','background-position': '50% 50%'}" ></p>
+                    <!-- <span (click)="otherProfile(story)">{{storyWoner}}</span> -->
+                    <span >{{story._id.fullName}}</span>
+                  </div>
+                </div>
+
+
+                <div *ngIf="stories.storyType=='image'&& stories.thumbPath ==null" class="storyClass" id=image_{{stories._id}} [ngStyle]="{'background-image': 'url(' +stories.storyPath + ')'}">
+                  <div class="Sdetails" (click)="otherProfile(story)">
+                    <!-- <p (click)="otherProfile(story)" *ngIf="story._id.profilePicture != null && story.imagetype == 'file'"  [ngStyle]="{'background-image': 'url(' +url+story._id.profilePicture + ')','background-position': '50% 50%'}" ></p>
+                    
+                    <img (click)="otherProfile(story)" *ngIf="story._id.profilePicture != null && story.imagetype != 'file'"  src='data:image/jpeg;base64,{{story._id.profilePicture}}' >
+      
+                    <p (click)="otherProfile(story)"  *ngIf="story._id.profilePicture == null" style="background-image:url('assets/images/name.png')" ></p> -->
+                    <p  [ngStyle]="{'background-image': 'url(' +url+story._id.profilePicture + ')','background-position': '50% 50%'}" ></p>
+                    <!-- <span (click)="otherProfile(story)">{{storyWoner}}</span> -->
+                    <span >{{story._id.fullName}}</span>
+
+                  </div>
+                </div>
+                
+              
+                <div *ngIf="stories.storyType=='video'">
+                  <div class="Sdetails" (click)="otherProfile(story)">
+                    <!-- <p *ngIf="story._id.profilePicture != null && story.imagetype == 'file'"  [ngStyle]="{'background-image': 'url(' +url+story._id.profilePicture + ')','background-position': '50% 50%'}" ></p>
+                    
+                    <img *ngIf="story._id.profilePicture != null && story.imagetype != 'file'"  src='data:image/jpeg;base64,{{story._id.profilePicture}}' >
+      
+                    <p *ngIf="story._id.profilePicture == null" style="background-image:url('assets/images/name.png')" ></p> -->
+                    <p [ngStyle]="{'background-image': 'url(' +url+story._id.profilePicture + ')','background-position': '50% 50%'}" ></p>
+                    <!-- <span>{{storyWoner}}</span> -->
+                    <span >{{story._id.fullName}}</span>
+
+                  </div>
+                  
+                  <video width="100%" *ngIf="stories.storyType=='video' && stories.videoPath ==null" class="videocont"   poster="{{stories.thumbPath}}"  autoplay loop [muted]="true" playsinline id=video_{{stories._id}}>
+                    <source src="{{stories.storyPath+'?#t=0.8'}}" type="video/mp4"/>
+                    <canvas id="canvas"></canvas>
+                  </video>
+                  <video width="100%" *ngIf="stories.storyType=='video' && stories.videoPath !=null" class="videocont"   poster="{{stories.thumbPath}}"  autoplay loop [muted]="true" playsinline id=video_{{stories._id}}>
+                    <source src="{{stories.videoPath+'?#t=0.8'}}" type="video/mp4"/>
+                    <canvas id="canvas"></canvas>
+                  </video>
+                </div>
+               
+                      
+                      <button class="prevstyory" (click)="prev(stories.storyType,stories._id)"></button>
+                      <button class="nextstyory" (click)="next(stories.storyType,stories._id)"></button>
+                      <!-- <p class="title" *ngIf="stories.title !=''">{{stories.title}}</p> -->
+                      
+                     
+              </div>
+
+              <div class="text_comment">
+                <p class="title" *ngIf="stories.title !=''">{{stories.title}}</p>
+
+                <div class="sec_add">
+                  <div class="addComment">
+                      <textarea  [(ngModel)]='storycomment' placeholder="Comment"></textarea>
+                      <!-- <button class="sendBtn" (click)="sendcomment(stories._id)">Send</button> -->
+                    </div>
+                    <button class="shareImage" (click)="sendcomment(stories._id)"><ion-icon name="send"></ion-icon></button>
+                    <!-- <button class="shareImage" (click)="sendcomment(stories._id)"><ion-icon name="send"></ion-icon></button> -->
+
+              </div>
+              </div>
+              <!-- <div class="sec_add">
+                  <div class="addComment">
+                      <textarea  [(ngModel)]='storycomment' placeholder="Comment"></textarea>
+                      <button class="sendBtn" (click)="sendcomment(stories._id)">Send</button>
+                    </div>
+                    <button class="shareImage" (click)="shareStory(stories.storyPath,stories.storyType)"><ion-icon name="send"></ion-icon></button>
+              </div> -->
+             
+                <button class="play" *ngIf="stories.storyType=='video' && showbutton== true" (click)="playideo(stories._id)"></button>
+                <button  class="stop" *ngIf="stories.storyType=='video' && showbutton== false " (click)="stopvideo(stories._id)"></button>
+                      
+     
+                  <p class="liking like" id="addd_{{stories._id}}" (click)="reactionDiv()"></p>
+            
+            </ion-slide>
+            </ion-slides>
+
+      </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <!-- <div class="prof_ad_slider" *ngFor="let stories of storyList let i=index" swipeAll (swipeup)="swipeEventN($event)" (swipeleft)="swipeEventleft($event,i)">
+        <div class="prof_ad_slider_content">
+      
+          <ion-slides autoplay="10000" loop="true" speed="500" pager (ionSlideDidChange)="slideChanged(stories)">
+            <ion-slide *ngFor="let stories of stories.story">
+              <div *ngIf="stories.storyType=='image'&& stories.thumbPath ==null" id=image_{{stories._id}} class="prof_ad_slider_item" [ngStyle]="{'background-image': 'url(' +stories.storyPath + ')' no-repeat left top;background-size: cover;}" >
+                  <div class="prof_info">
+                    <div class="prof_pic">
+                      <img src="assets/imgs/clientlogo2.png" alt=""/>
+                    </div>
+                    <div class="prof_heading">
+                      Demo text <span>22h</span>
+                    </div>
+                    <div class="prof_moreopt">
+                      <ion-icon ios="md-more" md="md-more"></ion-icon>
+                  </div>
+                  </div>
+          
+                  <div class="prof_ad_message">
+                    <ion-input placeholder="Send Massage" ></ion-input>
+                    <ion-icon ios="ios-send" md="ios-send"></ion-icon>
+                  </div>
+              </div>
+
+
+              <div *ngIf="stories.storyType=='image'&& stories.thumbPath !=null" class="prof_ad_slider_item" [ngStyle]="{'background-image': 'url(' +stories.thumbPath + ')' no-repeat left top;background-size: cover;}" >
+                <div class="prof_info">
+                  <div class="prof_pic">
+                    <img src="assets/imgs/clientlogo2.png" alt=""/>
+                  </div>
+                  <div class="prof_heading">
+                    Demo text <span>22h</span>
+                  </div>
+                  <div class="prof_moreopt">
+                    <ion-icon ios="md-more" md="md-more"></ion-icon>
+                </div>
+                </div>
+        
+                <div class="prof_ad_message">
+                  <ion-input placeholder="Send Massage" ></ion-input>
+                  <ion-icon ios="ios-send" md="ios-send"></ion-icon>
+                </div>
+            </div>
+            </ion-slide>
+          </ion-slides>
+      
+      
+      
+      
+        </div>
+      </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+        
+</ion-content>

@@ -1,0 +1,232 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <!-- <span class="left-arrow"></span> -->
+   
+    <!-- <ion-title>search</ion-title> -->
+    <ion-searchbar
+    [(ngModel)]="searchText"
+    (ionInput)="optionChange()"
+     placeholder="Type search keyword here">
+    </ion-searchbar>
+    <Button class="cancelBtn"  (click)="cancel()"><ion-icon ios="ios-close" md="md-close"></ion-icon></Button>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-segment (ionChange)="onSegmentChanged(userSearch)" [(ngModel)]="userSearch">
+        <ion-segment-button value="user" class="icon1">
+            Users
+        </ion-segment-button>
+        <ion-segment-button value="service"  class="icon3">
+            Service
+        </ion-segment-button>
+        <ion-segment-button value="volunteer" class="icon1">
+          Volunteer
+        </ion-segment-button>
+        <ion-segment-button value="post"  class="icon3">
+          Post
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="userSearch">
+      <div *ngSwitchCase="'user'" class="list_wrapper">
+          <ul class="user">
+            <li *ngFor="let list of UserList let i = index" (click)="goOtherProfile(list._id,list.fullName)">
+              <div class="imgDiv" *ngIf="list.profilePicture !=null && list.profilePicture !='' && list.imagetype == 'file'" [ngStyle]="{'background-image': 'url(' +urls+list.profilePicture + ')'}"></div>
+              <img class="imgDiv" *ngIf="list.profilePicture !=null && list.profilePicture !='' && list.imagetype == 'base64'" src='data:image/jpeg;base64,{{list.profilePicture}}'>
+              <div class="imgDiv" *ngIf="list.profilePicture ==null || list.profilePicture =='' && list.imagetype == 'base64'" style="background-image: url(assets/imgs/name.png);"></div>
+
+              <!-- <h3> {{list.fullName}} </h3>
+              <h3> {{list.skill}} </h3> -->
+              <ion-grid style="margin-bottom: 30px;">
+                <ion-col>
+                  <ion-row>
+                    <h3 style="font-weight: 900;"> {{list.fullName}} </h3>
+                  </ion-row>
+                  <ion-row>
+                    <h3 style="font-size: 10px;" *ngIf="list.skill != '0'"> {{list.skill}} </h3>
+                    <h3 style="font-size: 10px; color: red;" *ngIf="list.skill == '0'"> No skill </h3>
+                  </ion-row>
+                </ion-col>
+              </ion-grid>
+            </li>
+          </ul>
+      </div>
+      <div *ngSwitchCase="'service'" class="list_wrapper">
+          <ul class="service">
+            <li *ngFor="let search of servicelist let i = index">
+              <div class="leftSection" (click)="goToDetails(search._id,search.latitude,search.longitude)">
+
+                <!-- <div class="imgDiv" style="background-image: url(assets/imgs/Oval.jpg);"></div> -->
+                <div class="imgDiv" *ngIf="search.pictures.length == 0" style="background-image: url(assets/imgs/defualt-image.png);"></div>
+                <div class="imgDiv" *ngIf="search.pictures.length > 0" [ngStyle]="{'background-image': 'url(' + serviceUrl+search.pictures[0].path+ ')'}"></div>
+
+                <!-- <div class="imgDiv" *ngIf="search.userid.profilePicture !=null && search.userid.profilePicture !='' && search.datatype == 'file'" [ngStyle]="{'background-image': 'url(' +urls+search.userid.profilePicture + ')'}"></div>
+                <img class="imgDiv" *ngIf="search.userid.profilePicture !=null && search.userid.profilePicture !='' && search.datatype == 'base64'" src='data:image/jpeg;base64,{{search.userid.profilePicture}}'>
+                <div class="imgDiv" *ngIf="search.userid.profilePicture ==null || search.userid.profilePicture =='' && search.datatype == 'base64'" style="background-image: url(assets/imgs/name.png);"></div> -->
+
+                <div class="contentDiv">
+                  <h4>{{search.description}}</h4>
+                  <p>Date: {{search.date}}</p>
+                  <div>${{search.tip}}</div>
+                </div>
+              </div>
+              <div class="rightSection">
+                <span></span>
+                <p>09 Min Away</p>
+              </div>
+            </li>
+          </ul>
+      </div>
+      <div *ngSwitchCase="'volunteer'" class="list_wrapper">
+        <ul class="user">
+          <li *ngFor="let list of volunteerList let i = index" (click)="goOtherProfile(list._id,list.fullName)">
+            <!-- <div class="imgDiv" style="background-image: url(assets/imgs/Oval.jpg);"></div> -->
+            <div class="imgDiv" *ngIf="list.profilePicture !=null && list.profilePicture !='' && list.imagetype == 'file'" [ngStyle]="{'background-image': 'url(' +urls+list.profilePicture + ')'}"></div>
+            <img class="imgDiv" *ngIf="list.profilePicture !=null && list.profilePicture !='' && list.imagetype == 'base64'" src='data:image/jpeg;base64,{{list.profilePicture}}'>
+            <div class="imgDiv" *ngIf="list.profilePicture ==null || list.profilePicture =='' && list.imagetype == 'base64'" style="background-image: url(assets/imgs/name.png);"></div>
+
+            <!-- <h3>{{list.fullName}}</h3> -->
+            <ion-grid style="margin-bottom: 30px;">
+              <ion-col>
+                <ion-row>
+                  <h3 style="font-weight: 900;"> {{list.fullName}} </h3>
+                </ion-row>
+                <ion-row>
+                  <h3 style="font-size: 10px;"> {{list.skill}} </h3>
+                </ion-row>
+              </ion-col>
+            </ion-grid> 
+          </li>
+         
+        </ul>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div *ngSwitchCase="'post'" class="list_wrapper">
+
+        <div class="grid2" >
+          <div class="galleryVideo" *ngFor="let list of postlist let i = index" [class.video-span] = "list.type == 'video'" (click)="gotoPhoto(list._id,list.type,i,list)">
+  
+         
+              <span *ngIf="list.type == 'image'&& list.imageThumb != null" [ngStyle]="{'background-image': 'url(' + list.videoThumb + ')'}"></span>
+              <span *ngIf="list.type == 'image'&& list.imageThumb == null" [ngStyle]="{'background-image': 'url(' + list.imageThumb + ')'}"></span>
+              <span *ngIf="list.type == 'video' && list.videoThumb == null" [ngStyle]="{'background-image': 'url(' + list.videoThumb + ')'}">
+                <ion-icon ios="ios-videocam" md="md-videocam"></ion-icon>
+              </span>
+  
+              <span *ngIf="list.type == 'video' && list.videoThumb != null" >
+                <ion-icon ios="ios-videocam" md="md-videocam"></ion-icon>
+  
+                <video preload="metadata" autoplay loop [muted]="true" class="videocs" id="video" *ngIf="list.type == 'video'"> 
+                  <source src="{{list.path+'?#t=0.8'}}" type="video/mp4"/>
+                  <canvas id="canvas"></canvas>
+                </video>
+  
+              </span>
+         
+         
+         
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </div>
+
+   <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMoreData == true" >
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

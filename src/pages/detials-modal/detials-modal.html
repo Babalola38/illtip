@@ -1,0 +1,111 @@
+<!--
+  Generated template for the DetialsModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>detials-modal</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content padding>
+    <div class="modal_div">
+        <button class="close_modal" (click)="dismiss()"></button>
+        <div class="modal_header">
+          <div class="profile-box">
+            <div class="headerLft" (click)="goOtherProfile(userDeatils._id,userDeatils.fullName)">
+                <div class="profile_pic" *ngIf="userDeatils.profilePicture != null" [ngStyle]="{'background-image': 'url(' + converted_image + ')','background-position': '50% 50%','background-size': 'cover','background-repeat': 'no-repeat'}" ></div>
+                <div class="profile_pic" *ngIf="userDeatils.profilePicture == null"
+                style="background-image:url('assets/imgs/name.png')"></div>
+            </div>
+              <div class="headerRgt">
+                  <h5>{{userDeatils.fullName}}</h5>
+                  <div style="display: grid">
+                    <p>{{userDeatils.about}}</p>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="modal_content">
+          <h4>{{postDeatils.description}}</h4>
+          <p>{{postDeatils.description}}</p>
+          <h4>Availablity/Urgency:</h4> 
+          <p>Need it done anytime between {{postDeatils.starttime}} and {{postDeatils.endtime}} on {{postDeatils.dayName}}</p>
+          <h4>Do you require someone with license or work experience for this service?</h4>
+          <p *ngIf="postDeatils.experience==true">Yes</p>
+          <p *ngIf="postDeatils.experience==false">No</p>
+           <ul class="imgUl">
+             <li *ngFor="let list of picturesList let i = index" (click)="imageZoom(list.path)">
+              <div class="jobImage" [ngStyle]="{'background-image': 'url(' + list.path + ')','background-position': '50% 50%','background-size': 'cover','background-repeat': 'no-repeat'}"></div>
+             </li> 
+           </ul>
+           <ul class="priceUl">
+             <li>
+               <p>Price :</p>
+               <span class="price-text">$ {{postDeatils.tip}}</span>
+               <span class="chatIcon" (click)="gotoChat(userDeatils._id,userDeatils.fullName)"></span>
+              </li>
+             <li class="location" *ngIf="own==true">
+                <p *ngFor="let item of user.address">{{item}}</p>
+               </li>
+             <li class="location" *ngIf="own==false && acceptance==true || own=='Not applicable' && acceptance==true">
+               <p *ngFor="let item of user.address">{{item}}</p>
+              </li>
+              <li class="location" *ngIf="own==false && acceptance==false|| own=='Not applicable' && acceptance==false" >
+                <p>{{postDeatils.city}},{{postDeatils.zipcode}}</p>
+               </li>
+             <li class="date">
+               <p>{{postDeatils.date}}</p>
+              </li>
+           </ul>
+        </div>
+      
+<!-- <div class="modal_footer" *ngIf="userDeatils._id !=userid && status !='Completed' && profiledetails.identityImage !=null && profiledetails.is_verified=='yes' ">
+  <button (click)="gotoApply()">Accept</button>
+  <button (click)="dismiss()">Decline</button>
+</div>
+<div class="modal_footer" *ngIf="userDeatils._id !=userid && status !='Completed' && profiledetails.identityImage ==null && profiledetails.is_verified=='no' || userDeatils._id !=userid && status !='Completed' && profiledetails.identityImage ==null && profiledetails.is_verified=='yes'|| userDeatils._id !=userid && status !='Completed' && profiledetails.identityImage !=null && profiledetails.is_verified=='no'">
+    <button (click)="identy()">Accepted</button>
+        <button (click)="identy()">Decline</button>
+</div> -->
+<div *ngIf="own !=true && token !=null" class="modal_footer">
+      <div class="ion-row" *ngIf="userDeatils._id !=userid && status !='Completed' && profiledetails.is_verified=='yes' ">
+        <div class="ion-col">
+            <button class="decline-bg" (click)="dismiss()">Decline</button>
+        </div>
+        <div class="ion-col">
+            <button class="accept-bg" (click)="gotoApply()">Accept</button>
+        </div>
+      </div>
+      <div class="ion-row" *ngIf="userDeatils._id !=userid && status !='Completed' && profiledetails.is_verified=='no'">
+          <div class="ion-col">
+              <button class="decline-bg" (click)="identy()">Decline</button>
+          </div>
+          <div class="ion-col">
+              <button class="accept-bg" (click)="identy()">Accept</button>
+          </div>
+      </div>
+    
+    <div *ngIf="status =='Completed'" style=" text-align: center; color: red;">
+      <p>This job already Completed</p>
+    </div>
+</div>
+<!-- *ngIf="token ==null" -->
+    <div  class="modal_footer" *ngIf="token ==null">
+        <div class="ion-row">
+            <div class="ion-col">
+                <button class="decline-bg" (click)="dismiss()">Decline</button>
+            </div>
+            <div class="ion-col">
+                <button class="accept-bg" (click)="gologin()">Accept</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</ion-content>

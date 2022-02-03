@@ -1,0 +1,64 @@
+  
+<ion-header>
+  <ion-navbar>
+    <ion-title>Healthcare Services</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ 
+
+
+
+
+
+<div class="segment-tabs">
+  <ion-segment [(ngModel)]="property_search" >
+    <ion-segment-button value="listView"  class="icon3">
+      List View
+    </ion-segment-button>
+  <ion-segment-button value="mapView" class="icon1">
+    Map View
+  </ion-segment-button>
+
+  </ion-segment>
+</div>
+
+<div  [ngSwitch]="property_search">
+  <div  *ngSwitchCase="'listView'"> 
+    <ul class="service">
+    <li>
+      <div class="leftSection">
+        <div class="imgDiv" style="background-image: url(assets/imgs/listpicture.png);"></div>
+        <div class="contentDiv">
+          <h4>Abhoy Latif</h4>
+          <p>I am a business man with my own store</p>
+          <div>$50</div>
+        </div>
+      </div>
+      <div class="rightSection">
+        <span></span>
+        <p>09 Min Away</p>
+      </div>
+    </li>
+    <li>
+      <div class="leftSection">
+        <div class="imgDiv" style="background-image: url(assets/imgs/listpicture.png);"></div>
+        <div class="contentDiv">
+          <h4>Abhoy Latif</h4>
+          <p class="urgent">Urgent Services within 2 hours</p>
+          <div>$50</div>
+        </div>
+      </div>
+      <div class="rightSection">
+        <span></span>
+        <p>09 Min Away</p>
+      </div>
+    </li>
+
+    </ul>
+</div>
+<div *ngSwitchCase="'mapView'">Map View</div>
+
+</div>
+</ion-content>

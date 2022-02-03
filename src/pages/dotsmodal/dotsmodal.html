@@ -1,0 +1,46 @@
+<!--
+  Generated template for the DotsmodalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content >
+  <div class="bd-Wrapper">
+    <div class="topSection">
+      <span (click)="dismiss()">X</span>
+      <!-- <h3>Select Language</h3> -->
+    </div>
+  
+      <ul>
+        <li *ngIf="user != true">
+
+            <span class="chat"></span>
+            <p (click)="gotoChat()"> Chat </p>
+
+        </li>
+        <li *ngIf="user != true">
+
+          <span class="noFlag" *ngIf="checkreport(image._id)" id="report_{{image._id}}" (click)="report(image._id)"></span>
+          <p  *ngIf="checkreport(image._id)" id="report_{{image._id}}"> Flag </p>
+
+          <span class="isFlag" *ngIf="!checkreport(image._id)" id="report_{{image._id}}" (click)="report(image._id)"></span>
+          <p  *ngIf="!checkreport(image._id)" id="report_{{image._id}}"> Flag </p>
+
+
+        </li>
+        <li *ngIf="user == true" (click)="doEditPost()">
+
+          <span class="edit"></span>
+          <p > Edit </p> 
+
+        </li>
+
+        <li *ngIf="user == true" (click)="doDeletePost(image._id,image.type)">
+
+          <span class="delete"></span>
+          <p > Delete </p> 
+
+        </li>
+      </ul>
+  </div>
+</ion-content>

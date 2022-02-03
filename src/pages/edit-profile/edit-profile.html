@@ -1,0 +1,157 @@
+
+<ion-header>
+  <ion-navbar>
+    <span class="left-arrow"></span>
+    
+    <ion-title>Edit Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="profilePicture != null" class="profilePic" (click)="UploadProfilePic()" [ngStyle]="{'background-image': 'url(' +converted_image + ')'}">
+    <span class="profilePicEdit"></span>
+  </div>
+
+  <div *ngIf="profilePicture == null" class="profilePic" (click)="UploadProfilePic()" style="background-image: url(assets/imgs/name.png);">
+    <span class="profilePicEdit"></span>
+  </div>
+
+<form [formGroup]="changeprofileData" (ngSubmit)="doChangeprofiledata()">
+
+  <div class="inputSection">
+
+    <div class="inputRow">
+      <ion-label>Profile name</ion-label>
+      <!-- <ion-input placeholder="{{profileDetails?.fullName}}"></ion-input> -->
+      <ion-input type="text" placeholder="Full Name" class="f_name" formControlName="full_Name"></ion-input>
+      <ng-container *ngFor="let validation of validation_messages.full_Name">
+        <div class="error" *ngIf="changeprofileData.get('full_Name').hasError(validation.type) && (changeprofileData.get('full_Name').dirty || changeprofileData.get('full_Name').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="inputRow" (click)="openServiceMordal()">
+      <ion-label>What service do you provide?</ion-label>
+      <ion-select placeholder="What service do you need?" formControlName="services" multiple="true" [(ngModel)]="Service" disabled>
+        <ion-option *ngFor="let category of categoryList let i=index" [value] = "category._id">{{category.name}}</ion-option>
+      </ion-select>
+    </div>
+
+
+
+    <div class="inputRow">
+      <ion-label>Phone Number</ion-label>
+        <int-phone-prefix class="phone_no"  formControlName="phoneno"></int-phone-prefix>
+        <ng-container *ngFor="let validation of validation_messages.phoneno">
+          <div class="error" *ngIf="changeprofileData.get('phoneno').hasError(validation.type) && (changeprofileData.get('phoneno').dirty || changeprofileData.get('phoneno').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+    </div>
+
+    <div class="inputRow" *ngIf="tiptag != null && tiptag != ''">
+      <ion-label>Tip Tag</ion-label>
+      <ion-input placeholder="{{profileDetails?.tiptag}}" formControlName="tiptag" disabled></ion-input>
+    </div>
+
+    <div class="inputRow" *ngIf="tiptag == null || tiptag == ''">
+      <ion-label>Tip Tag</ion-label>
+      <ion-input placeholder="Add your Tip Tag" formControlName="tiptag"></ion-input>
+    </div>
+
+
+    <div class="inputRow">
+      <ion-label>Skill</ion-label>
+      <ion-input placeholder="Work Expr/Licence/Degree" class="skill" formControlName="skill"></ion-input>
+    </div>
+    <ng-container *ngFor="let validation of validation_messages.skill">
+      <div class="error" *ngIf="changeprofileData.get('skill').hasError(validation.type) && (changeprofileData.get('skill').dirty || changeprofileData.get('skill').touched)">
+        {{ validation.message }}
+      </div>
+    </ng-container>
+
+    <div class="inputRow">
+      <ion-label>Web link</ion-label>
+      <ion-input placeholder="www.xyz.com" class="address" formControlName="address"></ion-input>
+    </div>
+
+
+
+    <div class="inputRow" (click)="openCountryMordal()">
+      <ion-label>Country</ion-label>
+      <ion-input style="background-color: rgba(0, 0, 0, 0.05);" disabled="true" formControlName="country" placeholder="Select Country" [(ngModel)]="Country"></ion-input>
+    </div>
+
+    <div class="inputRow" *ngIf="language == null" (click)="openLanguageMordal()">
+      <ion-label>Language</ion-label>
+      <ion-input style="background-color: rgba(0, 0, 0, 0.05);" disabled="true" formControlName="language" placeholder="Select Language" [(ngModel)]="language"></ion-input>
+    </div>
+
+    <div class="inputRow" *ngIf="language != null" (click)="openLanguageMordal()">
+      <ion-label>Language</ion-label>
+      <ion-input style="background-color: rgba(0, 0, 0, 0.05);" disabled="true" formControlName="language" placeholder="Select Language" [(ngModel)]="language"></ion-input>
+    </div>
+
+    <div class="inputRow">
+      <ion-label>About Me</ion-label>
+      <textarea formControlName="about"></textarea>
+    </div>
+
+
+    <div class="toggleBtn">
+      <p>Open to Volunteer?</p>
+      <ion-toggle formControlName="isVolunteer"></ion-toggle>
+    </div>
+
+    <div class="check_box" *ngIf="(isNotify == true)">
+      <ion-item class="widthFull">
+        <ion-label>Uncheck box to opt out to receive notification</ion-label>
+        <ion-checkbox checked="true" (click)="doNotify()"></ion-checkbox>
+      </ion-item>
+    </div>
+
+    <div class="check_box" *ngIf="(isNotify != true)">
+      <ion-item class="widthFull">
+        <ion-label>Uncheck box to opt out to receive notification</ion-label>
+        <ion-checkbox checked="false" (click)="doNotify2()"></ion-checkbox>
+      </ion-item>
+    </div>
+  
+    <div class="radioBtn" *ngIf="isFriend == true">
+      <h4>Who can see your posts on your profile</h4>
+      <ion-list radio-group>
+        <ion-item>
+          <ion-label>Friends</ion-label>
+          <ion-radio value="friends" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Everyone</ion-label>
+          <ion-radio value="everyone" ></ion-radio>
+        </ion-item>
+        </ion-list>
+    </div>
+
+    <div class="radioBtn" *ngIf="isFriend == false">
+      <h4>Who can see your posts on your profile</h4>
+      <ion-list radio-group>
+        <ion-item>
+          <ion-label>Friends</ion-label>
+          <ion-radio value="friends"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Everyone</ion-label>
+          <ion-radio value="friends2" checked></ion-radio>
+        </ion-item>
+        </ion-list>
+    </div>
+
+
+  </div>
+  
+    
+  <button class="btnStyleOne" [disabled]="!changeprofileData.valid">Update</button>
+
+</form>
+</ion-content>

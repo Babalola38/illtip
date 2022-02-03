@@ -1,0 +1,64 @@
+page-service-apply {
+    ion-content.content {
+        background-color: #F4F4F4;
+    }
+
+    h3{
+        color: #000000;
+        font-size: 12px;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 4px;
+    }
+    p{
+        color: #4A4A4A;
+        font-size: 12px;
+        margin: 0;
+        margin-bottom: 25px;
+    }
+    span{
+        font-size: 30px;
+        color: #D4AF37;
+        // font-family: 'Conv_Circular Std Book';
+
+    }
+
+    
+
+    p.recPayment{
+        color: #000;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+
+    .inputSection .inputRow input{
+        height: 50px;
+    }
+
+
+    ion-segment.segment{
+        width: 85%;
+        margin: 0 auto;
+        background-color: #01135F;
+        border-radius: 50px;
+        margin-bottom: 10px;
+        .segment-button{
+            font-size: 12px!important;
+            color: rgba(255,255,255,0.5)!important;
+            text-transform: none;
+            border: 0;
+            position: relative;
+            font-size: 12px;
+            min-height: auto;
+           
+        }
+        .segment-activated{
+            font-size: 14px!important;
+            color: rgb(255,255,255)!important;
+        }
+    }
+}

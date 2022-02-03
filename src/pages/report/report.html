@@ -1,0 +1,38 @@
+
+<ion-header>
+  <ion-navbar>
+    <span class="left-arrow"></span>
+
+    <ion-title>Report</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="radioBtn">
+  <ion-list radio-group [(ngModel)]="report.type">
+    <ion-item>
+      <ion-radio value=theft></ion-radio>
+      <ion-label>Theft</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-radio value=abuse></ion-radio>
+      <ion-label>Abuse</ion-label>
+    </ion-item>
+  </ion-list>
+  </div>
+
+  <div class="inputSection">
+    <div class="inputRow">
+      <ion-label>User Email</ion-label>
+      <ion-input placeholder="Enter user email" [(ngModel)]="report.email"></ion-input>
+    </div>
+  
+    <div class="inputRow">
+      <ion-label>Description</ion-label>
+      <textarea placeholder="Type New Password" [(ngModel)]="report.report"></textarea>
+    </div>
+    
+  </div>
+  <button class="btnStyleOne" (click)="doReport()">Submit</button>
+</ion-content>

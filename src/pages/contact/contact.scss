@@ -1,0 +1,150 @@
+page-contact {
+    .chatImage{
+        width: 52px;
+        height: 52px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: #fff;
+        border-radius: 50%;
+        background-color:#bbbebf;
+        float: left;
+    }
+    .textchatlist{
+        position: relative;
+    }
+    .textchatlist h5{
+        position: relative;
+    }
+    .textchatlist h5 p{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 150px;
+        color: #1f1f1f;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .textchatlist h5 span{
+        position: absolute;
+        top: 4px;
+        right: 0;
+        font-size: 12px;
+        color: #7a7a7a;
+    }
+    .textchatlist p{
+        margin-top: 2px;
+        color: #808080;
+    }
+    .textchatlist span.unread{
+        position: absolute;
+        top: 53px;
+        right: 30px;
+        font-size: 12px;
+        color: #fff;
+        background-color: #0084fd;
+        border-radius:50%;
+        padding: 0px  4px;
+    }
+
+    .nomessage {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+    }
+
+    .new_chat_nav {
+        position: relative;
+    }
+
+    .new_chat {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        font-size: 30px;
+        color: black;
+        cursor: pointer;
+        padding: 5px;
+    }
+    .list{
+        margin-bottom: 60px;
+    }
+    .textchatlist.item-block .item-inner {
+        border-bottom: 1px solid #ececec;
+    }
+    .textchatlist ion-icon[item-left] + .item-inner, 
+    .textchatlist ion-icon[item-start] + .item-inner{
+        margin-left: 5px;
+        padding-right: 0;
+        margin-right: 16px;
+    }
+    ion-fab{
+        .fab[mini]{
+            width: 46px;
+            height: 46px;
+            line-height: 46px;
+            background-color: #D4AF37;
+            ion-icon{
+                font-size: 19px;
+            }
+        }
+    }
+    .header{
+        .toolbar-background {
+            // background: #01135F;
+            background: rgba(1, 19, 95, 0.9);
+        }
+        .toolbar-title {
+            text-align: left;
+            color: #fff;
+        }
+        .bar-buttons[end]{
+            button{
+                font-size: 15px;
+                color: #fff;
+            }
+        }
+    }
+    ion-header ion-icon::before {
+        display: inherit;
+    }
+    .header-ios{
+        .toolbar-ios ion-title{
+            position: relative;
+        }
+        .toolbar-ios .back-button{
+            color: #fff;
+        }
+    }
+    .w-searbar-header{
+        .toolbar-background {
+            background: #fff;
+        }
+        .searchbar .searchbar-input {
+            border-radius: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            padding-left: 40px;
+        }
+        .searchbar-ios-cancel{
+            margin-right: 0px !important;
+            opacity: 1!important;
+            padding-left: 10px !important;
+        }
+        .searchbar-md .searchbar-md-cancel{
+            display: inline-flex !important;
+            background-color: white !important;
+            left: 0;
+            font-size: 18px;
+        }
+        .searchbar-md .searchbar-search-icon{
+            display: none;
+        }
+        .searchbar-ios .searchbar-input {
+            background: transparent;
+        }
+    }
+    .list-ios > .item-block:last-child, 
+    .list-ios > .item-wrapper:last-child .item-block {
+        border-bottom: 0;
+    }
+}

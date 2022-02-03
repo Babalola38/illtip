@@ -1,0 +1,545 @@
+page-storyviewlist {
+    .likes{
+        background-image: url('../assets/images/liks.png');
+        
+    }
+    .wow{
+        background-image: url('../assets/images/wow.jpg');
+    }
+    .sad{
+        background-image: url('../assets/images/sad.png');
+        
+    }
+    .haha{
+        background-image: url('../assets/images/haha.png');
+    }
+    .angry{
+        background-image: url('../assets/images/angry.png');
+    }
+    .love{
+        background-image: url('../assets/images/love.png');
+    }
+    .lovetwo{
+        background-image: url('../assets/images/lovetwo.png');
+    }
+    .lovethree{
+        background-image: url('../assets/images/lovethree.png');
+    }
+    .happyone{
+        background-image: url('../assets/images/happyone.png');
+    }
+    .happytwo{
+        background-image: url('../assets/images/happytwo.png');
+    }
+    .happythree{
+        background-image: url('../assets/images/happythree.png');
+    }
+    .liketwo{
+        background-image: url('../assets/images/liketwo.png');
+    }
+    .eyegalss{
+        background-image: url('../assets/images/eyegalss.png');
+    }
+    .modal_content video{
+        width: 100%;
+        height: 260px;
+    }
+    .modal_header {
+        position: relative;
+        width: 100%;
+        display: flex;
+        display: -webkit-flex;
+        justify-content: center;
+        // align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .profile_pic {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        left: 0;
+        top: 0;
+        margin: 0 auto;
+        //background-image: url(../assets/images/lft_img.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+   
+    .headerLft {
+        //flex-basis: 30%;
+    }
+    .modal-slides .slide-zoom{
+        position: absolute;
+        top: 20px;
+    }
+    .explore{
+
+    }
+    .explore img{
+       width:100%
+    }
+    .headerRgt {
+        // flex-basis: 70%;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        text-align: left;
+        h5 {
+            margin-bottom: 0;
+            color: #252525;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            margin-top: 0px;
+            width: 120px;
+            // float: left;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            padding-top: 10px;
+        
+        }
+        p {
+            margin-top: 0;
+            color: #676767;
+            font-family: 'Avenir-Roman';
+            margin-bottom: 0;
+            font-size: 14px;
+            // text-overflow: ellipsis;
+            // white-space: nowrap;
+            // overflow: hidden;
+        }
+        span {
+            display: block;
+            margin-top: 10px;
+            width:20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            background-size: 20px;
+            display: block;
+        }
+    }
+    .segment-ios .segment-button.segment-activated{
+        border:none;
+       border-bottom: 1px solid #000;
+        background-color: transparent;
+        color: #000;
+        
+    }
+    .segment-ios .segment-button:active:not(.segment-activated){
+        background-color: transparent;
+    }
+    
+    .segment-ios .segment-button{
+        border-color: transparent
+    }
+    .search_user .segment-button{
+        font-family: 'open_sansregular';
+        font-weight: 600;
+        color: #3e3131;
+    }
+    .search_user .segment-button.activated,.search_user .segment-button.segment-activated{
+        border-color: #3e3131;
+    }
+.headerRgt button{
+    background-color: transparent;
+}
+.headerRgt button ion-icon{
+    font-size: 21px;
+}
+//29.05.2018
+
+.imgDiv{
+    width: 100%;
+    //background-image: url(../assets/images/imgDetailModalImg.png);
+    background-size: cover;
+    height: 160px;
+    background-position: center;
+}
+
+.likeShare{
+    padding-top: 15px;
+    padding-bottom: 10px; 
+    text-align: center;
+}
+ .likeShare:after,
+ .likeShare:before{
+     content: "";
+     display: table;
+ }
+ .likeShare:after{
+     clear: both;
+ }
+
+ .likeDiv span{
+    width: 26px;
+    height: 24px;
+    background-image: url(../assets/images/likeIcon.png);
+    background-size: cover;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: bottom;
+}
+
+.shareDiv span{
+    width: 23px;
+    height: 24px;
+    background-image: url(../assets/images/shareIcon.png);
+    background-size: cover;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: bottom;
+}
+
+.commentDiv span{
+    background-image: url(../assets/images/commentIcon.png);
+    width: 25px;
+    height: 20px;
+    background-size: cover;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: bottom;
+}
+
+
+.likeDiv,.shareDiv{
+    width: 30%;
+    float: left;
+    position: relative;
+    color: #252525;
+    font-family: 'Avenir-Roman';
+    font-size: 12px;
+}
+.likeDivOne{
+    width: 30%;
+    float: left;
+    position: relative;
+    color: #9dc540;
+    font-family: 'Avenir-Roman';
+    font-size: 12px;
+}
+
+.likeDivOne span{
+    width: 26px;
+    height: 24px;
+    background-image: url(../assets/images/likeIconActive.png);
+    background-size: cover;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: bottom;
+}
+.commentDiv{
+    width: 40%;
+    float: left;
+    position: relative;
+    color: #252525;
+    font-family: 'Avenir-Roman';
+    font-size: 12px;
+    //color: #9dc540;
+    padding-top: 3px;
+}
+
+
+
+
+
+
+
+//textarea
+
+.textArea{
+    // position: absolute;
+    width: 100%;
+    
+    .list{
+        margin: 0;
+    }
+    button{
+        position: absolute;
+        top: 11px;
+        right: 7px;
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+        border: 0;
+        width: 25px;
+        display: inline-block;
+    }
+}
+
+
+
+.textArea .list .item-input:last-child{
+    border-color:#dfdfdf;
+}
+.textArea .item{
+    padding-left: 0;
+    border: 1px solid #dfdfdf;
+    color:#000;
+    font-size: 14px;
+    
+}
+
+
+.textArea .item-input ion-textarea{
+    padding-right: 26px;
+}
+.textArea .text-input-md{
+    margin-left: 0;
+    padding-left: 10px;
+
+}
+
+.list-md .item-input.item-input-has-focus:last-child,
+.list-md .item-input.input-has-focus:last-child{
+    border-bottom-color: #dfdfdf;
+    box-shadow: none;
+}
+.text-input{
+    margin: 0;
+    margin-top: 7px;
+}
+.label + ion-input .text-input, 
+.label + ion-textarea .text-input, 
+.label + .input + .cloned-input{
+    margin-left: 0;
+}
+.modalTop{
+    height: 65%;
+    padding: 10px;
+}
+
+.commentSection{
+   // height: 18px;
+    position: relative;
+    //padding: 10px;
+    //height: 185px;
+}
+.commentInner{
+    width: 100%;
+    //height: 120px;
+    //overflow: scroll;
+    padding-bottom: 10px;
+}
+//textarea end
+
+.modal_header2{
+    //background-color: #e3e3e3;
+    //margin-top: 5px;
+    padding-bottom: 0;
+    position: relative;
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    // align-items: center;
+    //padding-top: 10px;
+    padding-bottom: 10px;
+  
+}
+
+
+
+//
+.modal_content{
+    height: auto;
+    //overflow: auto;
+    position: relative;
+    padding: 10px;
+}
+.modal_header{
+    position: relative;
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+  //height: 17%;
+  }
+
+
+
+    @media(min-width:320px) and (orientation:landscape) {
+       
+        .modal_div {
+            height: auto;
+            top: 50%;
+        }
+     
+      
+        .headerRgt {
+            flex-basis: 80%;
+        }
+        .headerLft {
+            flex-basis: 20%;
+        }
+
+        // .imgDiv{
+        //     height: 110px;
+        // }
+         .modalTop {
+            height: 75%;
+            padding: 10px;
+        }
+         .commentSection{
+            height:25%;
+        }
+
+        .modal_header{
+            //height: 27%;
+        }
+        .modal_content{
+            height: 73%;
+        }
+         .commentSection{
+            height: 70%;
+        }
+        .modal_header2{
+            padding-bottom: 10px;
+        }
+        .likeShare{
+            text-align: center;
+        }
+
+
+    }
+    @media(min-width:600px) {
+        .headerRgt {
+            padding-top: 10px;
+        }
+        .headerLft {
+            //flex-basis: 20%;
+        }
+        .headerRgt {
+           // flex-basis: 80%;
+        }
+
+        .modal_div{
+            height: 78%;
+        }
+
+
+         .modal_header {
+            //height: 24%;
+            margin-top: 20px
+        }
+
+        .modal_content {
+           // height: 75%;
+        }
+        .close_modal{
+            top: -13px;
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            bottom: 0;
+            z-index: 1;
+        }
+        .imgDiv{
+            height:230px;
+        }
+        .profile_pic {
+            width: 70px;
+            height: 70px;
+        }
+        .modal_header {
+            .profile_pic{
+                top: -11px;
+            }
+        }
+       
+    }
+
+    .item-md.item-input.item-input-has-focus .item-inner,.item-md-item-input.input-has-focus .item-inner{
+        border-bottom-color: transparent;
+        box-shadow: none;
+    }
+
+
+   
+    @media(min-width:768px) {
+        .modal_div {
+            width: 100%;
+            height: 100%;
+        }
+        .headerRgt {
+            h5 {
+                font-size: 26px;
+            }
+            p {
+                font-size: 22px;
+            }
+        }
+     
+        .profile_pic {
+            width: 95px;
+            height: 95px;
+        }
+     
+        .headerLft {
+            //flex-basis: 30%;
+        }
+        .headerRgt {
+            //flex-basis: 70%;
+            padding-right: 20px;
+        }
+        .close_modal {
+            right: -1px;
+            top: -1px;
+            width: 35px;
+            height: 35px;
+        }
+        .modal_div {
+            top: 50%;
+        }
+
+        .likeShare{
+            padding-top: 33px;
+        }
+
+        .likeDiv span{
+            width: 36px;
+            height: 34px;
+            margin-right: 20px;
+        }
+         .shareDiv span{
+            width: 34px;
+            height: 37px;
+            margin-right: 20px;
+        }
+        .likeDiv, 
+     .shareDiv,.commentDiv{
+         font-size: 22px;
+     }
+
+     .commentDiv span{
+        width: 40px;
+        height: 30px;
+     }
+     .textArea .item{
+         font-size: 24px;
+         height: 90px;
+     }
+    .textArea{
+        .text-input{
+            padding-left: 20px;
+            height: 100%;
+            padding-right: 20px;
+            padding-top: 10px;
+        }
+        button {
+            top: 18px;
+            right: 11px;
+            width: 38px;
+        }
+    }
+    
+
+
+     .imgDiv{
+        height: 250px;
+    }
+    
+     
+    }
+}

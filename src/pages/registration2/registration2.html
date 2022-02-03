@@ -1,0 +1,145 @@
+
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>Registration</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding class="loginBgImg">
+  <span class="skipTxt" (click)="doSkeep()">Skip</span>
+  <h2 class="heading_">Complete your profile</h2>
+  <p class="headingParagraph">Kindly provide the following details to proceed</p>
+<div class="profilePic">
+  <div class="picDiv" (click)="UploadProfilePic()">
+    <span *ngIf="(hideimage==true)">
+      <img src="assets/imgs/editIcon.png" alt="">
+    </span>
+    <span class="converted" *ngIf="(hideimage==false)">
+      <!-- <img class="converted" src="{{ProfilePicture}}" alt=""> -->
+      <img class="converted" src="{{Image}}" alt="">
+
+    </span>
+  </div>
+  <p>Add Profile Picture</p>
+</div>
+
+<form [formGroup]="registrationDetails" (ngSubmit)="doRegistration()">
+
+  <div class="inputSection">
+    <div class="inputRow">
+      <ion-label>Full Name</ion-label>
+      <ion-input formControlName="fullname" placeholder="Full Name"></ion-input>
+
+      <ng-container *ngFor="let validation of validation_messages.fullname">
+        <div style="color: red;" class="error" *ngIf="registrationDetails.get('fullname').hasError(validation.type) && (registrationDetails.get('fullname').dirty || registrationDetails.get('fullname').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+    <div class="inputRow">
+      <ion-label>Phone Number</ion-label>
+      <int-phone-prefix [defaultCountry]="'us'" formControlName="number" placeholder="number"></int-phone-prefix>
+
+      <ng-container *ngFor="let validation of validation_messages.number">
+        <div style="color: red;" class="error" *ngIf="registrationDetails.get('number').hasError(validation.type) && (registrationDetails.get('number').dirty || registrationDetails.get('number').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+   
+      <!-- <div class="inputRow">
+        <ion-label>Phone Number</ion-label>
+        <div class="phoneNumberDiv">
+
+          <div>
+            <int-phone-prefix [defaultCountry]="'us'" formControlName="isd" placeholder="ISD"></int-phone-prefix>
+
+            <ng-container *ngFor="let validation of validation_messages.isd">
+              <div style="color: red;" class="error" *ngIf="registrationDetails.get('isd').hasError(validation.type) && (registrationDetails.get('isd').dirty || registrationDetails.get('isd').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+          
+          <div>
+            <ion-input type="number" formControlName="number"></ion-input>
+
+            <ng-container *ngFor="let validation of validation_messages.number">
+              <div style="color: red;" class="error" *ngIf="registrationDetails.get('number').hasError(validation.type) && (registrationDetails.get('number').dirty || registrationDetails.get('number').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div> -->
+
+
+
+      <div class="inputRow" (click)="openServiceMordal()">
+        <ion-label>What service do you provide?</ion-label>
+         <ion-input style="background-color: rgba(0, 0, 0, 0.05);" disabled="true" formControlName="services" placeholder="Select Service" [(ngModel)]="Service"></ion-input>
+
+        <ng-container *ngFor="let validation of validation_messages.services">
+          <div style="color: red;" class="error" *ngIf="registrationDetails.get('services').hasError(validation.type) && (registrationDetails.get('services').dirty || registrationDetails.get('services').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      
+      <div class="inputRow">
+        <ion-label>Tip Tag (Create User ID)</ion-label>
+        <ion-input formControlName="tiptag" placeholder="@carthine_d"></ion-input>
+
+        <ng-container *ngFor="let validation of validation_messages.tiptag">
+          <div style="color: red;" class="error" *ngIf="registrationDetails.get('tiptag').hasError(validation.type) && (registrationDetails.get('tiptag').dirty || registrationDetails.get('tiptag').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    
+   
+
+    <div class="inputRow" (click)="openCountryMordal()">
+      <ion-label>Country</ion-label>
+      <ion-input style="background-color: rgba(0, 0, 0, 0.05);" disabled="true" formControlName="country" placeholder="Select Country" [(ngModel)]="Country"></ion-input>
+
+      <ng-container *ngFor="let validation of validation_messages.country">
+        <div style="color: red;" class="error" *ngIf="registrationDetails.get('country').hasError(validation.type) && (registrationDetails.get('country').dirty || registrationDetails.get('country').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="inputRow" (click)="openLanguageMordal()">
+      <ion-label>Language</ion-label>
+      <ion-input style="background-color: rgba(0, 0, 0, 0.05);" disabled="true" formControlName="language" placeholder="Select Language" [(ngModel)]="Language"></ion-input>
+
+      <ng-container *ngFor="let validation of validation_messages.language">
+        <div style="color: red;" class="error" *ngIf="registrationDetails.get('language').hasError(validation.type) && (registrationDetails.get('language').dirty || registrationDetails.get('language').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    </div>
+    <div class="checkBox">
+      <ion-item >
+        <ion-label>Open to volunteer?</ion-label>
+        <ion-checkbox slot="end" ></ion-checkbox>
+      </ion-item>
+
+      <ion-item >
+        <ion-label>Are you Liberal?</ion-label>
+        <ion-checkbox slot="end" ></ion-checkbox>
+      </ion-item>
+    </div>
+    <!-- <button class="btnStyleOne" [disabled]="!registrationDetails.valid">Continue</button> -->
+    <button class="btnStyleOne">Continue</button>
+
+    
+</form>
+
+</ion-content>

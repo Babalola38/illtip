@@ -1,0 +1,191 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>home</ion-title>
+  </ion-navbar>
+</ion-header> -->
+<ion-header>
+  <ion-navbar>
+    <!-- <p *ngIf="token !=null" class="tipsicon" (click)="gopointsHistory()"><span *ngIf="tippoints> 0"> {{tippoints}} </span></p> -->
+    <!-- <p *ngIf="token !=null" class="tipsicon" (click)="gopointsHistory()"></p> -->
+    <div (click)="gopointsHistory()">
+      <img class="tipsicon" src="assets/imgs/money.png" alt=""><span class="tippoints" *ngIf="tippoints> 0"> {{tippoints}} </span>
+    </div>
+    
+
+    <div class="headerLogo">
+      <img src="assets/imgs/logo2_.png" alt="">
+      <span style="margin-left: 5px; font-weight: bold" *ngIf="token ==null">i’llTip</span>
+    </div>
+    <div *ngIf="token !=null">
+      <!-- <p  class="alreadyHaveAcc" style="margin-left: 289px;margin-top: 53px;color: red;font-weight: bold;"><span (click)="LogOut()">Log Out</span></p> -->
+      <span class="counter" (click)="goNoti()"> 
+        <!-- <span>2</span>  -->
+        <span *ngIf="noticount> 0">{{noticount}}</span>
+      <img src="assets/imgs/notification.png">
+    </span>
+      <!-- <div class="user_icon" (click)="goProfile()">
+
+      </div> -->
+      <!-- <div class="user_icon" (click)="goProfile()">
+        <img class="converted" [src]="converted_image" alt="">
+      </div> -->
+      <div class="user_icon" (click)="goProfile()" *ngIf="profilePicture != null" [ngStyle]="{'background-image': 'url(' +converted_image + ')','background-position': '50% 50%'}"></div>
+      <div class="user_icon" (click)="goProfile()" *ngIf="profilePicture == null || profilePicture == ''" style="background-image: url(assets/imgs/name.png);"></div>
+    </div>
+  </ion-navbar>
+
+  <ion-item class="scroll-sec" *ngIf="token !=null">
+    <ion-scroll scrollX="true" class="scroll-tab">
+
+      <ion-icon class="tab-btn firstIcon" *ngIf="nostory == ''">
+        <div class="tab-icon firstIcon" *ngIf="profilePicture != null" [ngStyle]="{'background-image': 'url(' +converted_image + ')','background-position': '50% 50%'}"></div>
+        <div class="tab-icon firstIcon" *ngIf="profilePicture == null" style="background-image: url(assets/imgs/name.png);"></div>
+        <button class="plus" (click)="plus()">+</button>
+      </ion-icon>
+
+
+
+      <ion-icon class="tab-btn firstIcon" *ngIf="nostory != ''" >
+
+        <div class="tab-icon firstIcon"  *ngIf="ownstoryList.storyType == 'image'" (click)="getOwnList()" [ngStyle]="{'background-image': 'url(' +ownstoryList.thumbPath + ')','background-position': '50% 50%'}" ></div>
+        <div class="tab-icon firstIcon" *ngIf="ownstoryList.storyType == 'video'" (click)="getOwnList()" [ngStyle]="{'background-image': 'url(' +ownstoryList.gifPath + ')','background-position': '50% 50%'}" ></div>
+        <button  (click)="plus()" class="plus">+</button>
+        <p>Your Story</p>
+
+     </ion-icon>
+
+
+      <ion-icon class="tab-btn"   *ngFor="let story of storyList let i=index"  (click)="showstory(story,i)">
+      <div class="tab-icon" [ngClass]="addClasss(story.story[0].createdAt)" id='story_{{story.story[0]._id}}'  *ngIf="story.story[0].storyType == 'image' && story.story[0].thumbPath !=null "  [ngStyle]="{'background-image': 'url(' +story.story[0].thumbPath + ')',
+      'background-position': '50% 50%'}" ></div>
+      <div class="tab-icon" [ngClass]="addClasss(story.story[0].createdAt)" id='story_{{story.story[0]._id}}' *ngIf="story.story[0].storyType == 'image' && story.story[0].thumbPath ==null "  [ngStyle]="{'background-image': 'url(' +story.story[0].storyPath + ')',
+      'background-position': '50% 50%'}" ></div>
+      
+      <div class="tab-icon" [ngClass]="addClasss(story.story[0].createdAt)" id='story_{{story.story[0]._id}}' *ngIf="story.story[0].storyType == 'video' && story.story[0].videoPath !=null"  [ngStyle]="{'background-image': 'url(' +story.story[0].gifPath + ')',
+      'background-position': '50% 50%'}" ></div>
+      <video width="100%"  [ngClass]="addClasss(story.story[0].createdAt)" id='story_{{story.story[0]._id}}'  *ngIf="story.story[0].storyType=='video' && story.story[0].videoPath ==null" class="videocont"   poster="{{story.story[0].thumbPath}}"  autoplay loop [muted]="true" playsinline>
+         <source src="{{story.story[0].storyPath+'?#t=0.8'}}" type="video/mp4"/>
+         <canvas id="canvas"></canvas>
+         </video>
+      <p>{{story._id.fullName}}</p>
+      </ion-icon>
+
+      
+
+    </ion-scroll>
+  </ion-item>
+
+  <div  *ngIf="token ==null" id="searchDiv"> 
+    <div class="searchWrapper2">
+      <ion-item class="search_area"  (click)="onClick()">
+        <ion-input type="text" placeholder="Search"></ion-input>
+      </ion-item>
+      <button class="watchIcon" *ngIf="hommepage == true" (click)="gotoCurrentpage()"></button>
+      <button class="watchIcon2" *ngIf="currentpostpage == true" (click)="gotoHomepage()"></button>
+    </div>
+  </div>
+
+    <div  *ngIf="token !=null" id="searchDiv">
+      <div class="searchWrapper">
+        <ion-item class="search_area"  (click)="onClick()">
+          <ion-input type="text" placeholder="Search"></ion-input>
+        </ion-item>
+        <button class="watchIcon" *ngIf="hommepage == true" (click)="gotoCurrentpage()"></button>
+        <button class="watchIcon2" *ngIf="currentpostpage == true" (click)="gotoHomepage()"></button> 
+      </div>
+    </div>
+  
+</ion-header>
+
+
+<ion-content class="serachPage"  (ionScroll)="scrollHandler($event)">
+
+
+<div *ngIf="hommepage" class="search5">
+
+  <ngx-masonry [options]="myOptions">
+    <div ngxMasonryItem class="newGallery" *ngFor="let list of imageList let i=index" (click)="gotoPhoto(list._id,list.type,i,list)" [class.select-category]="list.isMovable == true">
+
+        <div  *ngIf="list.type == 'image'&& list.imageThumb != null">
+          <div>
+            <div class="galleryImage" [ngStyle]="{'background-image': 'url(' +list.videoThumb+ ')'}"></div>
+          </div>
+        </div>
+
+        <div  *ngIf="list.type == 'image'&& list.imageThumb == null">
+          <div>
+            <div class="galleryImage" [ngStyle]="{'background-image': 'url(' +list.imageThumb+ ')'}"></div>
+          </div>
+        </div>
+
+        <div class="galleryImage"  *ngIf="list.type == 'video' && list.videoThumb == null" [ngStyle]="{'background-image': 'url(' +list.videoThumb+ ')'}">
+          <ion-icon ios="ios-videocam" md="md-videocam" role="img" class="icon icon-md ion-md-videocam" aria-label="videocam" ng-reflect-ios="ios-videocam" ng-reflect-md="md-videocam"></ion-icon>
+        </div>
+
+        <div class="galleryImage videocs"  *ngIf="list.type == 'video' && list.videoThumb != null">
+          <ion-icon ios="ios-videocam" md="md-videocam" role="img" class="icon icon-md ion-md-videocam" aria-label="videocam" ng-reflect-ios="ios-videocam" ng-reflect-md="md-videocam"></ion-icon>
+
+          <video preload="metadata"  loop [muted]="true" class="videocs
+          " id="video" *ngIf="list.type == 'video'"> 
+            <source src="{{list.path+'?#t=0.8'}}" type="video/mp4"/>
+            <canvas id="canvas"></canvas>
+          </video>
+
+        </div>
+
+
+    </div>
+  </ngx-masonry>
+
+  <!-- <div class="grid" *ngIf="hommepage == true">
+
+    <div class="newGallery" *ngFor="let list of imageList let i=index" (click)="gotoPhoto(list._id,list.type,i,list)" [class.select-category]="list.isMovable == true">
+
+
+          <div  *ngIf="list.type == 'image'&& list.imageThumb != null">
+            <div>
+              <div class="galleryImage" [ngStyle]="{'background-image': 'url(' +list.videoThumb+ ')'}"></div>
+            </div>
+          </div>
+
+          <div  *ngIf="list.type == 'image'&& list.imageThumb == null">
+            <div>
+              <div class="galleryImage" [ngStyle]="{'background-image': 'url(' +list.imageThumb+ ')'}"></div>
+            </div>
+          </div>
+
+          <div class="galleryImage"  *ngIf="list.type == 'video' && list.videoThumb == null" [ngStyle]="{'background-image': 'url(' +list.videoThumb+ ')'}">
+            <ion-icon ios="ios-videocam" md="md-videocam" role="img" class="icon icon-md ion-md-videocam" aria-label="videocam" ng-reflect-ios="ios-videocam" ng-reflect-md="md-videocam"></ion-icon>
+          </div>
+
+          <div class="galleryImage videocs"  *ngIf="list.type == 'video' && list.videoThumb != null">
+            <ion-icon ios="ios-videocam" md="md-videocam" role="img" class="icon icon-md ion-md-videocam" aria-label="videocam" ng-reflect-ios="ios-videocam" ng-reflect-md="md-videocam"></ion-icon>
+
+            <video preload="metadata"  loop [muted]="true" class="videocs
+            " id="video" *ngIf="list.type == 'video'"> 
+              <source src="{{list.path+'?#t=0.8'}}" type="video/mp4"/>
+              <canvas id="canvas"></canvas>
+            </video>
+
+          </div>
+
+
+      </div>
+
+      
+  </div> -->
+
+
+
+
+</div>
+
+<div *ngIf="currentpostpage" class="currentpostdiv">
+  <currentpost></currentpost>
+</div>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMoreData == true" >
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+</ion-content>

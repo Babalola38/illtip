@@ -1,0 +1,210 @@
+
+<ion-header>
+    <ion-navbar>
+      <span class="left-arrow"></span>
+  
+      <ion-title>Current Post</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <!-- <ion-content padding #scroll (ionScroll)="scrollHandler($event)">
+  
+        <ul>
+  
+          <li *ngFor="let image of imageList; let i=index">
+  
+            <div id="{{image._id}}">
+  
+            <div class="topSection">
+              <div class="leftSection" (click)="otherProfile(image.gallery.userid._id,image.gallery.userid.fullName)">
+  
+  
+                <div *ngIf="image.gallery.userid.profilePicture != ''">
+                  <div *ngIf="image.datatype == 'file'" class="imgDiv" [ngStyle]="{'background-image': 'url(' + url+image.gallery.userid.profilePicture + ')','background-position': '50% 50%','background-size': 'cover','background-repeat': 'no-repeat'}"></div>
+                  <img *ngIf="image.datatype == 'base64'" class="imgDiv" src='data:image/jpeg;base64,{{image.gallery.userid.profilePicture}}'>
+                </div>
+  
+                <div *ngIf="image.gallery.userid.profilePicture == ''">
+                  <div class="imgDiv" style="background-image: url(assets/imgs/name.png);"></div>
+                </div>
+                
+  
+       
+  
+  
+                <div class="contentDiv">
+                  <h4>{{image.gallery.userid.fullName}}</h4>
+                  <p>{{image.gallery.userid.about}}</p>
+                  <span>{{image.gallery.createdAt | date: 'MMMM d, y' }} @ {{image.gallery.createdAt | date: 'h:mm a' }}</span>
+                </div>
+              </div>
+              <div class="rightSection">
+  
+                <span class="dots" (click)="doDots(image)"></span>
+              </div>
+            </div>
+  
+            <div *ngIf="image.gallery.type == 'image'" class="full-img">
+  
+              
+              <img *ngIf="image.gallery.imageThumb !='null'" id="image_{{image.gallery._id}}" class="middleImg" [src]="image.gallery.path">
+              <img *ngIf="image.gallery.imageThumb =='null'" id="image_{{image.gallery._id}}" class="middleImg" [src]="image.gallery.path">
+  
+            </div>
+  
+  
+            <div *ngIf="image.gallery.type=='video' && image.gallery.convertedProperty !=null ">
+              <div class="videoContain" >
+              <video width="100%"  *ngIf="image.gallery.convertedVideo ==null" loop="true" class="videocont" poster="{{image.gallery.videoThumb}}" id="video_{{image.gallery._id}}"  autoplay [muted]="false" playsinline>
+                <source src="{{image.gallery.path+'?#t=0.8'}}" type="video/mp4"/>
+                
+                    <canvas id="canvas"></canvas>
+              </video>
+              
+              <video width="100%" *ngIf="image.gallery.convertedVideo !=null &&  image.gallery.convertedProperty.width>image.gallery.convertedProperty.height " class="videocont landscape" loop="true" poster="{{image.gallery.videoThumb}}" id="video_{{image.gallery._id}}"   [muted]="false" playsinline>
+                <source src="{{image.gallery.convertedVideo+'?#t=0.8'}}" type="video/mp4"/>
+                
+                    <canvas id="canvas"></canvas>
+              </video>
+              <video width="100%" *ngIf="image.gallery.convertedVideo !=null && image.gallery.convertedProperty.height>image.gallery.convertedProperty.width " class="videocont potrait" loop="true" poster="{{image.gallery.videoThumb}}" id="video_{{image.gallery._id}}"   [muted]="false" playsinline>
+                <source src="{{image.gallery.convertedVideo+'?#t=0.8'}}" type="video/mp4"/>
+                
+                    <canvas id="canvas"></canvas>
+              </video>
+    
+              <video width="100%" *ngIf="image.gallery.convertedVideo !=null && image.gallery.convertedProperty.height==image.gallery.convertedProperty.width " class="videocont" loop="true" poster="{{image.gallery.videoThumb}}" id="video_{{image.gallery._id}}"   [muted]="false" playsinline>
+                <source src="{{image.gallery.convertedVideo+'?#t=0.8'}}" type="video/mp4"/>
+                
+                    <canvas id="canvas"></canvas>
+              </video>
+  
+  
+            </div>
+            </div>
+  
+            <div class="likeShare">
+  
+  
+  
+              <div class="likeDiv" >
+                <p class="noLike likes" *ngIf="image.isLike == false" id="txt2_{{image.gallery._id}}" (click)="like(image.gallery._id)"></p>
+                <p class="isLike likes" *ngIf="image.isLike == true" id="txt2_{{image.gallery._id}}" (click)="like(image.gallery._id)"></p>
+                <p class="likeCount" (click)="goLikelist(image.gallery._id,image.gallery.like)">
+                  <span class="likeCount" (click)="goLikelist(image.gallery._id,image.gallery.like)" id="count_{{image.gallery._id}}">{{image.gallery.like}}</span>
+                </p>
+              </div>
+  
+  
+  
+              <span class="share" (click)="presentActionSheet(image.gallery.imageThumb,image.gallery.type)">0</span>
+            </div>
+            <p>{{image.gallery.title}}</p>
+   
+  
+            <h2 *ngIf="image.gallery.commentData != undefined" (click)="OpenCommentMordal(image.gallery._id)"> <span class="comment"> {{image.gallery.comment}} </span> Comments</h2>
+  
+            <div class="topSection" *ngIf="image.gallery.commentData != undefined">
+              <div class="leftSection">
+                <div *ngIf="image.gallery.commentData.user_id.profilePicture == ''" class="imgDiv" style="background-image: url(assets/imgs/name.png);"></div>
+                <img *ngIf="image.gallery.commentData.user_id.profilePicture != ''" class="imgDiv" src='data:image/jpeg;base64,{{image.gallery.commentData.user_id.profilePicture}}'>
+  
+  
+                <div class="contentDiv" (click)="OpenCommentMordal(image._id)">
+                  <h4 >{{image.gallery.commentData.user_id.fullName}}</h4>
+                  <p>{{image.gallery.commentData.comment}}</p>
+                </div>
+              </div>
+              <div class="rightSection">
+                <span class="dayText">1d</span>
+              </div>
+            </div>
+  
+  
+            <div class="searchBox">
+              <input type="text" placeholder="Type your comment…" (click)="OpenCommentMordal(image.gallery._id)">
+  
+              <button (click)="OpenCommentMordal(image.gallery._id)"></button>
+            </div>
+  
+  
+  
+          </div>
+  
+          <hr style="height: 7px; width: 250%; margin-left: -20px; background-color: rgb(0 0 0 / 19%);">
+  
+          </li>
+  
+  
+          
+  
+  
+  
+        </ul>
+  
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMoreData == true" >
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+  
+  </ion-content> -->
+  
+  
+  
+  
+  <ion-content class="serachPage"  (ionScroll)="scrollHandler($event)">
+  
+  
+    <!-- <div id="searchDiv">
+      <div class="searchWrapper">
+        <ion-item class="search_area"  (click)="onClick()">
+          <ion-input type="text" placeholder="Search"></ion-input>
+        </ion-item>
+        <button class="watchIcon" *ngIf="hommepage == true" (click)="gotoCurrentpage()"></button>
+        <button class="watchIcon" *ngIf="currentpostpage == true" (click)="gotoHomepage()"></button>
+      </div>
+    </div> -->
+  
+  <div class="padd5 search5">
+  
+    <ngx-masonry *ngIf="hommepage == true">
+      <div ngxMasonryItem class="newGallery" *ngFor="let list of imageList let i=index" (click)="gotoPhoto(list._id,list.type,i,list)" [class.select-category]="list.isMovable == true">
+  
+          <div  *ngIf="list.type == 'image'&& list.imageThumb != null">
+            <div>
+              <div class="galleryImage" [ngStyle]="{'background-image': 'url(' +list.videoThumb+ ')'}"></div>
+            </div>
+          </div>
+  
+          <div  *ngIf="list.type == 'image'&& list.imageThumb == null">
+            <div>
+              <div class="galleryImage" [ngStyle]="{'background-image': 'url(' +list.imageThumb+ ')'}"></div>
+            </div>
+          </div>
+  
+          <div class="galleryImage"  *ngIf="list.type == 'video' && list.videoThumb == null" [ngStyle]="{'background-image': 'url(' +list.videoThumb+ ')'}">
+            <ion-icon ios="ios-videocam" md="md-videocam" role="img" class="icon icon-md ion-md-videocam" aria-label="videocam" ng-reflect-ios="ios-videocam" ng-reflect-md="md-videocam"></ion-icon>
+          </div>
+  
+          <div class="galleryImage videocs"  *ngIf="list.type == 'video' && list.videoThumb != null">
+            <ion-icon ios="ios-videocam" md="md-videocam" role="img" class="icon icon-md ion-md-videocam" aria-label="videocam" ng-reflect-ios="ios-videocam" ng-reflect-md="md-videocam"></ion-icon>
+  
+            <video preload="metadata"  loop [muted]="true" class="videocs
+            " id="video" *ngIf="list.type == 'video'"> 
+              <source src="{{list.path+'?#t=0.8'}}" type="video/mp4"/>
+              <canvas id="canvas"></canvas>
+            </video>
+  
+          </div>
+  
+  
+      </div>
+    </ngx-masonry>
+  
+  
+  
+  </div>
+  
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMoreData == true" >
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    
+  </ion-content>

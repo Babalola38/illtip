@@ -1,0 +1,129 @@
+page-registration2 {
+    .heading_{
+        font-weight: 700;
+        font-size: 22px;
+        text-align: center;
+        color: #000000;
+        margin-top: 40px;
+        margin-bottom: 19px;
+    }
+    .headingParagraph{
+        margin: 0;
+        color: #000;
+        font-size: 12px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .phoneNumberDiv{
+        display: flex; 
+        justify-content: space-between;
+       div:first-child{
+            width: 30%;
+            input{
+                padding-left: 5px;
+                padding-right: 5px;
+                text-align: center;
+                margin-top: -20px;
+            }
+        }
+       div:last-child{
+            width: 65%;
+        }
+    }
+
+    .checkBox{
+        padding-top: 15px;
+        padding-bottom: 10px;
+        display: flex;
+        .item{
+            min-height: 0;
+            padding-left: 0;
+            background-color: transparent;
+            font-size: 13px;
+        }
+        ion-label{
+            margin: 0;
+            font-weight: 600;
+            font-style: 14px;
+            color: #000000;
+        }
+        ion-checkbox{
+            margin: 0!important;
+            margin-right: 10px!important;
+           
+            .checkbox-icon{
+                width: 24px;
+                height: 24px;
+                border-radius: 4px;
+                border-color: #707070;
+                background-color: transparent;
+            }
+            .checkbox-checked {
+                background-color: #E02020;
+                border-color: transparent;
+                .checkbox-inner{
+                    width: 6px;
+                    height: 12px;
+                    left: 7px;
+                    top: 2px;
+                }
+            }
+        }
+    }
+
+    .profilePic{
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+        .picDiv{
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            border: 2px solid #E02020;
+            margin-right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span{
+                display: inline-block;
+            }
+        }
+        p{
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #000000;
+        }
+    }
+
+    .skipTxt{
+        font-size: 14px;
+        font-weight: 700;
+        color: #E02020;
+        display: inline-block;
+        position: absolute;
+        right: 15px;
+    }
+
+
+    .converted{
+        margin-top: 5px;
+        width: 100px;
+        height: 92px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #000;
+        opacity: 1; /* Firefox */
+      }
+      
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #000;
+      }
+      
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #000;
+      }
+}

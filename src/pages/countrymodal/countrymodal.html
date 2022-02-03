@@ -1,0 +1,16 @@
+
+
+<ion-content >
+  <div class="bd-Wrapper">
+    <div class="topSection">
+        <span (click)="dismiss()">X</span>
+        <h3>Select country/region</h3>
+      </div>
+  
+      <ul>
+        <li *ngFor="let Country of country" (click)="doCountry(Country.name)">
+          <span value="Country.name">{{Country.name}}</span>
+        </li>
+      </ul>
+  </div>
+</ion-content>

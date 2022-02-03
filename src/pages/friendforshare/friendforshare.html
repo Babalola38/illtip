@@ -1,0 +1,70 @@
+<!--
+  Generated template for the FriendforsharePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <span class="left-arrow"></span>
+
+    <ion-title>Share with Friends</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+<!-- <div class="bdContent"  >
+
+<ion-list class="listView" >
+<ul class="serviceAvailable">
+<li *ngFor="let list of friendlist let i = index">
+<div class="liBd">
+<div class="lftImg2"  *ngIf="list.friend_from.profilePicture == null"  style="background-image:url(assets/images/lft_img.png)" (click)="goOtherProfile(list.friend_from._id,list.friend_from.fullName)"></div>
+<div class="lftImg2"  *ngIf="list.friend_from.profilePicture != null" [ngStyle]="{'background-image': 'url(' + url+list.friend_from.profilePicture +')'}" (click)="goOtherProfile(list.friend_from._id,list.friend_from.fullName)"></div>
+
+<div class="innerContent" (click)="shareImagemesge(list.friend_from._id,list.friend_from.fullName,list.friend_from.profilePicture)">
+<h5>{{list.friend_from.fullName}}</h5>
+
+</div>
+</div>
+</li>
+
+</ul>
+</ion-list>
+</div> -->
+
+ <div class="bdContent"  >
+      
+   <ion-list class="listView" >
+      <ul class="serviceAvailable">
+         <li *ngFor="let list of friendlist let i = index">
+            <div class="liBd" >
+               <div class="lftImg2"  *ngIf="list.friendData.profilePicture == null"  style="background-image:url(assets/images/lft_img.png)" (click)="goOtherProfile(list.friendData._id,list.friendData.fullName)"></div>
+               <div class="lftImg2"  *ngIf="list.friendData.profilePicture != null" [ngStyle]="{'background-image': 'url(' + url+list.friendData.profilePicture +')'}" (click)="goOtherProfile(list.friendData._id,list.friendData.fullName)"></div>
+
+               <div class="innerContent" (click)="shareImagemesge(list.friendData._id,list.friendData.fullName,list.friendData.profilePicture)">
+                  <h5>{{list.friendData.fullName}}</h5>
+                  <p *ngIf="list.friendData.about !=null">{{list.friendData.about}}</p>
+                  <p *ngIf="list.friendData.about == null">What about you?</p>
+                    
+                  <div class="rating">
+                      <rating [(ngModel)]="list.friendData.rating.rate" max="5" readOnly="true"></rating>
+                      <span class="totalReview">
+                        {{list.friendData.rating.total}} Reviews
+                      </span>
+                     </div>
+               </div>
+               <button class="send" (click)="shareImagemesge(list.friendData._id,list.friendData.fullName,list.friendData.profilePicture)">Send</button>
+            </div>
+           
+            
+         </li>
+
+      </ul>
+   </ion-list>
+</div>
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)"  *ngIf="hasMoreData == true">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

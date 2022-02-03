@@ -1,0 +1,90 @@
+<!--
+  Generated template for the FriendlistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <!-- <span class="left-arrow"></span> -->
+
+    <ion-title class="title">Create New Group</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="searchFlag  = true">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+    <!-- <div class="user_icon" style="background-image: url(assets/imgs/creategroupchat.png);" (click)="CreateGroup()"></div> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-header class="w-searbar-header" *ngIf="searchFlag">
+  <ion-toolbar>
+    <div>
+    <ion-searchbar
+    [showCancelButton]="true"
+    [(ngModel)]="searchTerm" 
+    (ionChange)="onFocus()"   
+    (ionCancel)="onBlur()"
+    placeholder="Search...">
+    </ion-searchbar>
+  </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <div>
+    <div class="imgDiv" style="background-image: url(../../assets/imgs/name.png);"></div>
+  </div> -->
+
+  <ion-item class="scroll-sec" *ngIf="groupuser == true">
+    <ion-scroll scrollX="true" class="scroll-tab">
+
+      <div class="tab-btn firstIcon" *ngFor="let list of GroupChatData let i = index">
+        <!-- <div class="tab-icon firstIcon" style="background-image: url(../../assets/imgs/profile-img.png);background-position: '50% 50%'" ></div> -->
+        <div class="tab-icon firstIcon" *ngIf="list.friendData.profilePicture !=null && list.friendData.profilePicture !='' && list.imagetype == 'file'" [ngStyle]="{'background-image': 'url(' +urls+list.friendData.profilePicture + ')'}" (click)="goOtherProfile(list.friendData._id,list.friendData.fullName)"></div>
+        <img class="tab-icon firstIcon" *ngIf="list.friendData.profilePicture !=null && list.friendData.profilePicture !='' && list.imagetype == 'base64'" src='data:image/jpeg;base64,{{list.friendData.profilePicture}}' (click)="goOtherProfile(list.friendData._id,list.friendData.fullName)">
+        <div class="tab-icon firstIcon" *ngIf="list.friendData.profilePicture ==null || list.friendData.profilePicture =='' && list.imagetype == 'base64'" style="background-image: url(../../assets/imgs/name.png);" (click)="goOtherProfile(list.friendData._id,list.friendData.fullName)"></div>
+        <button  (click)="RemoveUser(list,i)" class="plus">+</button>
+        <p>{{list.friendData.fullName}}</p>
+      </div>
+
+    </ion-scroll>
+  </ion-item>
+
+  <ul>
+
+    <li *ngFor="let list of FriendList let i = index">
+      <!-- <div class="imgDiv" style="background-image: url(assets/imgs/Oval.jpg);"></div> -->
+      <div class="imgDiv" *ngIf="list.friendData.profilePicture !=null && list.friendData.profilePicture !='' && list.imagetype == 'file'" [ngStyle]="{'background-image': 'url(' +urls+list.friendData.profilePicture + ')'}" (click)="goOtherProfile(list.friendData._id,list.friendData.fullName)"></div>
+      <img class="imgDiv" *ngIf="list.friendData.profilePicture !=null && list.friendData.profilePicture !='' && list.imagetype == 'base64'" src='data:image/jpeg;base64,{{list.friendData.profilePicture}}' (click)="goOtherProfile(list.friendData._id,list.friendData.fullName)">
+      <div class="imgDiv" *ngIf="list.friendData.profilePicture ==null || list.friendData.profilePicture =='' && list.imagetype == 'base64'" style="background-image: url(../../assets/imgs/name.png);" (click)="goOtherProfile(list.friendData._id,list.friendData.fullName)"></div>
+
+      <div class="contentDiv">
+        <span class="toggleIcon" (click)="chat_this_user(list, i)"></span>
+        <h2>{{list.friendData.fullName}}</h2>
+        <p>{{list.friendData.about}}</p>
+        <div class="buttonSection">
+          <!-- <button>Friends</button> -->
+          <!-- <span (click)="chat_this_user(list)"></span> -->
+        </div>
+      </div>
+    </li>
+
+  </ul>
+  <ion-fab bottom right>
+    <button ion-fab mini *ngIf="groupuser == true" (click)="CreateGroup()"><ion-icon name="arrow-round-forward"></ion-icon></button>
+    <button ion-fab mini *ngIf="groupuser != true"><ion-icon name="arrow-round-forward"></ion-icon></button>
+  </ion-fab>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMoreData == true" >
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+
+<!-- <ion-footer>
+  <div class="addAndScroll" *ngIf="groupuser == true">
+    <button style="background-image: url(assets/imgs/creategroupchat.png);" (click)="CreateGroup()"></button>
+  </div>
+</ion-footer> -->

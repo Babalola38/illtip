@@ -1,0 +1,189 @@
+
+<ion-header>
+  <ion-navbar>
+    <span class="left-arrow"></span>
+
+    <ion-title>i’llTip</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding #scroll (ionScroll)="scrollHandler($event)">
+
+      <ul>
+
+        <li *ngFor="let image of imageList; let i=index">
+
+          <div id="{{image._id}}">
+
+          <div class="topSection">
+            <div class="leftSection" (click)="otherProfile(image.userid._id,image.userid.fullName)">
+
+
+              <div *ngIf="image.userid.profilePicture != ''">
+                <div *ngIf="image.datatype == 'file'" class="imgDiv" [ngStyle]="{'background-image': 'url(' + url+image.userid.profilePicture + ')','background-position': '50% 50%','background-size': 'cover','background-repeat': 'no-repeat'}"></div>
+                <img *ngIf="image.datatype == 'base64'" class="imgDiv" src='data:image/jpeg;base64,{{image.userid.profilePicture}}'>
+              </div>
+
+              <div *ngIf="image.userid.profilePicture == ''">
+                <div class="imgDiv" style="background-image: url(assets/imgs/name.png);"></div>
+              </div>
+
+
+              <!-- <div class="imgDiv" [ngStyle]="{'background-image': data:image/*;base64,{{image.userid.profilePicture}} }"></div> -->
+              <!-- <ion-img class="imgDiv" src="data:image/*;base64,{{image.userid.profilePicture}}"></ion-img> -->
+
+
+
+              <div class="contentDiv">
+                <h4>{{image.userid.fullName}}</h4>
+                <p>{{image.userid.about}}</p>
+                <span>{{image.createdAt | date: 'MMMM d, y' }} @ {{image.createdAt | date: 'h:mm a' }}</span>
+              </div>
+            </div>
+            <div class="rightSection">
+              <!-- <span class="chat"></span>
+              <span class="flag"></span> -->
+              <span class="dots" (click)="doDots(image)">. . .</span>
+            </div>
+          </div>
+
+          <div *ngIf="image.type == 'image'" class="full-img">
+
+            <!-- <div *ngIf="image.imageThumb !='null'" id="image_{{image._id}}" class="middleImg" [ngStyle]="{'background-image': 'url(' +image.path + ')'}"></div>
+            <div *ngIf="image.imageThumb =='null'" id="image_{{image._id}}" class="middleImg" [ngStyle]="{'background-image': 'url(' +image.path + ')'}"></div> -->
+
+            <img *ngIf="image.imageThumb !='null'" id="image_{{image._id}}" class="middleImg" [src]="image.path">
+            <img *ngIf="image.imageThumb =='null'" id="image_{{image._id}}" class="middleImg" [src]="image.path">
+
+          </div>
+
+          <!-- <div *ngIf="image.type == 'video'">
+
+            <video preload="metadata" autoplay loop [muted]="true" class="middleImg" id="video" [muted]="false">
+              <source src="{{image.path+'?#t=0.8'}}" type="video/mp4"/>
+              <canvas id="canvas"></canvas>
+            </video>
+
+          </div> -->
+
+          <div *ngIf="image.type=='video'">
+            <div class="videoContain" >
+
+<!--              <video controls preload="none" height="240" width="320" class="videocont landscape" autoplay [muted]="false" playsinline>-->
+<!--                <source [src]="image.path" type="video/*"/>-->
+<!--              </video>-->
+              <video width="100%"  *ngIf="image.convertedVideo !=null" loop="true" class="videocont" poster="{{image.videoThumb}}" id="video_{{image._id}}"  autoplay [muted]="false" playsinline>
+                <source src="{{image.convertedVideo+'?#t=0.8'}}" type="video/mp4"/>
+                <canvas id="canvas"></canvas>
+              </video>
+
+              <video width="100%"  *ngIf="image.convertedVideo ==null" loop="true" class="videocont" poster="{{image.videoThumb}}" id="video_{{image._id}}"  autoplay [muted]="false" playsinline>
+                <source src="{{image.path+'?#t=0.8'}}" type="video/mp4"/>
+                <canvas id="canvas"></canvas>
+              </video>
+
+<!--              <video width="100%" *ngIf="image.convertedVideo !=null &&  image.convertedProperty.width>image.convertedProperty.height " class="videocont landscape" loop="true" poster="{{image.videoThumb}}" id="video_{{image._id}}"   [muted]="false" playsinline>-->
+<!--                <source src="{{image.convertedVideo+'?#t=0.8'}}" type="video/mp4"/>-->
+
+<!--                <canvas id="canvas"></canvas>-->
+<!--              </video>-->
+<!--              <video width="100%" *ngIf="image.convertedVideo !=null && image.convertedProperty.height>image.convertedProperty.width " class="videocont potrait" loop="true" poster="{{image.videoThumb}}" id="video_{{image._id}}"   [muted]="false" playsinline>-->
+<!--                <source src="{{image.convertedVideo+'?#t=0.8'}}" type="video/mp4"/>-->
+
+<!--                <canvas id="canvas"></canvas>-->
+<!--              </video>-->
+
+<!--              <video width="100%" *ngIf="image.convertedVideo !=null && image.convertedProperty.height==image.convertedProperty.width " class="videocont" loop="true" poster="{{image.videoThumb}}" id="video_{{image._id}}"   [muted]="false" playsinline>-->
+<!--                <source src="{{image.convertedVideo+'?#t=0.8'}}" type="video/mp4"/>-->
+
+<!--                <canvas id="canvas"></canvas>-->
+<!--              </video>-->
+
+
+          </div>
+          </div>
+
+          <div class="likeShare">
+
+
+            <!-- <p class="noLike likes" *ngIf="!checkLikes(image._id)" id="txt2_{{image._id}}" (click)="like(image._id)"></p>
+            <p class="isLike likes" *ngIf="checkLikes(image._id)" id="txt2_{{image._id}}" (click)="like(image._id)"></p>
+            <span class="like" (click)="like(image._id,image.like)" id="count_{{image._id}}">{{image.like}}</span> -->
+
+            <div class="likeDiv" >
+              <p class="noLike likes" *ngIf="!checkLikes(image._id)" id="txt2_{{image._id}}" (click)="like(image._id)"></p>
+              <p class="isLike likes" *ngIf="checkLikes(image._id)" id="txt2_{{image._id}}" (click)="like(image._id)"></p>
+              <p class="likeCount" (click)="goLikelist(image._id,image.like)">
+                <span class="likeCount" (click)="goLikelist(image._id,image.like)" id="count_{{image._id}}">{{image.like}}</span>
+              </p>
+            </div>
+
+
+            <span *ngIf="image.type =='image'" class="share" (click)="presentActionSheet(image.imageThumb,image.type)"></span>
+            <span *ngIf="image.type =='video'" class="share" (click)="presentActionSheet(image.convertedVideo,image.type)"></span>
+
+            <!-- <span class="comment" (click)="OpenCommentMordal(image._id)"> {{image.comment}} </span> -->
+          </div>
+          <p>{{image.title}}</p>
+
+
+          <h2 *ngIf="image.commentData != undefined" (click)="OpenCommentMordal(image._id)"> <span class="comment"> {{image.comment}} </span> Comments</h2>
+
+          <div class="topSection" *ngIf="image.commentData != undefined">
+            <div class="leftSection">
+              <div *ngIf="image.commentData.user_id.profilePicture == '' && ImageType == false" class="imgDiv" style="background-image: url(assets/imgs/name.png);"></div>
+              <!-- <img *ngIf="image.commentData.user_id.profilePicture != '' && ImageType == false" class="imgDiv" src='data:image/jpeg;base64,{{image.commentData.user_id.profilePicture}}'> -->
+
+
+              <!-- <div *ngIf="image.commentData.user_id.profilePicture != '' && ImageType == true" class="imgDiv" [ngStyle]="{'background-image': 'url(' +url+image.commentData.user_id.profilePicture + ')'}"></div>
+              <img *ngIf="image.commentData.user_id.profilePicture != '' && ImageType == false" class="imgDiv" src='data:image/jpeg;base64,{{image.commentData.user_id.profilePicture}}'> -->
+
+              <div *ngIf="image.commentData.user_id.profilePicture != ''" class="imgDiv" [ngStyle]="{'background-image': 'url(' +url+image.commentData.user_id.profilePicture + ')'}"></div>
+              <!-- <img *ngIf="image.commentData.user_id.profilePicture != '' && ImageType == false" class="imgDiv" src='data:image/jpeg;base64,{{image.commentData.user_id.profilePicture}}'> -->
+              <!-- <div *ngIf="image.commentData.user_id.profilePicture != '' && String(image.commentData.user_id.profilePicture).includes('.jpg') || String(image.commentData.user_id.profilePicture).includes('.png') || String(image.commentData.user_id.profilePicture).includes('.JPEG')" class="imgDiv" [ngStyle]="{'background-image': 'url(' +urls+image.commentData.user_id.profilePicture + ')'}"></div> -->
+
+
+              <div class="contentDiv" (click)="OpenCommentMordal(image._id)">
+                <h4 >{{image.commentData.user_id.fullName}}</h4>
+                <p>{{image.commentData.comment}}</p>
+              </div>
+            </div>
+            <div class="rightSection">
+              <span class="dayText">1d</span>
+            </div>
+          </div>
+
+
+          <!-- <div class="searchBox">
+            <input type="text" placeholder="Type your comment…" [(ngModel)]="profiledetails.comment">
+            <input type="text" placeholder="Type your comment…" #comment>
+
+            <button (click)="addcomment(image._id,comment.value)"></button>
+          </div> -->
+
+          <div class="searchBox">
+            <input type="text" placeholder="Type your comment…" (click)="OpenCommentMordal(image._id)">
+
+            <button (click)="OpenCommentMordal(image._id)"></button>
+          </div>
+
+
+
+        </div>
+
+        <hr style="height: 7px; width: 250%; margin-left: -20px; background-color: rgb(0 0 0 / 19%);">
+
+        </li>
+
+
+
+
+
+
+      </ul>
+
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMoreData == true" >
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
+</ion-content>

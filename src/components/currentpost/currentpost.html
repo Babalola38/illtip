@@ -1,0 +1,44 @@
+<div class="padd5">
+
+
+
+  <ngx-masonry>
+    <div ngxMasonryItem class="newGallery" *ngFor="let list of imageList let i=index" (click)="gotoPhoto(list.gallery._id,list.gallery.type,i,list.gallery)" [class.select-category]="list.isMovable == true">
+
+        <div  *ngIf="list.gallery.type == 'image'&& list.gallery.imageThumb != null">
+          <div>
+            <div class="galleryImage" [ngStyle]="{'background-image': 'url(' +list.gallery.videoThumb+ ')'}"></div>
+          </div>
+        </div>
+
+        <div  *ngIf="list.gallery.type == 'image'&& list.gallery.imageThumb == null">
+          <div>
+            <div class="galleryImage" [ngStyle]="{'background-image': 'url(' +list.gallery.imageThumb+ ')'}"></div>
+          </div>
+        </div>
+
+        <div class="galleryImage"  *ngIf="list.gallery.type == 'video' && list.gallery.videoThumb == null" [ngStyle]="{'background-image': 'url(' +list.gallery.videoThumb+ ')'}">
+          <ion-icon ios="ios-videocam" md="md-videocam" role="img" class="icon icon-md ion-md-videocam" aria-label="videocam" ng-reflect-ios="ios-videocam" ng-reflect-md="md-videocam"></ion-icon>
+        </div>
+
+        <div class="galleryImage videocs"  *ngIf="list.gallery.type == 'video' && list.gallery.videoThumb != null">
+          <ion-icon ios="ios-videocam" md="md-videocam" role="img" class="icon icon-md ion-md-videocam" aria-label="videocam" ng-reflect-ios="ios-videocam" ng-reflect-md="md-videocam"></ion-icon>
+
+          <video preload="metadata"  loop [muted]="true" class="videocs
+          " id="video" *ngIf="list.gallery.type == 'video'"> 
+            <source src="{{list.gallery.path+'?#t=0.8'}}" type="video/mp4"/>
+            <canvas id="canvas"></canvas>
+          </video>
+
+        </div>
+
+
+    </div>
+  </ngx-masonry>
+
+</div>
+
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMoreData == true" >
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>

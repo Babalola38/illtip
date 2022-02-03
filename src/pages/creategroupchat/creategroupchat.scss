@@ -1,0 +1,282 @@
+page-creategroupchat {
+    ion-fab{
+        .fab[mini]{
+            width: 46px;
+            height: 46px;
+            line-height: 46px;
+            background-color: #D4AF37;
+            ion-icon{
+                font-size: 19px;
+            }
+        }
+    }
+
+    .title {
+        margin-left: 40px;
+    }
+    .header{
+        .toolbar-background {
+            // background: #01135F;
+            background: rgba(1, 19, 95, 0.9);
+        }
+        .toolbar-title {
+            text-align: left;
+            color: #fff;
+        }
+        .bar-buttons[end]{
+            button{
+                font-size: 15px;
+                color: #fff;
+            }
+        }
+    }
+    ion-header ion-icon::before {
+        display: inherit;
+    }
+    .header-ios{
+        .toolbar-ios ion-title{
+            position: relative;
+        }
+        .toolbar-ios .back-button{
+            color: #fff;
+        }
+    }
+   
+    ion-content.content {
+        background-color: #fff;
+    }
+    ul{
+        padding: 0;
+        margin: 0 0 60px 0;
+        list-style: none;
+        li{
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 0;
+            padding: 12px 16px;
+            // margin-bottom: 10px;
+            .imgDiv{
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+            .contentDiv{
+                padding-left: 16px;
+                position: relative;
+                padding-right: 40px;
+                width: calc(100% - 82px);
+                flex: 1;
+                .toggleIcon{
+                    width: 26px;
+                    height: 26px;
+                    background-image: url(../../assets/imgs/addIcon.png);
+                    background-position: center;
+                    background-size: cover;
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                }
+                .toggleIcon2{
+                    width: 26px;
+                    height: 26px;
+                    background-image: url(../../assets/imgs/cross_modal.png);
+                    background-position: center;
+                    background-size: cover;
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                }
+                h2{
+                    font-size: 16px;
+                    color: #1f1f1f;
+                    font-weight: bold;
+                    margin: 0;
+                    margin-bottom: 4px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                p{
+                    font-size: 14px;
+                    color: #808080;
+                    font-weight: 500;
+                    margin: 0;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+            .buttonSection{
+                display: flex;
+                button{
+                    width: 96px;
+                    background-color: #01135F;
+                    border-radius: 5px;
+                    font-size: 11px;
+                    font-family: 'Conv_Circular Std Medium';
+                    color: #fff;
+                    margin-right: 8px;
+                }
+                span{
+                    width: 30px;
+                    height: 30px;
+                    background-image: url(../../assets/imgs/msgIcon.png);
+                    background-size: cover;
+                    background-position: center;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .scroll-sec{
+        background-color: #fff;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 16px;
+        padding-bottom: 0;
+        border-bottom: 1px solid #ececec;
+    }
+    .scroll-tab{
+        height: 85px;
+    }
+
+    .scroll-sec .item-inner{
+        border-bottom:0px!important;
+        padding-right: 0px!important;
+    }
+    .label{
+        margin: 0px;
+    }
+    .tab-btn{
+        text-align: center;
+        position: relative;
+        padding-top: 0px;
+        display: inline-block;
+        width: 70px;
+        margin-right: 5px;
+    }
+    .tab-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    border: 3px solid #fff;
+    //position: absolute;
+    top: 0;
+    }
+    .tab-icon.firstIcon{
+    border: 0;
+    }
+    .tab-btn p{
+    font-weight: 600;
+    color: #808080;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 5px auto 0px;
+    }
+    .plus{
+    position: absolute;
+    background-color: #e02020;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    top: 30px;
+    right: 7px;
+    padding: 0;
+    color: #fff;
+    font-size: 16px;
+    line-height: 20px;
+    transform: rotate(-45deg);
+    }
+
+    .addAndScroll{
+        position: absolute;
+        right: 0;
+        bottom: 15px;
+        display: flex;
+        flex-direction: column;
+    
+        button{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            padding: 0;
+            margin: 5px 0;
+            background-color: transparent;
+            background-size: cover;
+            background-position: center;
+            -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
+    -moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.20);
+        }
+    }
+
+
+    .user_icon {
+        width: 30px;
+        height: 30px;
+        right: 17px;
+        border-radius: 50%;
+        top: 20px;
+        background-size: 35px;
+        background-repeat: no-repeat;
+        -webkit-box-shadow: 0px 0px 5px 3px rgb(255, 255, 255) !important;
+        -moz-box-shadow: 0px 0px 5px 3px rgb(255, 255, 255) !important;
+        box-shadow: 0px 0px 5px 3px rgb(255, 255, 255) !important;
+        background-size: cover;
+        background-position: center;
+        color: blue;
+        font-weight: bold;
+    }
+
+    .user_icon2 {
+
+        color: rgb(114, 114, 114) !important;
+    }
+
+    .w-searbar-header{
+        .toolbar-background {
+            background: #fff;
+        }
+        .searchbar .searchbar-input {
+            border-radius: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            padding-left: 40px;
+        }
+        .searchbar-ios-cancel{
+            margin-right: 0px !important;
+            opacity: 1!important;
+            padding-left: 10px !important;
+        }
+        .searchbar-md .searchbar-md-cancel{
+            display: inline-flex !important;
+            background-color: white !important;
+            left: 0;
+            font-size: 18px;
+        }
+        .searchbar-md .searchbar-search-icon{
+            display: none;
+        }
+        .searchbar-ios .searchbar-input {
+            background: transparent;
+        }
+    }
+
+
+}

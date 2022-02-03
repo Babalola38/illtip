@@ -1,0 +1,55 @@
+page-point-wallet {
+    ion-content.content {
+        background-color: #F4F4F4;
+    }
+    h4{
+        color: #000000;
+        font-size: 14px;
+        font-weight: 700;
+    }
+    ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li{
+            display: flex;
+            justify-content: space-between;
+            padding: 22px 25px;
+            background-color: #fff;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            .imgDiv{
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                margin-right: 10px;
+                background-size: cover;
+                background-position: center;
+            }
+            p{
+                margin: 0;
+                color: #000000;
+                font-size: 10px;
+                // font-family: 'Conv_Circular Std Book';
+            }
+            span{
+                display: block;
+                color: rgba(0,0,0,0.5);
+                font-size: 10px;
+                font-family: 'Conv_Circular Std Book';
+            }
+            .leftSection{
+                display: flex;
+                align-items: center;
+                padding-right: 15px;
+            }
+            .rightSection{
+                width: 35px;
+                height: 36px;
+                border-radius: 4px;
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    }
+}

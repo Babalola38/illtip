@@ -1,0 +1,340 @@
+page-explore {
+
+    ion-title{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        
+        .toolbar-title{
+            font-family: 'Lobster', cursive;
+            letter-spacing: 1px;
+            font-size: 24px;
+        }
+    }
+    ion-content.content {
+        background-color: #F4F4F4;
+    }
+
+    ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li{
+            padding-top: 20px;
+        }
+    }
+
+    .topSection{
+        display: flex;
+        margin-bottom: 12px;
+        justify-content: space-between;
+        .leftSection{
+            display: flex;
+            padding-right: 10px;
+            overflow: hidden;
+            flex: 1;
+            .imgDiv{
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                background-position: center;
+                background-size: cover;
+            }
+            .contentDiv{
+                flex: 1;
+                padding-left: 15px;
+                overflow: hidden;
+                h4{
+                    margin: 0;
+                    font-size: 14px;
+                    color: rgba(0,0,0,0.8);
+                    margin-bottom: 7px;
+                    font-weight: 900;
+                }
+                p{
+                    margin: 0;
+                    font-size: 12px;
+                    color: black;
+                    width: 90%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    margin-bottom: 6px;
+                }
+                span{
+                    display: block;
+                    font-size: 10px;
+                    color: black;
+                }
+            }
+        }
+
+        .rightSection{
+            display: flex;
+            span{
+                display: inline-block;
+                background-position: center;
+                background-size: cover;
+            }
+            .chat{
+                width: 20px;
+                height: 16px;
+                background-image: url(../../assets/imgs/chat.png);
+                margin-right: 24px;
+            }
+            .flag{
+                width: 18px;
+                height: 24px;
+                background-image: url(../../assets/imgs/flag.png);
+            }
+
+            .dots{
+                // width: 18px;
+                // height: 24px;
+                font-weight: 900;
+                // background-image: url(../../assets/imgs/3dots.png);
+                // margin-left: 100px;
+            }
+
+            .dayText{
+                font-size: 10px;
+                color: rgba(0,0,0,0.4);
+                padding-left: 10px;
+            }
+        }
+    }
+
+    // .videoContain{
+    //     text-align: center;
+    //     // background-color: #000;
+    // }
+    // .videoContain .potrait{
+    //     width: auto;
+    //     object-fit: fill; /*to add black content at top and bottom*/
+    //     object-position: 0 0; /* to center our image*/
+    //     max-height: 720px;
+    // }
+    // .videoContain .landscape{
+    //     width: 100%;
+    //     object-fit: fill; /*to add black content at top and bottom*/
+    //     object-position: 0 0; /* to center our image*/
+    // }
+
+    .no-scroll .scroll-content{
+        overflow: hidden;
+   }
+
+   .full-img{
+    text-align: center;
+}
+
+ .middleImg{
+     // height: 200px;
+     background-size: cover;
+     background-position: left top;
+     border-radius: 6px;
+     text-align: center;
+ }
+   
+
+    // .middleImg{
+    //     height: 200px;
+    //     background-size: cover;
+    //     background-position: left top;
+    //     border-radius: 6px;
+    // }
+    
+    // .middleImg{
+    // height: 200px;
+    // width: 100%;
+    // background-size: contain;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // border-radius: 6px;
+    // }
+    .likeShare{
+        display: flex;
+        align-items: center;
+        padding-top: 20px;
+        margin-bottom: 25px;
+        span{
+             display: block;
+            color: #4A4A4A;
+            font-size: 12px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            padding-left: 34px;
+            margin-right: 45px;
+        }
+      
+        span:before{
+            content: "";
+            position: absolute;
+            left: 0;
+        }
+
+        span.noLike:before{
+            width: 22px;
+            height: 20px;
+            background-image: url(../../assets/imgs/Path2.png);
+        }
+
+        span.isLike:before{
+            width: 22px;
+            height: 20px;
+            background-image: url(../../assets/imgs/Path.png);
+        }
+
+      
+        span.like:before{
+            width: 22px;
+            height: 20px;
+            background-image: url(../../assets/imgs/Path.png);
+        }
+
+        span.like1:before{
+            width: 22px;
+            height: 20px;
+            background-image: url(../../assets/imgs/Path2.png);
+        }
+
+        span.share:before{
+            width: 20px;
+            height: 21px;
+            margin-left: 50px;
+            background-image: url(../../assets/imgs/share-3.png);
+        }
+
+        .comment{
+            color: #01135F;
+            padding-left: 0;
+            margin-right: 135px;
+            margin-left: auto;
+            padding-right: 38px;
+            &:after{
+                content: "";
+                position: absolute;
+                width: 31px;
+                height: 25px;
+                background-image: url(../../assets/imgs/comment1.png);
+                background-size: cover;
+                background-position: center;
+                right: 0;
+                padding-bottom: 0px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .likes{
+            width: 26px;
+            height: 24px;
+            background-size: cover;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: bottom;
+            margin-top: 0px;
+            text-align: center;
+            transition: ease all 0.5s;
+        }
+        .likes:active{
+            transform: rotate(-45deg) scale( 1.5);
+            transition: ease all 0.10s;
+        }
+         .likeDiv .noLike{
+            width: 22px;
+            height: 20px;
+            background-image: url(../../assets/imgs/Path2.png); 
+        }
+        
+        .likeDiv .isLike{
+            width: 22px;
+            height: 20px;
+            background-image: url(../../assets/imgs/Path.png); 
+        }
+        .likeDiv .likeCount{
+            padding-left: 0px;
+            margin-top: 0px;
+            font-size: 12px;
+            display: inline-block;
+        }
+        .likeDiv span{
+            vertical-align: top;
+            margin-top: 7px;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        
+    }
+
+    p{
+        margin: 0;
+        font-size: 12px;
+        color: #4A4A4A;
+    }
+    h2{
+        margin: 0;
+        font-size: 14px;
+        color: #000;
+        margin-top: 9px;
+        margin-bottom: 10px;
+        font-weight: 900;
+    }
+
+    .searchBox{
+        display: flex;
+        height: 50px;
+        margin-bottom: 30px;
+        border-radius: 6px;
+        background-color: rgba(0,0,0,0.05);
+        input{
+            flex: 1;
+            border-radius: 6px;
+            border: 0;
+            background-color: transparent;
+            padding-left: 25px;
+            font-size: 12px;
+            font-family: 'Conv_Circular Std Book';
+        }
+        button{
+            width: 65px;
+            background-color: transparent;
+            border: 0;
+            position: relative;
+            &:before{
+                content: "";
+                position: absolute;
+                background-image: url(../../assets/imgs/right-arrow-2.png);
+            background-size: cover;
+            background-position: center;
+            right: 28px;
+            top: 16px;
+            width: 20px;
+            height: 20px;
+
+            }
+        }
+    }
+}

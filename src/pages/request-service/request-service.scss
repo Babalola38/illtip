@@ -1,0 +1,293 @@
+page-request-service {
+
+
+    .addPhoto {
+        display: flex;
+        margin-bottom: 15px;
+    }
+
+    .addPhoto2 {
+        margin-right: 10px;
+    }
+
+
+    .bg-img{
+        background-image: url(../../assets/imgs/snazzy-image.png);
+        background-size: cover;
+        background-position: center;
+    }
+    .page-wrapper{
+        padding: 10px;
+        background-color: #fff;
+    }
+
+    .inputSection .inputRow{
+        ion-select{
+            height: 50px;
+            line-height: 52px;
+            .select-icon-inner{
+                top: 26px;
+            }
+        }
+        .icon-row{
+            position: relative;
+            span{
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                background-image: url(../../assets/imgs/calendar.png);
+                background-size: cover;
+                background-position: center;
+                position: absolute;
+                right: 10px;
+                top: 13px;
+            }
+        }
+        ion-label{
+            font-size: 12px;
+        }
+        input{
+            height: 40px;
+        }
+
+        textarea{
+            height: 140px;
+            background-color:rgba(0,0,0,0.05);
+            border-radius: 6px;
+            width: 100%;
+            margin: 0;
+            border: 0;
+            resize: none;
+            padding-left: 20px;
+            padding-top: 20px;
+            color: #4A4A4A;
+            font-size: 14px;
+           }
+           ion-datetime{
+            width: 100%;
+             margin: 0;
+             height: 40px;
+             // border: 1px solid #707070;
+             border-radius: 5px;
+             width: 100%;
+             background-color: rgba(0,0,0,0.05);
+             padding-left: 24px;
+             font-size: 14px;
+         }
+
+           .twoInput{
+               display: flex;
+               justify-content: space-between;
+               .date-wrapper{
+                width: 49%;
+                flex: 0 0 49%;
+                overflow: hidden;
+               }
+              
+           }
+    } 
+
+    .add-photo{
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        margin-top: 10px;
+        span{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-image: url(../../assets/imgs/editIcon.png);
+            background-position: center;
+            background-size: cover;
+            margin-right: 10px;
+        }
+        p{
+            margin: 0;
+            font-size: 12px;
+            color: #000000;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+        }
+    }
+
+
+    .check_box{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 5px;
+        
+        .item{
+            padding-left: 0;
+            background-color: transparent;
+            min-height: 0;
+            width: 100%;
+            font-size: 12px;
+            color: #000;
+            margin-bottom: 9px;
+            .item-inner{
+                padding-right: 0;
+                border-bottom: 0;
+            }
+        }
+        .widthFull{
+            width: 100%;
+        }
+        ion-checkbox.checkbox {
+            margin: 0!important;
+            margin-right: 10px!important;
+            .checkbox-icon{
+                width: 24px;
+                height: 24px;
+                border-radius: 4px;
+                border: 1px solid #979797;
+            }
+            .checkbox-checked{
+                background-color: #E02020;
+                border-color: #E02020;
+                .checkbox-inner{
+                    left: 7px;
+                    top: 2px;
+                    width: 8px;
+                    height: 14px;
+                }
+            }
+        }
+        ion-label{
+            margin: 0;
+            
+        }
+   
+    }
+
+    .radioBtn{
+      margin-top: 15px;
+       h4{
+           font-size: 14px;
+           font-family: 'Conv_Circular Std Medium';
+           color: #000000;
+       }
+        ion-list{
+            display: flex;
+        }   
+        .item{
+            min-height: 0;
+            padding-left: 0;
+            font-size: 12px;
+            color: #000;
+            background-color: transparent;
+            margin-right: 45px;
+            ion-label{
+                margin: 0;
+            }
+        }
+        .item-inner{
+            flex-direction: row-reverse;
+        }
+        ion-radio{
+            margin: 0!important;
+            margin-right: 10px!important;
+        }
+       
+        .radio-inner{
+            -webkit-transform: scale3d(1, 1, 1); 
+            transform: scale3d(1, 1, 1);
+            width: 12px;
+            height: 12px;
+            left: 6px;
+            top: 6px;
+            background-color: #fff;
+        }
+        .radio-icon{
+            width: 24px;
+            height: 24px;
+            border: 0;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .radio-checked{
+            background-color: #f00;
+        }
+        .item-radio-checked.item ion-label{
+            color: #000;
+        }
+        .list-md .item-block .item-inner{
+            border-bottom: 0;
+        }
+        
+    }
+
+    .btnWrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 15px;
+        button{
+            width: 48%;
+            height: 40px;
+            border-radius: 6px;
+            border: 0;
+            font-size: 12px;
+            color: #fff;
+            font-weight: 600;
+            &:first-child{
+                background-color: #E02020;
+            }
+            &:last-child{
+                background-color: #008753;
+            }
+        }
+    }
+
+
+    .address {
+        background-color: #F2F2F2;
+        border-radius: 7px;
+        padding-left: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;   
+    }
+
+    .job-image{
+        background-size: 45px;
+        height: 45px;
+        width: 45px;
+        background-repeat: no-repeat
+    }
+    .list-ios {
+        .item-block{
+            .item-inner{
+                border-bottom: 0;
+            }
+            &:first-child{
+                border-top: 0;
+            }
+            &:last-child{
+                border-bottom: 0;
+            }
+            .radio-ios {
+                .radio-icon {
+                    left: 0;
+                    top: 0;
+                    margin: 0;
+                    border-radius: 50%;
+                    position: relative;
+                    display: block;
+                    border-width: 0;
+                    .radio-inner{
+                        position: absolute;
+                        border-radius: 50%;
+                    }
+                }
+                .radio-checked .radio-inner{
+                    width: 12px;
+                    height: 12px;
+                    left: 6px;
+                    top: 6px;
+                    background-color: #fff;
+                    border:0;
+                }
+            }
+        }
+        
+    } 
+}

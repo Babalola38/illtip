@@ -1,0 +1,89 @@
+
+<ion-header>
+  <ion-navbar>
+    <span class="left-arrow"></span>
+
+    <ion-title>Service Apply</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h3>Service Title</h3>
+    <p>{{getJobdetails.name}}</p>
+    <h3>Price:</h3>
+    <span>${{getJobdetails.tip}}</span>
+
+
+
+    <p class="recPayment">Recieve Payment Via:</p>
+ <div class="segment-tabs">
+    <ion-segment [(ngModel)]="payment" >
+    <ion-segment-button value="bank" class="icon1">
+      Bank
+    </ion-segment-button>
+    <ion-segment-button value="paypal"  class="icon3">
+      PayPal
+    </ion-segment-button>
+    <ion-segment-button value="cash"  class="icon3">
+      Cash
+    </ion-segment-button>
+    </ion-segment>
+</div>
+
+
+
+<div  [ngSwitch]="payment">
+  <div *ngSwitchCase="'bank'">
+    <div class="inputSection">
+      <div class="inputRow">
+        <ion-label>Full Name</ion-label>
+        <ion-input placeholder="Enter Full Name" [(ngModel)]="job.name"></ion-input>
+      </div>
+    
+      <div class="inputRow">
+        <ion-label>Bank Account Number</ion-label>
+        <ion-input placeholder="Enter Account Number" [(ngModel)]="job.number"></ion-input>
+      </div>
+      <div class="inputRow">
+        <ion-label>Bank Routing Number</ion-label>
+        <ion-input placeholder="Enter Routing Number" [(ngModel)]="job.rounting"></ion-input>
+      </div>
+    </div>
+    <button class="btnStyleOne" (click)="savebankDeatils()">Submit</button>
+  </div>
+
+
+  <div  *ngSwitchCase="'paypal'">
+    <div class="inputSection">
+      <div class="inputRow">
+        <ion-label>PayPal ID</ion-label>
+        <ion-input placeholder="Enter PayPal ID" [(ngModel)]="job.Pemail"></ion-input>
+      </div>
+    </div>
+    <button class="btnStyleOne" (click)="doPaypal()">Submit</button>
+  </div>
+
+
+  <div  *ngSwitchCase="'cash'">
+    <button class="btnStyleOne" (click)="doCash()">Submit</button>
+  </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+  
+     
+
+
+
+
+
+</ion-content>
